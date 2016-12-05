@@ -22,6 +22,9 @@ controller.setupWebserver(process.env.PORT || 3000, function(err, webserver) {
     });
 });
 controller.on('tick', function(bot, event) { });
+controller.hears('message_received', function(bot, incoming) {
+bot.reply(incoming, incoming.text)
+});
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/broadcast.html'));
 })
@@ -31,6 +34,6 @@ app.post('/',function(req,res){
   res.send(user + ' says: "' + broadcast + '"')
 })
 
-// app.listen(process.env.PORT, function () {
-//   console.log('Example app listening on port: '+process.env.PORT)
-// })
+app.listen(process.env.PORT, function () {
+  console.log('Example app listening on port: '+process.env.PORT)
+})
