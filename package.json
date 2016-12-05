@@ -1,0 +1,22 @@
+{
+  "name": "broadcastbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codyguha/broadcastbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codyguha/broadcastbot/issues"
+  },
+  "homepage": "https://github.com/codyguha/broadcastbot#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
