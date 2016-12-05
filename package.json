@@ -18,6 +18,7 @@
   "homepage": "https://github.com/codyguha/broadcastbot#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "botkit": "^0.4.3",
     "express": "^4.14.0",
     "path": "^0.12.7"
   }
