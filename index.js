@@ -22,7 +22,7 @@ controller.setupWebserver(process.env.PORT || 3000, function(err, webserver) {
     });
 });
 controller.on('tick', function(bot, event) { });
-controller.hears('message_received', function(bot, incoming) {
+controller.on('message_received', function(bot, incoming) {
 bot.reply(incoming, incoming.text)
 });
 app.get('/', function (req, res) {
