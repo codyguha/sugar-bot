@@ -16,11 +16,9 @@ var controller = Botkit.facebookbot({
 var bot = controller.spawn({
 });
 
-controller.setupWebserver(process.env.PORT || 3000, function(err, webserver) {
-    controller.createWebhookEndpoints(webserver, bot, function() {
-        console.log('ONLINE!');
-    });
-});
+// controller.setupWebserver(process.env.PORT || 3000, function(err, webserver) {
+//
+// });
 controller.on('tick', function(bot, event) { });
 controller.on('message_received', function(bot, incoming) {
 bot.reply(incoming, incoming.text)
@@ -34,6 +32,9 @@ app.post('/',function(req,res){
   res.send(user + ' says: "' + broadcast + '"')
 })
 
-// app.listen(process.env.PORT, function () {
-//   console.log('Example app listening on port: '+process.env.PORT)
-// })
+app.listen(process.env.PORT, function (err, webserver) {
+  console.log('Example app listening on port: '+process.env.PORT)
+  controller.createWebhookEndpoints(webserver, bot, function() {
+      console.log('ONLINE!');
+  });
+})
