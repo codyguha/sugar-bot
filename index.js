@@ -32,7 +32,7 @@ app.post('/',function(req,res){
   res.send(user + ' says: "' + broadcast + '"')
 })
 
-app.listen(process.env.PORT, function (err, webserver) {
+app.listen(process.env.PORT, function () {
   console.log('Example app listening on port: '+process.env.PORT)
   controller.createWebhookEndpoints(webserver, bot, function() {
       console.log('ONLINE!');
