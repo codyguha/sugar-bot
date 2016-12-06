@@ -2,7 +2,7 @@ var Request = require('request')
 
 module.exports = function (controller) {
   // subscribe to page events
-  Request.post('https://graph.facebook.com/me/subscribed_apps?access_token=' + process.env.page.page_token,
+  Request.post('https://graph.facebook.com/me/subscribed_apps?access_token=' + process.env.page_token,
     function (err, res, body) {
       if (err) {
         controller.log('Could not subscribe to page messages')
