@@ -1,4 +1,5 @@
 var facebook_handler = require('../controllers/botkit').handler
+var broadcaster = require('../controllers/botkit').broadcast
 
 module.exports = function (app) {
   // public pages=============================================
@@ -10,7 +11,7 @@ module.exports = function (app) {
     var broadcast = req.body.broadcast
     var user = req.body.user
     console.log(">>>>>>>>>>>>>>>>>>>>>POST: "+ user + broadcast)
-    facebook_handler(controller.broadcastIt())
+    broadcaster()
     res.render('home')
   })
 
