@@ -1,4 +1,5 @@
 var facebook_handler = require('../controllers/botkit').handler
+var path = require('path')
 
 module.exports = function (app) {
   // public pages=============================================
