@@ -6,6 +6,11 @@ module.exports = function (app) {
   app.get('/', function (req, res) {
     res.render('home')
   })
+  app.post('/', function (req, res) {
+    var broadcast = req.body.broadcast
+    var user = req.body.user
+    res.render('home')
+  })
 
   app.get('/webhook', function (req, res) {
     // This enables subscription to the webhooks
@@ -19,7 +24,7 @@ module.exports = function (app) {
 
   app.post('/webhook', function (req, res) {
     facebook_handler(req.body)
-
+    console.log(">>>>>>>>>>>>>>>>>>>>>LOG: "+ req.body)
     res.send('ok')
   })
 }
