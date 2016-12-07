@@ -10,7 +10,7 @@ module.exports = function (app) {
     var broadcast = req.body.broadcast
     var user = req.body.user
     console.log(">>>>>>>>>>>>>>>>>>>>>POST: "+ user + broadcast)
-    facebook_handler(broadcastIt())
+    facebook_handler(controller.broadcastIt())
     res.render('home')
   })
 
