@@ -9,8 +9,7 @@ module.exports = function (app) {
   })
   app.post('/', function (req, res) {
     var broadcast = req.body.broadcast
-    var user = req.body.user
-    broadcaster(user, broadcast)
+    broadcaster(broadcast)
     res.render('home')
   })
 

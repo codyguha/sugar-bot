@@ -109,13 +109,11 @@ var create_user_if_new = function (id, ts) {
     }
   })
 }
-var broadcast = function (user, broadcast){
-  bot.say(
-  {
-      text: user + " says: " + broadcast,
+var broadcast = function (broadcast) {
+  bot.say({
+      text: broadcast,
       channel: '1246026675468456'
-  }
-);
+  });
 }
 exports.handler = handler
 exports.broadcast = broadcast
