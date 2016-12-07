@@ -4,7 +4,7 @@ module.exports = function (app) {
   // public pages=============================================
   // root
   app.get('/', function (req, res) {
-    res.render('home')
+    res.sendFile(path.join(__dirname + '/broadcast.html'));
   })
 
   app.get('/webhook', function (req, res) {
