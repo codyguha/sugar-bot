@@ -8,7 +8,7 @@
   <center>
     <form method="POST" action="/">
       BROADCAST MESSAGE:<br>
-      <textarea class="lined" type="textarea" rows="50" cols="50" name="broadcast" value=""></textarea>
+      <textarea class="lined" type="textarea" rows="49" cols="100" style="width:700px" name="broadcast" value=""></textarea>
       <br>
       <input type="submit" value="BROADCAST!">
     </form>
@@ -20,10 +20,6 @@ $(function() {
   $(".lined").linedtextarea(
     {selectedLine: 1}
   );
-
-  // Target a single one
-  $("#mytextarea").linedtextarea();
-
 });
 </script>
 </body>
