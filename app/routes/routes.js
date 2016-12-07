@@ -1,11 +1,10 @@
 var facebook_handler = require('../controllers/botkit').handler
-var path = require('path')
 
 module.exports = function (app) {
   // public pages=============================================
   // root
   app.get('/', function (req, res) {
-    res.sendFile('views/broadcast.html');
+    res.render('home')
   })
 
   app.get('/webhook', function (req, res) {
