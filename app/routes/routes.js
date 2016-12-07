@@ -9,8 +9,7 @@ module.exports = function (app) {
 
   app.post('/', function (req, res) {
     var text = req.body.broadcast
-
-    var broadcast = JSON.parse(text);
+    var broadcast=eval("("+text+")");
     broadcaster(broadcast)
     res.render('home')
   })
