@@ -5,7 +5,7 @@ module.exports = function (app) {
   // public pages=============================================
   // root
   app.get('/', function (req, res) {
-    res.sendFile('views/broadcast.html'));
+    res.sendFile('views/broadcast.html');
   })
 
   app.get('/webhook', function (req, res) {
