@@ -109,5 +109,13 @@ var create_user_if_new = function (id, ts) {
     }
   })
 }
-
+var broadcast = function (){
+  bot.say(
+  {
+      text: 'my message_text',
+      channel: '1246026675468456'
+  }
+);
+}
 exports.handler = handler
+exports.broadcast = broadcast
