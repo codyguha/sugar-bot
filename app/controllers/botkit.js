@@ -110,10 +110,11 @@ var create_user_if_new = function (id, ts) {
   })
 }
 var broadcast = function (broadcast) {
-  bot.say({
-      text: "BROADCAST!!! >>> " + broadcast + " <<<",
-      channel: '1246026675468456'
-  });
+  bot.say(broadcast);
+  // bot.say({
+  //     text: "BROADCAST!!! >>> " + broadcast + " <<<",
+  //     channel: '1246026675468456'
+  // });
 }
 exports.handler = handler
 exports.broadcast = broadcast
