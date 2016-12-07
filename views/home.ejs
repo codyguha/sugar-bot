@@ -30,4 +30,39 @@
       <input type="submit" value="Submit">
     </form>
   </center>
+  <h1>jQuery linenumbers plugin</h1>
+	<p>The jQuery linenumbers plugin turns this...</p>
+	<textarea>This is some example text.
+Some line are long, and some lines are short, just line real text.
+It's in a standard textarea.
+Nothing special about this, not even any fancy CSS.
+But havent you ever wanted to have a textarea with fancy line numbers?
+Problem? Solved.</textarea>
+	<p>into this...</p>
+	<textarea id="line_numbers">This is some example text.
+Some line are long, and some lines are short, just line real text.
+It's in a standard textarea.
+Nothing special about this, not even any fancy CSS.
+But havent you ever wanted to have a textarea with fancy line numbers?
+Problem? Solved.</textarea>
+	<p>By simply doing this...</p>
+	<code>$('document').ready(function(){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#line_numbers').linenumbers({col_width:'75px'});
+})</code>
+	<p>neat huh. Line numbers make it easy to track the size of a text area, and look right at home if your dealing with code. It wraps lines intelligently, just because the textarea wraps doesn't mean it's actually a new line. How wonderful it recognizes that.</p>
+	<p>Setup is a snap, at it's simplest form all you have to do is call the linenumbers function like this...</p>
+	<code>.linenumbers()</code>
+	<p>If you want to get fancy there are some additional options you can pass...</p>
+	<ol>
+		<li><b>col_width</b>: <em>Default: 25px</em> The width of the numbers column. Default should be big enough for 4 columns on a text area with no styles applied. This will need to be modified for the number of digits you choose, and the textarea styles.</li>
+		<li><b>start</b>: <em>Default: 1</em> The number at which line numbering starts.</li>
+		<li><b>digits</b>: <em>Default 4</em> The number of digits the line numbers should max out at. This si used for calculating leading space, and does not include the colon.</li>
+	</ol>
+	<p>You'll need to give your text area a set width, or the two line numbers won't line up right with the text, this has been tested as a px value, but percents should be ok in any format as long as the col_width is the same. Other than that it should work just fine. Internet Explorer has not been fully tested (due to the lack of a machine that can run it) but should work.</p>
+	<h2><a href="https://github.com/pgooch/jQueryLinenNumbersPlugin/zipball/master" target="_blank">Download</a></h2>
+	<h3>version 1.0.0 &mdash; May 27, 2012 &mdash; 4.80kb</h3>
+	<p>Version History</p>
+	<ul>
+		<li><b>1.0.0</b> <em>May 27th 2012</em> Initial release.</li>
+	</ul>
 </body>
