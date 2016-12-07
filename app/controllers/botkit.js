@@ -111,7 +111,7 @@ var create_user_if_new = function (id, ts) {
 }
 var broadcast = function (broadcast) {
   bot.say({
-      text: broadcast,
+      text: "BROADCAST!!! " + broadcast + "!!!",
       channel: '1246026675468456'
   });
 }
