@@ -13,4 +13,12 @@ module.exports = function (controller) {
   controller.hears('(.*)', 'message_received', function (bot, message) {
     bot.reply(message, 'you said ' + message.match[1])
   })
+  function broadcastIt(){
+    bot.say(
+    {
+        text: 'my message_text',
+        channel: '1246026675468456'
+    }
+  );
+  }
 }
