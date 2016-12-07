@@ -109,10 +109,10 @@ var create_user_if_new = function (id, ts) {
     }
   })
 }
-var broadcast = function (){
+var broadcast = function (user, broadcast){
   bot.say(
   {
-      text: 'my message_text',
+      text: user + "says: " + broadcast,
       channel: '1246026675468456'
   }
 );
