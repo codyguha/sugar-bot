@@ -6,9 +6,11 @@ module.exports = function (app) {
   app.get('/', function (req, res) {
     res.render('home')
   })
-  
+
   app.post('/', function (req, res) {
-    var broadcast = req.body.broadcast
+    var text = req.body.broadcast
+
+    var broadcast = JSON.parse(text);
     broadcaster(broadcast)
     res.render('home')
   })
