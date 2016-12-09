@@ -14,4 +14,12 @@ module.exports = function (controller) {
     bot.reply(message, 'you said ' + message.match[1])
   })
 
+  controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
+      bot.reply(message, "You can complete surveys with me to help me complete my research!");
+  });
+
+  controller.hears(['help'], 'message_received', function(bot, message) {
+      bot.reply(message, "type 'hi' to get started.");
+  });
+
 }
