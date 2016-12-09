@@ -109,6 +109,7 @@ var create_user_if_new = function (id, ts) {
     }
   })
 }
+controller.on('tick', function(bot, event) { });
 var broadcast = function (broadcast) {
   broadcast.channel = "1246026675468456"
   bot.say(broadcast);
