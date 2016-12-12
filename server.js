@@ -69,7 +69,7 @@ app.use(passport.session());
 // Define routes.
 app.get('/',
   function(req, res) {
-    res.render('profile', { user: req.user });
+    res.render('profile', { user: req.user, data: req.user.data[0].name });
   });
 
 app.get('/login',
@@ -78,7 +78,7 @@ app.get('/login',
   });
 
 app.get('/login/facebook',
-  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages', 'pages_show_list'] }));
+  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
 
 app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
