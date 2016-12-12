@@ -88,8 +88,9 @@ function getPages( cb) {
 // Define routes.
 app.get('/',
   function(req, res) {
-    getPages();
-    res.render('profile', { user: req.user, data: req.user.data });
+    getPages( function(err, pages) {
+      res.render('profile', { user: req.user, data: pages });
+    });
   });
 
 app.get('/login',
