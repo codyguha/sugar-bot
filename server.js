@@ -13,7 +13,7 @@ passport.use(new Strategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
     callbackURL: 'https://lit-thicket-26597.herokuapp.com/login/facebook/return',
-    profileFields: ['id', 'displayName', 'photos', 'email', 'manage_pages']
+    profileFields: ['id', 'displayName', 'photos', 'email']
   },
   function(accessToken, refreshToken, profile, cb) {
     // In this example, the user's Facebook profile is supplied as the user
@@ -66,9 +66,29 @@ require('./app/routes/routes')(app)
 app.use(passport.initialize());
 app.use(passport.session());
 
+var request = require('request');
+
+function getPages( cb) {
+    if (!cb) cb = Function.prototype
+    request({
+      method: 'GET',
+      uri: `https://graph.facebook.com/v2.8/me/accounts?fields=name`,
+      qs: {
+        fields: 'name',
+        access_token: process.env.page_token
+      },
+      json: true
+    }, function(err, res, body) {
+      if (err) return cb(err)
+      if (body.error) return cb(body.error)
+      console.log(body)
+      cb(null, body)
+    })
+}
 // Define routes.
 app.get('/',
   function(req, res) {
+    getPages();
     res.render('profile', { user: req.user, data: req.user.data });
   });
 
