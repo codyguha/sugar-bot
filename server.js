@@ -82,7 +82,7 @@ function getPages(id, cb) {
       if (err) return cb(err)
       if (body.error) return cb(body.error)
       console.log(body.data)
-      cb(null, body.data)
+      cb(null, body)
     })
 }
 // Define routes.
