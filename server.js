@@ -89,8 +89,8 @@ function getPages(id, cb) {
 app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
-      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages.data)
-      res.render('profile', { user: req.user, pages: pages.data });
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages.data[0].name)
+      res.render('profile', { user: req.user, pages: pages });
     });
   });
 
