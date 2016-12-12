@@ -78,7 +78,7 @@ app.get('/login',
   });
 
 app.get('/login/facebook',
-  passport.authenticate('facebook', { scope: ['user_friends', 'pages_show_list'] }));
+  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
 
 app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
