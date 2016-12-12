@@ -3,16 +3,16 @@ var broadcaster = require('../controllers/botkit').broadcast
 
 module.exports = function (app) {
 
-  app.get('/', function (req, res) {
-    res.render('home')
-  })
+  // app.get('/', function (req, res) {
+  //   res.render('home')
+  // })
 
-  app.post('/', function (req, res) {
-    var text = req.body.broadcast
-    var broadcast=eval("("+text+")");
-    broadcaster(broadcast)
-    res.render('home')
-  })
+  // app.post('/', function (req, res) {
+  //   var text = req.body.broadcast
+  //   var broadcast=eval("("+text+")");
+  //   broadcaster(broadcast)
+  //   res.render('home')
+  // })
 
   app.get('/webhook', function (req, res) {
     // This enables subscription to the webhooks
