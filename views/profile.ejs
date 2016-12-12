@@ -6,4 +6,4 @@ Email: <%= user.emails[0].value %><br/>
 <% } %>
 </p>
 
-<p><%= user.toSource() %></p>
+<p><%= JSON.stringify(user, null, 4) %></p>
