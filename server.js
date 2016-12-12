@@ -90,7 +90,7 @@ app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
       console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages)
-      res.render('profile', { user: req.user, data: pages });
+      res.render('profile', { user: req.user, data: pages.data });
     });
   });
 
