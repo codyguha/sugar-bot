@@ -72,7 +72,7 @@ function getPages( cb) {
     if (!cb) cb = Function.prototype
     request({
       method: 'GET',
-      uri: `https://graph.facebook.com/v2.8/me/accounts?fields=name`,
+      uri: `https://graph.facebook.com/v2.8/me/accounts`,
       qs: {
         fields: 'name',
         access_token: process.env.page_token
