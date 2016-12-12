@@ -68,11 +68,11 @@ app.use(passport.session());
 
 var request = require('request');
 
-function getPages( cb) {
+function getPages(id, cb) {
     if (!cb) cb = Function.prototype
     request({
       method: 'GET',
-      uri: `https://graph.facebook.com/v2.8/me/accounts`,
+      uri: `https://graph.facebook.com/v2.8/${id}/accounts`,
       qs: {
         fields: 'name',
         access_token: process.env.page_token
@@ -88,7 +88,7 @@ function getPages( cb) {
 // Define routes.
 app.get('/',
   function(req, res) {
-    getPages( function(err, pages) {
+    getPages( req.user.id ,function(err, pages) {
       console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages)
       res.render('profile', { user: req.user, data: pages });
     });
