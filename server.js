@@ -68,7 +68,7 @@ app.use(passport.session());
 // Define routes.
 app.get('/',
   function(req, res) {
-    res.render('home', { user: req.user });
+    res.render('profile', { user: req.user });
   });
 
 app.get('/login',
