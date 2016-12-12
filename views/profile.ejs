@@ -9,22 +9,15 @@ ID: <%= user.id %><br/>
 Name: <%= user.displayName %><br/>
 </p>
 <select id="selectPage">
-  <%
-  var options = pages;
-  for ( var i = 0; i < options.length; i++ ){
-    var selected = ( config[0].volume == i ) ? "selected" : "";
-    %><option value="<%=options[ i ].name %>" <%=selected %>><%=i %></option><%
-  }
-  %>
     <option>Choose a Page</option>
 </select>
 <br/>
 <p><%= JSON.stringify(user, null, 4) %></p>
 
 
-<!-- <script>
+<script>
 var select = document.getElementById("selectPage");
-var array = pages
+var array = <%= pages %>
 for(var i = 0; i < array.length; i++) {
     var opt = array[i];
     var el = document.createElement("option");
@@ -32,5 +25,5 @@ for(var i = 0; i < array.length; i++) {
     el.value = opt.id;
     select.appendChild(el);
 }
-</script> -->
+</script>
 </body>
