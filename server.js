@@ -13,7 +13,7 @@ passport.use(new Strategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
     callbackURL: 'https://lit-thicket-26597.herokuapp.com/login/facebook/return',
-    profileFields: ['id', 'displayName', 'photos', 'email', 'pages_show_list']
+    profileFields: ['id', 'displayName', 'photos', 'email', 'manage_pages']
   },
   function(accessToken, refreshToken, profile, cb) {
     // In this example, the user's Facebook profile is supplied as the user
