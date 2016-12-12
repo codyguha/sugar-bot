@@ -49,11 +49,12 @@ var http = require('http').Server(app)
 // logging, parsing, and session handling.
 app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+var bodyParser = require('body-parser')
 var path = require('path')
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 // Configure view engine to render EJS templates.
 app.set('view engine', 'ejs')
