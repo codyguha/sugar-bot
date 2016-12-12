@@ -81,7 +81,7 @@ function getPages(id, cb) {
     }, function(err, res, body) {
       if (err) return cb(err)
       if (body.error) return cb(body.error)
-      console.log(body.data)
+      console.log(body)
       cb(null, body)
     })
 }
@@ -89,7 +89,7 @@ function getPages(id, cb) {
 app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
-      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + JSON.stringify(pages.data, null, 4))
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages.data)
       res.render('profile', { user: req.user, pages: JSON.stringify(pages.data) });
     });
   });
