@@ -1,4 +1,9 @@
-<a href="/login/facebook">Log In with Facebook</a>
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+
+<body>
+  <a href="/login/facebook">Log In with Facebook</a>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -16,3 +21,4 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+</body>
