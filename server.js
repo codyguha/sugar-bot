@@ -82,15 +82,15 @@ function getPages(id, cb) {
       if (err) return cb(err)
       if (body.error) return cb(body.error)
       console.log(body.data)
-      cb(null, body)
+      cb(null, body.data)
     })
 }
 // Define routes.
 app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
-      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages.data)
-      res.render('profile', { user: req.user, pages: [pages.data] });
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages)
+      res.render('profile', { user: req.user, pages: pages });
     });
   });
 
