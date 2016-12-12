@@ -47,11 +47,13 @@ var http = require('http').Server(app)
 
 // Use application-level middleware for common functionality, including
 // logging, parsing, and session handling.
-var bodyParser = require('body-parser')
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 var path = require('path')
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 
 // Configure view engine to render EJS templates.
 app.set('view engine', 'ejs')
