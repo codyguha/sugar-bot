@@ -12,7 +12,8 @@ var Strategy = require('passport-facebook').Strategy;
 passport.use(new Strategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'https://lit-thicket-26597.herokuapp.com/login/facebook/return'
+    callbackURL: 'https://lit-thicket-26597.herokuapp.com/login/facebook/return',
+    profileFields: ['id', 'displayName', 'photos', 'email', 'pages_show_list']
   },
   function(accessToken, refreshToken, profile, cb) {
     // In this example, the user's Facebook profile is supplied as the user
@@ -77,7 +78,7 @@ app.get('/login',
   });
 
 app.get('/login/facebook',
-  passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
+  passport.authenticate('facebook', { scope: ['user_friends', 'pages_show_list'] }));
 
 app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
