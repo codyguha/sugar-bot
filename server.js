@@ -89,6 +89,7 @@ function getPages( cb) {
 app.get('/',
   function(req, res) {
     getPages( function(err, pages) {
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages)
       res.render('profile', { user: req.user, data: pages });
     });
   });
