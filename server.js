@@ -81,7 +81,7 @@ function getPages(id, cb) {
     }, function(err, res, body) {
       if (err) return cb(err)
       if (body.error) return cb(body.error)
-      console.log(body)
+      console.log(body.data)
       cb(null, body)
     })
 }
