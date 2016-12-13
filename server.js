@@ -91,7 +91,7 @@ app.get('/',
     getPages( req.user.id ,function(err, pages) {
       var formatted = JSON.stringify(pages)
       console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + JSON.stringify(pages.data))
-      res.render('profile', { user: req.user, pages: pages.data });
+      res.render('profile', { user: req.user, pages: [1,2,3,4,5,6,7,8] });
     });
   });
 
