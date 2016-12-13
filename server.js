@@ -95,7 +95,7 @@ app.get('/',
           console.log(">>>>>>>>>>>>>>>>>>>>" + array[i].name)
           page_list.concat(array[i].name)
       }
-      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + array)
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + page_list)
       res.render('profile', { user: req.user, pages: page_list });
     });
   });
