@@ -17,7 +17,7 @@ Name: <%= user.displayName %><br/>
 
 <script>
 var select = document.getElementById("selectPage");
-var array = <%= pages %> ;
+var array = JSON.parse(<%= pages %>);
 for(var i = 0; i < array.length; i++) {
     var opt = array[i];
     var el = document.createElement("option");
