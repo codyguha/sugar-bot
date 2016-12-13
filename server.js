@@ -90,10 +90,11 @@ app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
       var page_list = ""
-      for(var i = 0; i < pages.data.length; i++) {
-          page_list.concat(pages.data[i].name)
+      var array = pages.data
+      for(var i = 0; i < array.length; i++) {
+          page_list.concat(array[i].name)
       }
-      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + JSON.stringify(pages.data))
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + page_list)
       res.render('profile', { user: req.user, pages: page_list });
     });
   });
