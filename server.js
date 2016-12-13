@@ -89,9 +89,12 @@ function getPages(id, cb) {
 app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
-      var formatted = JSON.stringify(pages)
+      var page_list = ""
+      for(var i = 0; i < pages.data.length; i++) {
+          page_list.concat(pages.data[i].name)
+      }
       console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + JSON.stringify(pages.data))
-      res.render('profile', { user: req.user, pages: [1,2,3,4,5,6,7,8] });
+      res.render('profile', { user: req.user, pages: page_list });
     });
   });
 
