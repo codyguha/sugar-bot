@@ -90,7 +90,7 @@ app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
       var page_list = ""
-      var array = pages.data
+      var array = [pages.data]
       for(var i = 0; i < array.length; i++) {
           page_list.concat(array[i].name)
       }
