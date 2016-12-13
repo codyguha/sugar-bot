@@ -16,16 +16,14 @@ Name: <%= user.displayName %><br/>
 
 
 <script>
-window.onload = getPages( req.user.id ,function(err, pages) {
-  var select = document.getElementById("selectPage");
-  var array = pages
-  for(var i = 0; i < array.length; i++) {
-      var opt = array[i];
-      var el = document.createElement("option");
-      el.textContent = opt.name;
-      el.value = opt.id;
-      select.appendChild(el);
-  }
-});
+var select = document.getElementById("selectPage");
+var array = <%= data %>
+for(var i = 0; i < array.length; i++) {
+    var opt = array[i];
+    var el = document.createElement("option");
+    el.textContent = opt.name;
+    el.value = opt.id;
+    select.appendChild(el);
+}
 </script>
 </body>

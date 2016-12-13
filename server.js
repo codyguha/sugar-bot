@@ -68,13 +68,29 @@ app.use(passport.session());
 
 var request = require('request');
 
-
+function getPages(id, cb) {
+    if (!cb) cb = Function.prototype
+    request({
+      method: 'GET',
+      uri: `https://graph.facebook.com/v2.8/${id}/accounts`,
+      qs: {
+        fields: 'name',
+        access_token: process.env.page_token
+      },
+      json: true
+    }, function(err, res, body) {
+      if (err) return cb(err)
+      if (body.error) return cb(body.error)
+      console.log(body)
+      cb(null, body)
+    })
+}
 // Define routes.
 app.get('/',
   function(req, res) {
     getPages( req.user.id ,function(err, pages) {
-      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages.data)
-      res.render('profile', { user: req.user });
+      console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + pages)
+      res.render('profile', { user: req.user, data: pages });
     });
   });
 
