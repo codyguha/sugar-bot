@@ -91,11 +91,11 @@ app.get('/',
     getPages( req.user.id ,function(err, pages) {
       var formatted = JSON.stringify(pages)
       console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + JSON.stringify(pages.data))
-      res.render('profile', { user: req.user, pages: formatted });
+      res.render('profile', { user: req.user, pages: pages.data });
     });
   });
 
-app.get('/login',
+app.get('/login',s
   function(req, res){
     res.render('login');
   });
