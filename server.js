@@ -93,7 +93,7 @@ app.get('/',
       var array = pages.data
       for(var i = 0; i < array.length; i++) {
           console.log(">>>>>>>>>>>>>>>>>>>>" + array[i].name)
-          page_list += array[i].name + ", "
+          page_list += "'" + array[i].name + "', "
       }
       console.log(">>>>>>>>>>>>>>>>PAGES!!!!" + page_list)
       res.render('profile', { user: req.user, pages: page_list.slice(0, -2) });
