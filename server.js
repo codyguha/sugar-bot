@@ -95,7 +95,7 @@ app.get('/',
     });
   });
 
-app.get('/login',s
+app.get('/login',
   function(req, res){
     res.render('login');
   });
