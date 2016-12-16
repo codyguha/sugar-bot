@@ -3,10 +3,6 @@ body {
   font-size: 14px;
 }
 
-body {
-    font-family:sans-serif;
-}
-
 #ck-button {
     margin:4px;
     background-color:white;
@@ -34,6 +30,10 @@ body {
 }
 
 #ck-button input:checked + span {
+    background-color:#1f93ff;
+    color:#fff;
+}
+#ck-button input:checked {
     background-color:#1f93ff;
     color:#fff;
 }
