@@ -9,18 +9,25 @@ module.exports = function (controller) {
     bot.reply(message, 'Hey there.')
   });
   controller.hears(['Q1'], 'message_received', function (bot, message) {
-    bot.reply(message, {
-        text: `We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please click on all the products below that you are aware of:`,
+    bot.reply(message, {"attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please click on all the products below that you are aware of:",
         "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://lit-thicket-26597.herokuapp.com/list",
-                "title":"Select Criteria",
-                "webview_height_ratio": "compact"
-              }
+          {
+            "type":"web_url",
+            "url":"https://lit-thicket-26597.herokuapp.com/list",
+            "title":"Show List",
+            "webview_height_ratio": "compact"
+          }
         ]
-    })
+      }
+    }})
   });
+
+
+
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
       bot.reply(message, "You can talk to me and I will respond!");
