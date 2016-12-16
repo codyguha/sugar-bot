@@ -105,6 +105,11 @@ app.get('/login',
     res.render('login');
   });
 
+  app.get('/list',
+    function(req, res){
+      res.render('list');
+    });
+
 app.get('/login/facebook',
   passport.authenticate('facebook', { scope: ['user_friends', 'manage_pages'] }));
 
