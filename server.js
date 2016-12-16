@@ -107,7 +107,7 @@ app.get('/login',
 
   app.get('/list',
     function(req, res){
-      res.render('list');
+      res.render('list', {list: ["Sugar", "Cane Sugar", "Saccharin"]});
     });
 
 app.get('/login/facebook',
