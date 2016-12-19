@@ -2,24 +2,6 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
 }
-.sugar-button {
-    margin:4px;
-    background-color:white;
-    border-radius:14px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
-    color:#1f93ff;
-}
-.clicked {
-    margin:4px;
-    background-color:#1f93ff;
-    border-radius:14px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
-    color:white;
-}
 .sugar-button-done {
     margin:4px;
     background-color:#ff0000;
@@ -29,23 +11,11 @@ body {
     float:left;
     color:white;
 }
-.sugar-button label input {
-    position:absolute;
-    top:-20px;
-}
 .sugar-button-done label {
     float:left;
     width:16.0em;
 }
-.sugar-button label {
-    float:left;
-    width:16.0em;
-}
-.sugar-button label span {
-    text-align:center;
-    padding:3px 0px;
-    display:block;
-}
+
 .sugar-button-done label span {
     text-align:center;
     padding:3px 0px;
