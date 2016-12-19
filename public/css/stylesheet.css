@@ -24,12 +24,12 @@ body {
     display:block;
 }
 
-.sugar-button label input {
+.sugar-button .clicked label input {
     position:absolute;
     top:-20px;
 }
 
-.sugar-button input:checked + span {
+.sugar-button .clicked + span {
     background-color:#1f93ff;
     color:#fff;
 }
