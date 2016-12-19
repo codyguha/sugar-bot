@@ -3,7 +3,7 @@
 <% include ./partials/head %>
 
 <body>
-<form>
+<form id="sugarList">
   <% for(var i=0; i<list.length; i++) {%>
     <div class="sugar-button">
        <label>
@@ -14,7 +14,7 @@
   <% } %>
   <div class="sugar-button-done">
      <label>
-        <input type="submit hidden" value='Done'>
+        <input type="hidden" value='Done'>
         <span>Done</span>
      </label>
   </div>
@@ -40,6 +40,10 @@
 <script>
 $('.sugar-button').click(function (evt) {
     $(this).toggleClass("clicked");
+    evt.preventDefault();
+});
+$('.sugar-button-done').click(function (evt) {
+    $('form#sugarList').submit();
     evt.preventDefault();
 });
 </script>
