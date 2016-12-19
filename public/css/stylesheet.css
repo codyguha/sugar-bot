@@ -29,6 +29,10 @@ body {
     float:left;
     color:white;
 }
+.sugar-button label input {
+    position:absolute;
+    top:-20px;
+}
 .sugar-button-done label {
     float:left;
     width:16.0em;

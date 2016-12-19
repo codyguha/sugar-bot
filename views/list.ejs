@@ -46,7 +46,7 @@ $('.sugar-button-done').click(function (evt) {
     var texts= $(".sugar-button .clicked label input").map(function() {
       return $(this).val();
     }).get();
-    $('form#sugarList').submit(texts);
+    $('form#sugarList').submit();
     evt.preventDefault();
 });
 </script>
