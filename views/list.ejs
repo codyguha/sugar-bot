@@ -41,6 +41,11 @@ $('.sugar-button').click(function (evt) {
 $('.sugar-button-done').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
 });
 </script>
 </body>
