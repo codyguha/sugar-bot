@@ -5,7 +5,7 @@
 <body>
 <form>
   <% for(var i=0; i<list.length; i++) {%>
-    <div id="ck-button">
+    <div class="sugar-button">
        <label>
           <input type="checkbox" value='<%= list[i] %>'>
           <span><%= list[i] %></span>
@@ -32,8 +32,8 @@
     });
 </script>
 <script>
-$('#ck-button').click(function (evt) {
-    $(this).toggleClass("clicked");   
+$('.sugar-button').click(function (evt) {
+    $(this).toggleClass("clicked");
     evt.preventDefault();
 });
 </script>
