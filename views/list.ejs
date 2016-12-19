@@ -43,9 +43,6 @@ $('.sugar-button').click(function (evt) {
     evt.preventDefault();
 });
 $('.sugar-button-done').click(function (evt) {
-    var texts= $(".sugar-button .clicked label input").map(function() {
-      return $(this).val();
-    }).get();
     $('form#sugarList').submit();
     evt.preventDefault();
 });
