@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+
+<body>
+<form>
+  <% for(var i=0; i<list.length; i++) {%>
+    <div class="sugar-button">
+       <label>
+          <input type="hidden" value='<%= list[i] %>'>
+          <span><%= list[i] %></span>
+       </label>
+    </div>
+  <% } %>
+</form>
+
+<script>
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'Messenger'));
+</script>
+<script>
+    MessengerExtensions.getUserID(function success(uids) {
+      var psid = uids.psid;
+      alert(psid)
+    }, function error(err) {
+
+    });
+</script>
+<script>
+$('.sugar-button').click(function (evt) {
+    $(this).toggleClass("clicked");
+    evt.preventDefault();
+});
+</script>
+</body>
