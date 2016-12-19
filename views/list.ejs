@@ -5,7 +5,8 @@
 <body>
 <form id="sugarList" method="post" action="/list">
   <% for(var i=0; i<list.length; i++) {%>
-    <input type="checkbox" name='<%= list[i] %>' value='<%= list[i] %>'><span><%= list[i] %></span>
+    <input type="checkbox" name='<%= list[i] %>' value='yes'><span><%= list[i] %></span>
+    <input type="hidden" name='<%= list[i] %>' value='no'>
   <% } %>
   <div class="sugar-button-done">
      <label>
