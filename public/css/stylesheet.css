@@ -29,12 +29,20 @@ body {
     float:left;
     color:white;
 }
+.sugar-button-done label {
+    float:left;
+    width:16.0em;
+}
 .sugar-button label {
     float:left;
     width:16.0em;
 }
-
 .sugar-button label span {
+    text-align:center;
+    padding:3px 0px;
+    display:block;
+}
+.sugar-button-done label span {
     text-align:center;
     padding:3px 0px;
     display:block;
