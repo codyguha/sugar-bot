@@ -3,7 +3,7 @@ body {
   font-size: 14px;
 }
 
-#ck-button {
+.sugar-button {
     margin:4px;
     background-color:white;
     border-radius:14px;
@@ -13,27 +13,23 @@ body {
     color:#1f93ff;
 }
 
-#ck-button label {
+.sugar-button label {
     float:left;
     width:16.0em;
 }
 
-#ck-button label span {
+.sugar-button label span {
     text-align:center;
     padding:3px 0px;
     display:block;
 }
 
-#ck-button label input {
+.sugar-button label input {
     position:absolute;
     top:-20px;
 }
 
-#ck-button input:checked + span {
-    background-color:#1f93ff;
-    color:#fff;
-}
-#ck-button input:checked {
+.sugar-button input:checked + span {
     background-color:#1f93ff;
     color:#fff;
 }
