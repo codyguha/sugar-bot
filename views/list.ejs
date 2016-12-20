@@ -51,15 +51,8 @@
 
 <script>
 window.extAsyncInit = function() {
-    // the Messenger Extensions JS SDK is done loading
-    MessengerExtensions.getUserID(function success(uids) {
-      var psid = uids.psid;
-      conosole.log(psid)
-      $("#facebook_id").val("psid")
-    }, function error(err) {
-
-    });
-  };
+$("#facebook_id").val("psid")
+};
 
 $('.sugar-button').click(function (evt) {
     $(this).toggleClass("clicked");
