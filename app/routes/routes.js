@@ -43,6 +43,7 @@ module.exports = function (app) {
 
   app.post('/list',function(req,res){
   	console.log(req.body)
+    broadcaster("gotcha!", req.body.fb_id)
   })
 
 
