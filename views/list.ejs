@@ -20,8 +20,17 @@
   ============================================= -->
   <title>SUGAR LIST!</title>
   <script>
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'Messenger'));
+  </script>
+  <script>
       MessengerExtensions.getUserID(function success(uids) {
-        var psid = uids.psid;
+        psid = uids.psid;
         conosole.log(psid)
       }, function error(err) {
 
@@ -31,7 +40,7 @@
 
 <body>
 <form id="sugarList" method="post" action="/list">
-  <input type="hidden" name='fb_id' value='<%= psid %>'>
+  <input type="hidden" name='fb_id' value=''>
   <% for(var i=0; i<list.length; i++) {%>
     <input type="checkbox" name='<%= list[i] %>' value='yes'><span><%= list[i] %></span>
     <input type="hidden" name='<%= list[i] %>' value='no'>
@@ -44,15 +53,7 @@
   </div>
 </form>
 
-<script>
-(function(d, s, id){
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'Messenger'));
-</script>
+
 <script>
 $('.sugar-button').click(function (evt) {
     $(this).toggleClass("clicked");
