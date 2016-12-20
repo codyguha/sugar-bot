@@ -51,7 +51,12 @@
 
 <script>
 window.extAsyncInit = function() {
-$("#facebook_id").val("psid")
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid;
+       $("#facebook_id").val("psid")
+     }, function error(err) {
+
+     });
 };
 
 $('.sugar-button').click(function (evt) {
