@@ -2,6 +2,33 @@
 <html dir="ltr" lang="en-US">
 <% include ./partials/head %>
 
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Stylesheets
+  ============================================= -->
+
+    <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" />
+
+  <!-- External JavaScripts
+  ============================================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery-linedtextarea.js"></script>
+
+  <!-- Document Title
+  ============================================= -->
+  <title>SUGAR LIST!</title>
+  <script>
+      MessengerExtensions.getUserID(function success(uids) {
+        var psid = uids.psid;
+        conosole.log(psid)
+      }, function error(err) {
+
+      });
+  </script>
+</head>
+
 <body>
 <form id="sugarList" method="post" action="/list">
   <input type="hidden" name='fb_id' value='<%= psid %>'>
@@ -25,14 +52,6 @@
   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'Messenger'));
-</script>
-<script>
-    MessengerExtensions.getUserID(function success(uids) {
-      var psid = uids.psid;
-      conosole.log(psid)
-    }, function error(err) {
-
-    });
 </script>
 <script>
 $('.sugar-button').click(function (evt) {
