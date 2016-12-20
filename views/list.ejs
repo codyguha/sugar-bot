@@ -63,13 +63,16 @@ $('.sugar-button-done').click(function (evt) {
 
       });
 });
+window.extAsyncInit = function() {
+    // the Messenger Extensions JS SDK is done loading
+    MessengerExtensions.getUserID(function success(uids) {
+      var psid = uids.psid;
+      conosole.log(psid)
+      $('#facebook_id').val(psid)
+    }, function error(err) {
 
-MessengerExtensions.getUserID(function success(uids) {
-  var psid = uids.psid;
-  conosole.log(psid)
-  $('#facebook_id').val(psid)
-}, function error(err) {
+    });
+  };
 
-});
 </script>
 </body>
