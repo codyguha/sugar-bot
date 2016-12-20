@@ -53,7 +53,7 @@
 window.extAsyncInit = function() {
   MessengerExtensions.getUserID(function success(uids) {
        var psid = uids.psid;
-       $("#facebook_id").val("psid")
+       $("#facebook_id").val(psid)
      }, function error(err) {
 
      });
