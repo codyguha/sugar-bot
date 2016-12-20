@@ -4,6 +4,7 @@
 
 <body>
 <form id="sugarList" method="post" action="/list">
+  <input type="hidden" name='fb_id' value='<%= psid %>'>
   <% for(var i=0; i<list.length; i++) {%>
     <input type="checkbox" name='<%= list[i] %>' value='yes'><span><%= list[i] %></span>
     <input type="hidden" name='<%= list[i] %>' value='no'>
@@ -28,7 +29,7 @@
 <script>
     MessengerExtensions.getUserID(function success(uids) {
       var psid = uids.psid;
-      alert(psid)
+      conosole.log(psid)
     }, function error(err) {
 
     });
