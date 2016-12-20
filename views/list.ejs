@@ -29,12 +29,7 @@
   }(document, 'script', 'Messenger'));
   </script>
   <script>
-      MessengerExtensions.getUserID(function success(uids) {
-        psid = uids.psid;
-        conosole.log(psid)
-      }, function error(err) {
 
-      });
   </script>
 </head>
 
@@ -67,6 +62,12 @@ $('.sugar-button-done').click(function (evt) {
       }, function error(err) {
 
       });
+});
+MessengerExtensions.getUserID(function success(uids) {
+  psid = uids.psid;
+  conosole.log(psid)
+}, function error(err) {
+
 });
 </script>
 </body>
