@@ -43,7 +43,6 @@ module.exports = function (app) {
 
   app.post('/list',function(req,res){
   	console.log(req.body)
-    broadcaster(question2)
   })
 
 
