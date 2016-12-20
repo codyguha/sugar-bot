@@ -42,7 +42,7 @@ module.exports = function (app) {
   });
 
   app.post('/list',function(req,res){
-  	console.log(req.body)
+  	console.log(req.body.fb_id)
     broadcaster("gotcha!", req.body.fb_id)
   })
 

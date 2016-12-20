@@ -111,12 +111,10 @@ var create_user_if_new = function (id, ts) {
 }
 controller.on('tick', function(bot, event) { });
 var broadcast = function (broadcast, id) {
-  broadcast.channel = id
-  bot.say(broadcast);
-  // bot.say({
-  //     text: "BROADCAST!!! >>> " + broadcast + " <<<",
-  //     channel: '1246026675468456'
-  // });
+  bot.say({
+      text: broadcast,
+      channel: id
+  });
 }
 
 exports.handler = handler
