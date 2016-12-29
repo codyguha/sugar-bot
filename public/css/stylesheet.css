@@ -2,7 +2,8 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
 }
-.sugar-button-done {
+
+/*.sugar-button {
     margin:4px;
     background-color:#ff0000;
     border-radius:14px;
@@ -10,24 +11,34 @@ body {
     overflow:auto;
     float:left;
     color:white;
-}
-.sugar-button {
+}*/
+
+#sugarbutton {
     margin:4px;
-    background-color:#ff0000;
-    border-radius:14px;
+    background-color:#EFEFEF;
+    border-radius:4px;
     border:1px solid #D0D0D0;
     overflow:auto;
     float:left;
-    color:white;
 }
 
-.sugar-button label {
+#sugarbutton label {
     float:left;
-    width:16.0em;
+    width:4.0em;
 }
 
-.sugar-button label span {
+#sugarbutton label span {
     text-align:center;
     padding:3px 0px;
     display:block;
+}
+
+#sugarbutton label input {
+    position:absolute;
+    top:-20px;
+}
+
+#sugarbutton input:checked + span {
+    background-color:#911;
+    color:#fff;
 }
