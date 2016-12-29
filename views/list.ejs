@@ -37,13 +37,16 @@
 <form id="sugarList" method="post" action="/list">
   <input id="facebook_id" type="hidden" name='fb_id'>
   <% for(var i=0; i<list.length; i++) {%>
-    <input type="checkbox" name='<%= list[i] %>' value='yes'><span><%= list[i] %></span>
-    <input type="hidden" name='<%= list[i] %>' value='no'>
+    <div class="sugar-button">
+      <label>
+        <input type="checkbox" name='<%= list[i] %>' value='1'><span><%= list[i] %></span>
+        <input type="hidden" name='<%= list[i] %>' value='0'>
+      </label>
+    </div>
   <% } %>
   <div class="sugar-button-done">
      <label>
-        <input type="hidden" value='Done'>
-        <span>Done</span>
+        <input type="hidden" value='Done'><span>Done</span>
      </label>
   </div>
 </form>
