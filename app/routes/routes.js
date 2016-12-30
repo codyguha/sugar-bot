@@ -24,11 +24,13 @@ module.exports = function (app) {
   });
 
   app.post('/list',function(req,res){
+    var facebook_id = req.body.fb_id
     var cnslbody = JSON.stringify(req.body, null, 4);
-    var personalized = Object.keys(req.body)
+    var keys = Object.keys(req.body)
+    var scoped_list = keys.shift()
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + personalized)
-    broadcaster("yup", req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + scoped_list)
+    broadcaster(scoped_list, facebook_id)
   })
 
 
