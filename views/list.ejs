@@ -33,10 +33,9 @@ window.extAsyncInit = function() {
      });
 };
 
-// $('.sugar-button').click(function (evt) {
-//     $(this).toggleClass("clicked");
-//     evt.preventDefault();
-// });
+$('#sugarbutton').click(function (evt) {
+    evt.preventDefault();
+});
 $('#sugarbutton.done').click(function (evt) {
     $('form').submit();
     evt.preventDefault();

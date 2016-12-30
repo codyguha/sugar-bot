@@ -14,12 +14,12 @@ body {
 
 #sugarbutton {
   margin:4px;
-  background-color:#dfe3ee;
+  background-color:#f7f7f7;
   border-radius:14px;
   border:1px solid #D0D0D0;
   overflow:auto;
   float:left;
-  color:#3b5998;
+  color:#1f93ff;
 }
 
 #sugarbutton label {
