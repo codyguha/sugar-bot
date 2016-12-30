@@ -35,8 +35,8 @@ module.exports = function (app) {
     }
 
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + cnslbody)
-    broadcaster(personalized, req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + personalized)
+    broadcaster(personalized.toString(), req.body.fb_id)
   })
 
 
