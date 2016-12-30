@@ -14,12 +14,12 @@ body {
 
 #sugarbutton {
   margin:4px;
-  background-color:#ff0000;
+  background-color:#dfe3ee;
   border-radius:14px;
   border:1px solid #D0D0D0;
   overflow:auto;
   float:left;
-  color:white;
+  color:#3b5998;
 }
 
 #sugarbutton label {
@@ -39,6 +39,6 @@ body {
 }
 
 #sugarbutton input:checked + span {
-    background-color:#911;
-    color:#fff;
+    background-color:#3b5998;
+    color:white;
 }
