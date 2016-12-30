@@ -27,7 +27,7 @@ module.exports = function (controller) {
     }})
   });
   controller.on('message_received', function(bot, incoming) {
-    if (incoming.payload === "question0002"){
+    if (incoming.quick_reply.payload === "question0002"){
       console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ incoming.list)
     } else {
 
@@ -43,7 +43,7 @@ module.exports = function (controller) {
   });
 
   // user says anything else
-  controller.hears('(.*)', 'message_received', function (bot, message) {
-    bot.reply(message, 'you said ' + message.match[1])
-  });
+  // controller.hears('(.*)', 'message_received', function (bot, message) {
+  //   bot.reply(message, 'you said ' + message.match[1])
+  // });
 }
