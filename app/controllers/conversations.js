@@ -27,8 +27,8 @@ module.exports = function (controller) {
     }})
   });
   controller.on('message_received', function(bot, incoming) {
-
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ incoming)
+      var cnslbody = JSON.stringify(incoming, null, 4);
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ cnslbody)
   });
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
