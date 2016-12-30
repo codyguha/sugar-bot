@@ -99,16 +99,16 @@ var handler = function (obj) {
   }
 }
 
-// var create_user_if_new = function (id, ts) {
-//   controller.storage.users.get(id, function (err, user) {
-//     if (err) {
-//       console.log(err)
-//     }
-//     else if (!user) {
-//       controller.storage.users.save({id: id, created_at: ts})
-//     }
-//   })
-// }
+var create_user_if_new = function (id, ts) {
+  controller.storage.users.get(id, function (err, user) {
+    if (err) {
+      console.log(err)
+    }
+    else if (!user) {
+      controller.storage.users.save({id: id, created_at: ts})
+    }
+  })
+}
 
 controller.on('tick', function(bot, event) { });
 
