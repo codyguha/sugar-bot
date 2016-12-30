@@ -31,7 +31,7 @@ module.exports = function (app) {
     var scoped_list = keys
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + scoped_list)
-    broadcaster(scoped_list, facebook_id)
+    broadcaster(facebook_id, scoped_list)
   })
 
 
