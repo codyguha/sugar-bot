@@ -37,7 +37,7 @@ window.extAsyncInit = function() {
 //     $(this).toggleClass("clicked");
 //     evt.preventDefault();
 // });
-$('.sugar-button-done').click(function (evt) {
+$('#sugarbutton.done').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
     MessengerExtensions.requestCloseBrowser(function success() {
