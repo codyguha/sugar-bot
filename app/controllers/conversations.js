@@ -26,8 +26,12 @@ module.exports = function (controller) {
       }
     }})
   });
-  controller.on('postback', function(bot, incoming) {
-    console.log(incoming.list)
+  controller.on('message_received', function(bot, incoming) {
+    if (incoming.payload === "question0002"){
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ incoming.list)
+    } else {
+
+    }
   });
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
@@ -41,6 +45,5 @@ module.exports = function (controller) {
   // user says anything else
   controller.hears('(.*)', 'message_received', function (bot, message) {
     bot.reply(message, 'you said ' + message.match[1])
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ message.list)
   });
 }
