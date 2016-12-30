@@ -41,5 +41,6 @@ module.exports = function (controller) {
   // user says anything else
   controller.hears('(.*)', 'message_received', function (bot, message) {
     bot.reply(message, 'you said ' + message.match[1])
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ incoming.list)
   });
 }
