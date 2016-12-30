@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
 }
 #sugarbutton.done {
     margin:4px;
@@ -30,9 +30,9 @@ body {
 }
 
 #sugarbutton label span {
-    text-align:center;
-    padding:3px 0px;
-    display:block;
+  text-align:center;
+  padding:3px 0px;
+  display:block;
 }
 
 #sugarbutton label input {
