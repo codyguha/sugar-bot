@@ -114,8 +114,9 @@ controller.on('tick', function(bot, event) { });
 
 var broadcast = function (id, list) {
   bot.say({
-      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of starting with `+ list[0],
+      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... ` + list[0],
       channel: id,
+      list: list,
       quick_replies: [
           {
               "content_type": "text",
