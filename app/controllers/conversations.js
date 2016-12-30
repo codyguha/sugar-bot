@@ -28,7 +28,7 @@ module.exports = function (controller) {
   });
   controller.on('postback', function(bot, incoming) {
     console.log(incoming.list)
-  }
+  });
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
       bot.reply(message, "You can talk to me and I will respond!");
