@@ -33,10 +33,9 @@ module.exports = function (app) {
             personalized.push(key)
         }
     }
-
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + personalized)
-    broadcaster(personalized.toString(), req.body.fb_id)
+    broadcaster("yup", req.body.fb_id)
   })
 
 
