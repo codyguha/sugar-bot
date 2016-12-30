@@ -3,6 +3,10 @@ module.exports = function (controller) {
   controller.on('facebook_optin', function (bot, message) {
     bot.reply(message, 'Welcome, friend')
   })
+  controller.middleware.receive.use(function(bot, message, next) {
+    message.extrainfo = 'foo';
+    next();
+  });
 
   // user said hello
   controller.hears(['hello'], 'message_received', function (bot, message) {
