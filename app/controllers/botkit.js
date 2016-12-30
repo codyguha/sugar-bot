@@ -1,11 +1,11 @@
-var Botkit = require('botkit')
-var mongoStorage = require('botkit-storage-mongo')({mongoUri: process.env.MONGODB_URI}),
-var controller = Botkit.facebookbot({
+var Botkit = require('botkit'),
+  mongoStorage = require('botkit-storage-mongo')({mongoUri: process.env.MONGODB_URI}),
+  controller = Botkit.facebookbot({
     debug: true,
     access_token: process.env.page_token,
     verify_token: process.env.verify_token,
     storage: mongoStorage,
-});
+  });
 
 var bot = controller.spawn({})
 
