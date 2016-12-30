@@ -25,7 +25,7 @@ module.exports = function (app) {
 
   app.post('/list',function(req,res){
     var facebook_id = req.body.fb_id
-    var cnslbody = JSON.stringify(req.body, null, 4);
+    // var cnslbody = JSON.stringify(req.body, null, 4);
     var keys = Object.keys(req.body)
     keys.splice(0, 1);
     var scoped_list = keys
