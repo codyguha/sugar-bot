@@ -1,9 +1,10 @@
 var Botkit = require('botkit')
-
+var mongoStorage = require('botkit-storage-mongo')({mongoUri: process.env.MONGODB_URI}),
 var controller = Botkit.facebookbot({
     debug: true,
     access_token: process.env.page_token,
     verify_token: process.env.verify_token,
+    storage: mongoStorage,
 });
 
 var bot = controller.spawn({})
@@ -113,6 +114,8 @@ var create_user_if_new = function (id, ts) {
 controller.on('tick', function(bot, event) { });
 
 var broadcast = function (id, list) {
+  var beans = {id: id, list: list};
+  controller.storage.save(beans);
   bot.say({
       text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... ` + list[0],
       channel: id,
@@ -120,27 +123,27 @@ var broadcast = function (id, list) {
           {
               "content_type": "text",
               "title": "Only type I consume",
-              "payload": list,
+              "payload": "question002",
           },
           {
               "content_type": "text",
               "title": "Preferred type",
-              "payload": list,
+              "payload": "question002",
           },
           {
               "content_type": "text",
               "title": "Consume,prefer other",
-              "payload": list,
+              "payload": "question002",
           },
           {
               "content_type": "text",
               "title": "I’ve tried it",
-              "payload": list,
+              "payload": "question002",
           },
           {
               "content_type": "text",
               "title": "Don't know much",
-              "payload": list,
+              "payload": "question002",
           }
       ]
   });
