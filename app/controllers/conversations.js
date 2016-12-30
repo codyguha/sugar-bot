@@ -27,11 +27,8 @@ module.exports = function (controller) {
     }})
   });
   controller.on('message_received', function(bot, incoming) {
-    if (incoming.quick_reply.payload === "question0002"){
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ incoming.list)
-    } else {
 
-    }
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ incoming)
   });
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
