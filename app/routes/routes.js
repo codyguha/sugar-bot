@@ -24,10 +24,19 @@ module.exports = function (app) {
   });
 
   app.post('/list',function(req,res){
-    var body = JSON.stringify(req.body, null, 4);
+    var cnslbody = JSON.stringify(req.body, null, 4);
+    var arr = [req.body]
+    var personalized = []
+    for (var i = 1; i < arr.length; i++){
+        var obj = arr[i];
+        for (var key in obj){
+            personalized.push(key)
+        }
+    }
+
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + body)
-    broadcaster(body, req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + cnslbody)
+    broadcaster(personalized, req.body.fb_id)
   })
 
 
