@@ -99,21 +99,50 @@ var handler = function (obj) {
   }
 }
 
-var create_user_if_new = function (id, ts) {
-  controller.storage.users.get(id, function (err, user) {
-    if (err) {
-      console.log(err)
-    }
-    else if (!user) {
-      controller.storage.users.save({id: id, created_at: ts})
-    }
-  })
-}
+// var create_user_if_new = function (id, ts) {
+//   controller.storage.users.get(id, function (err, user) {
+//     if (err) {
+//       console.log(err)
+//     }
+//     else if (!user) {
+//       controller.storage.users.save({id: id, created_at: ts})
+//     }
+//   })
+// }
+
 controller.on('tick', function(bot, event) { });
-var broadcast = function (broadcast, id) {
+
+var broadcast = function (broadcast, id, list) {
   bot.say({
-      text: broadcast,
-      channel: id
+      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of starting with `+ list[0],
+      channel: id,
+      quick_replies: [
+          {
+              "content_type": "text",
+              "title": "Only type I consume",
+              "payload": "question002",
+          },
+          {
+              "content_type": "text",
+              "title": "Preferred type",
+              "payload": "question002",
+          },
+          {
+              "content_type": "text",
+              "title": "Consume,prefer other",
+              "payload": "question002",
+          },
+          {
+              "content_type": "text",
+              "title": "I’ve tried it",
+              "payload": "question002",
+          },
+          {
+              "content_type": "text",
+              "title": "Don't know much",
+              "payload": "question002",
+          }
+      ]
   });
 }
 

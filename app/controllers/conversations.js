@@ -19,17 +19,13 @@ module.exports = function (controller) {
             "type":"web_url",
             "url":"https://lit-thicket-26597.herokuapp.com/list",
             "title":"Show List",
-            "messenger_extensions": true,  
+            "messenger_extensions": true,
             "webview_height_ratio": "compact"
           }
         ]
       }
     }})
   });
-
-
-
-
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
       bot.reply(message, "You can talk to me and I will respond!");
   });
