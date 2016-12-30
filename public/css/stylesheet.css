@@ -23,8 +23,10 @@ body {
 }
 
 #sugarbutton label {
-    float:left;
-    width:16.0em;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width:16.0em;
 }
 
 #sugarbutton label span {
