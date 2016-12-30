@@ -25,14 +25,7 @@ module.exports = function (app) {
 
   app.post('/list',function(req,res){
     var cnslbody = JSON.stringify(req.body, null, 4);
-    var arr = [req.body]
-    var personalized = []
-    for (var i = 1; i < arr.length; i++){
-        var obj = arr[i];
-        for (var key in obj){
-            personalized.push(key)
-        }
-    }
+    var personalized = Object.keys(req.body)
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + personalized)
     broadcaster("yup", req.body.fb_id)
