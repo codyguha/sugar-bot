@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+
+
+
+<body>
+<form id="sugarList" method="post" action="/list">
+  <input id="facebook_id" type="hidden" name='fb_id'>
+
+  <% for(var i=0; i<list.length; i++) {%>
+    <div id="sugarbutton" draggable="true">
+      <label>
+        <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
+      </label>
+    </div>
+  <% } %>
+
+  <div id="sugarbutton" class="done">
+     <label>
+        <input type="hidden" value='Done'><span>Done</span>
+     </label>
+  </div>
+</form>
+
+<script>
+window.extAsyncInit = function() {
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid.toString();
+       $("#facebook_id").val(psid)
+     }, function error(err) {
+
+     });
+};
+
+$('#sugarbutton.done').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+});
+
+</script>
+</body>
