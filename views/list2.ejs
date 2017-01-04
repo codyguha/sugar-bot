@@ -47,7 +47,7 @@ window.extAsyncInit = function() {
 
 // target elements with the "draggable" class
 interact('.draggable')
-  event.preventDefault();
+
   .draggable({
     // enable inertial throwing
     inertia: true,
@@ -64,6 +64,7 @@ interact('.draggable')
     onmove: dragMoveListener,
     // call this function on every dragend event
     onend: function (event) {
+      event.preventDefault();
       var textEl = event.target.querySelector('p');
 
       textEl && (textEl.textContent =
@@ -74,6 +75,7 @@ interact('.draggable')
   });
 
   function dragMoveListener (event) {
+    event.preventDefault();
     var target = event.target,
         // keep the dragged position in the data-x/data-y attributes
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
