@@ -25,8 +25,10 @@ module.exports = function (app) {
 
   app.get('/list2',
     function(req, res){
-      res.render('list2', {list: ["Sugar", "Cane Sugar", "Sucrose", "Fructose", "Lactose", "Corn Syrup", "Maltodextrin", "Dextrose", "Glucose", "Evaporated Cane Juice", "Molasses", "High Fructose Corn Syrup", "Coconut Sugar", "Palm Sugar", "Rice Malt Syrup", "Malt", "Fruit Juice Concentrate", "Honey", "Maple Syrup", "Agave","Date Syrup", "Stevia", "Monk Fruit Juice", "Luo Han Guo", "Thaumatin", "Unrefined Sugar", "Mannitol", "Xylitol", "Sorbitol", "Tagatose", "Isomaltulose", "Polydextrose", "Aspartame (i.e. Equal)", "Sucralose (i.e. Splenda)", "Acesulphame Potassium", "Saccharin (i.e. Sweet ‘N Low)"]});
+      res.render('list2', {list: userslist});
   });
+
+  var userslist
 
   app.post('/list',function(req,res){
     var facebook_id = req.body.fb_id
@@ -34,6 +36,7 @@ module.exports = function (app) {
     var keys = Object.keys(req.body)
     keys.splice(0, 1);
     var scoped_list = keys
+    userslist = scoped_list
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + scoped_list)
     broadcaster(facebook_id, scoped_list)
