@@ -32,6 +32,14 @@ window.extAsyncInit = function() {
 
      });
 };
+function handleDragStart(e) {
+  this.style.opacity = '0.4';  // this / e.target is the source node.
+}
+
+var items = document.querySelectorAll('#sugarbutton');
+[].forEach.call(items, function(item) {
+  item.addEventListener('dragstart', handleDragStart, false);
+});
 
 $('#sugarbutton.done').click(function (evt) {
     $('form').submit();
