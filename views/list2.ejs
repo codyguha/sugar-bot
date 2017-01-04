@@ -70,7 +70,7 @@ function handleDrop(e) {
 
 function handleDragEnd(e) {
   // this/e.target is the source node.
-
+  this.style.opacity = '1';
   [].forEach.call(items, function (item) {
     item.classList.remove('over');
   });
