@@ -25,6 +25,12 @@ body {
 #sugarbutton.over {
   border: 2px dashed #ff0000;
 }
+#sugarbutton .green{
+  background-color:#4CBB17;
+}
+#sugarbutton .blue{
+  background-color:#3b5998;
+}
 #sugarbutton label {
   display: block;
   position: relative;

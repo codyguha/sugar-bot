@@ -8,7 +8,7 @@
 
 <form id="sugarList" method="post" action="/list">
   <input id="facebook_id" type="hidden" name='fb_id'>
-  <div id="sugarbutton" >
+  <div id="sugarbutton" class="green">
     <label>
       <input type="checkbox" name='<%= list[i] %>'><span>Most Natural</span>
     </label>
@@ -20,7 +20,7 @@
       </label>
     </div>
   <% } %>
-  <div id="sugarbutton" >
+  <div id="sugarbutton" class="blue">
     <label>
       <input type="checkbox" name='<%= list[i] %>'><span>Most Artificial</span>
     </label>
