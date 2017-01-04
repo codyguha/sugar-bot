@@ -2,66 +2,37 @@
 <html dir="ltr" lang="en-US">
 <% include ./partials/head %>
 <style>
-#outer-dropzone {
-  height: 140px;
-}
+#drag-1, #drag-2 {
+  width: 25%;
+  height: 100%;
+  min-height: 6.5em;
+  margin: 10%;
 
-#inner-dropzone {
-  height: 80px;
-}
-
-.dropzone {
-  background-color: #ccc;
-  border: dashed 4px transparent;
-  border-radius: 4px;
-  margin: 10px auto 30px;
-  padding: 10px;
-  width: 80%;
-  transition: background-color 0.3s;
-}
-
-.drop-active {
-  border-color: #aaa;
-}
-
-.drop-target {
   background-color: #29e;
-  border-color: #fff;
-  border-style: solid;
-}
+  color: white;
 
-.drag-drop {
-  display: inline-block;
-  min-width: 40px;
-  padding: 2em 0.5em;
-
-  color: #fff;
-  background-color: #29e;
-  border: solid 2px #fff;
+  border-radius: 0.75em;
+  padding: 4%;
 
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
-
-  transition: background-color 0.3s;
 }
 
-.drag-drop.can-drop {
-  color: #000;
-  background-color: #4e4;
+#drag-me::before {
+  content: "#" attr(id);
+  font-weight: bold;
 }
 </style>
 
 
 <body style="overflow-y: hidden">
 
-  <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
-
-  <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
-
-  <div id="outer-dropzone" class="dropzone">
-    #outer-dropzone
-    <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
-   </div>
+  <div id="drag-1" class="draggable">
+  <p> You can drag one element </p>
+</div>
+<div id="drag-2" class="draggable">
+    <p> with each pointer </p>
+</div>
 
 <script>
 
@@ -119,45 +90,6 @@ interact('.draggable')
 
   // this is used later in the resizing and gesture demos
   window.dragMoveListener = dragMoveListener;
-
-// enable draggables to be dropped into this
-interact('.dropzone').dropzone({
-  // only accept elements matching this CSS selector
-  accept: '#yes-drop',
-  // Require a 75% element overlap for a drop to be possible
-  overlap: 0.75,
-
-  // listen for drop related events:
-
-  ondropactivate: function (event) {
-    // add active dropzone feedback
-    event.target.classList.add('drop-active');
-  },
-  ondragenter: function (event) {
-    var draggableElement = event.relatedTarget,
-        dropzoneElement = event.target;
-
-    // feedback the possibility of a drop
-    dropzoneElement.classList.add('drop-target');
-    draggableElement.classList.add('can-drop');
-    draggableElement.textContent = 'Dragged in';
-  },
-  ondragleave: function (event) {
-    // remove the drop feedback style
-    event.target.classList.remove('drop-target');
-    event.relatedTarget.classList.remove('can-drop');
-    event.relatedTarget.textContent = 'Dragged out';
-  },
-  ondrop: function (event) {
-    event.relatedTarget.textContent = 'Dropped';
-  },
-  ondropdeactivate: function (event) {
-    // remove active dropzone feedback
-    event.target.classList.remove('drop-active');
-    event.target.classList.remove('drop-target');
-  }
-});
-
 
 </script>
 </body>
