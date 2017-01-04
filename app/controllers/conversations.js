@@ -26,6 +26,24 @@ module.exports = function (controller) {
       }
     }})
   });
+  controller.hears(['Q2'], 'message_received', function (bot, message) {
+    bot.reply(message, {"attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc.  We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://lit-thicket-26597.herokuapp.com/list2",
+            "title":"Show List",
+            "messenger_extensions": true,
+            "webview_height_ratio": "compact"
+          }
+        ]
+      }
+    }})
+  });
   controller.on('message_received', function(bot, incoming) {
       var cnslbody = JSON.stringify(incoming, null, 4);
       console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ cnslbody)
