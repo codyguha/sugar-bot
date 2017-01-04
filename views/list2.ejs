@@ -5,9 +5,10 @@
 
 
 <body>
+
 <form id="sugarList" method="post" action="/list">
   <input id="facebook_id" type="hidden" name='fb_id'>
-
+  <span>Most Natural</span>
   <% for(var i=0; i<list.length; i++) {%>
     <div id="sugarbutton" draggable="true">
       <label>
@@ -15,7 +16,7 @@
       </label>
     </div>
   <% } %>
-
+  <span>Most Artificial</span>
   <div id="sugarbutton" class="done">
      <label>
         <input type="hidden" value='Done'><span>Done</span>
