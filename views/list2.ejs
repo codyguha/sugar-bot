@@ -43,71 +43,31 @@ window.extAsyncInit = function() {
      });
 };
 
-var dragSrcEl = null;
+interact('#sugarbutton')
+  .draggable({
+    // enable inertial throwing
+    inertia: true,
+    // keep the element within the area of it's parent
+    restrict: {
+      restriction: "parent",
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    },
+    // enable autoScroll
+    autoScroll: true,
 
-function handleDragStart(e) {
-  this.style.opacity = '0.4';  // this / e.target is the source node.
-
-  dragSrcEl = this;
-
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
-
-}
-
-function handleDragOver(e) {
-  if (e.preventDefault) {
-    e.preventDefault(); // Necessary. Allows us to drop.
-  }
-
-  e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-
-  return false;
-}
-
-function handleDragEnter(e) {
-  // this / e.target is the current hover target.
-  this.classList.add('over');
-}
-
-function handleDragLeave(e) {
-  this.classList.remove('over');  // this / e.target is previous target element.
-}
-
-function handleDrop(e) {
-  // this / e.target is current target element.
-
-  if (e.stopPropagation) {
-    e.stopPropagation(); // stops the browser from redirecting.
-  }
-
-  // Don't do anything if dropping the same column we're dragging.
-  if (dragSrcEl != this) {
-    // Set the source column's HTML to the HTML of the column we dropped on.
-    dragSrcEl.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
-  }
-
-  return false;
-}
-
-function handleDragEnd(e) {
-  // this/e.target is the source node.
-  this.style.opacity = '1';
-  [].forEach.call(items, function (item) {
-    item.classList.remove('over');
+    // call this function on every dragmove event
+    onmove: dragMoveListener,
+    // call this function on every dragend event
+    onend: function (event) {
+      // var textEl = event.target.querySelector('p');
+      //
+      // textEl && (textEl.textContent =
+      //   'moved a distance of '
+      //   + (Math.sqrt(event.dx * event.dx +
+      //                event.dy * event.dy)|0) + 'px');
+    }
   });
-}
-
-var items = document.querySelectorAll('#sugarbutton');
-[].forEach.call(items, function(item) {
-  item.addEventListener('touchstart', handleDragStart, false);
-  item.addEventListener('dragenter', handleDragEnter, false);
-  item.addEventListener('dragover', handleDragOver, false);
-  item.addEventListener('dragleave', handleDragLeave, false);
-  item.addEventListener('drop', handleDrop, false);
-  item.addEventListener('dragend', handleDragEnd, false);
-});
 
 $('#sugarbutton.done').click(function (evt) {
     $('form').submit();
