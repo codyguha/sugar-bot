@@ -11,7 +11,24 @@ body {
     float:left;
     color:white;
 }
-
+#sugarbutton.green {
+    margin:4px;
+    background-color:#4CBB17
+    border-radius:14px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+    color:white;
+}
+#sugarbutton.blue {
+    margin:4px;
+    background-color:#3b5998;
+    border-radius:14px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+    color:white;
+}
 #sugarbutton {
   margin:4px;
   background-color:#f7f7f7;
@@ -25,12 +42,7 @@ body {
 #sugarbutton.over {
   border: 2px dashed #ff0000;
 }
-#sugarbutton .green{
-  background-color:#4CBB17;
-}
-#sugarbutton .blue{
-  background-color:#3b5998;
-}
+
 #sugarbutton label {
   display: block;
   position: relative;
