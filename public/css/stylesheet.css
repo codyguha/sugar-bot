@@ -23,7 +23,7 @@ body {
   cursor: move;
 }
 #sugarbutton.over {
-  border: 2px dashed #000;
+  border: 2px dashed #ff0000;
 }
 #sugarbutton label {
   display: block;
