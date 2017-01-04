@@ -22,7 +22,9 @@ body {
   color:#1f93ff;
   cursor: move;
 }
-
+#sugarbutton.over {
+  border: 2px dashed #000;
+}
 #sugarbutton label {
   display: block;
   position: relative;
