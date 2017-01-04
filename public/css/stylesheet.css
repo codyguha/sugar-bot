@@ -20,6 +20,7 @@ body {
   overflow:auto;
   float:left;
   color:#1f93ff;
+  cursor: move;
 }
 
 #sugarbutton label {
