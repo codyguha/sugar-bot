@@ -32,9 +32,11 @@ window.extAsyncInit = function() {
 
      });
 };
+
 function handleDragStart(e) {
   this.style.opacity = '0.4';  // this / e.target is the source node.
 }
+
 function handleDragOver(e) {
   if (e.preventDefault) {
     e.preventDefault(); // Necessary. Allows us to drop.
@@ -49,8 +51,29 @@ function handleDragEnter(e) {
   // this / e.target is the current hover target.
   this.classList.add('over');
 }
+
 function handleDragLeave(e) {
   this.classList.remove('over');  // this / e.target is previous target element.
+}
+
+function handleDrop(e) {
+  // this / e.target is current target element.
+
+  if (e.stopPropagation) {
+    e.stopPropagation(); // stops the browser from redirecting.
+  }
+
+  // See the section on the DataTransfer object.
+
+  return false;
+}
+
+function handleDragEnd(e) {
+  // this/e.target is the source node.
+
+  [].forEach.call(items, function (item) {
+    item.classList.remove('over');
+  });
 }
 
 var items = document.querySelectorAll('#sugarbutton');
@@ -59,6 +82,8 @@ var items = document.querySelectorAll('#sugarbutton');
   item.addEventListener('dragenter', handleDragEnter, false);
   item.addEventListener('dragover', handleDragOver, false);
   item.addEventListener('dragleave', handleDragLeave, false);
+  item.addEventListener('drop', handleDrop, false);
+  item.addEventListener('dragend', handleDragEnd, false);
 });
 
 $('#sugarbutton.done').click(function (evt) {
