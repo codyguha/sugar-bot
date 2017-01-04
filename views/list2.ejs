@@ -33,9 +33,7 @@
 </form>
 
 <script>
-$(function() {
-    init();
-});
+
 window.extAsyncInit = function() {
   MessengerExtensions.getUserID(function success(uids) {
        var psid = uids.psid.toString();
