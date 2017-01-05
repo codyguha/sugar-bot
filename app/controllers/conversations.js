@@ -97,7 +97,7 @@ module.exports = function (controller) {
                     ]
                   }, function(response, convo) {
                     // whoa, I got the postback payload as a response to my convo.ask!
-                    convo.end();
+                    convo.next();
                   });
                 } else {
                   console.log(list[i]);
