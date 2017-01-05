@@ -54,6 +54,10 @@ function setupSlip(list) {
         return false;
   }, false);
 
+  list.addEventListener('slip:beforewait', function(e){
+    e.preventDefault();
+  }, false);
+  
   return new Slip(list);
 
 }
