@@ -57,6 +57,10 @@ module.exports = function (controller) {
       bot.reply(message, "type 'hello'");
   });
 
+  controller.hears(['question002'], 'message_received', function(bot, message) {
+      bot.reply(message, "got here");
+  });
+
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
   //   bot.reply(message, 'you said ' + message.match[1])
