@@ -64,7 +64,7 @@ module.exports = function (controller) {
             var list = user_data.list
             bot.startConversation(incoming, function(err, convo) {
               for (i = 1; i < list.length; ++i) {
-                if (list.length === i-1 ){
+                if (i-1 === list.length) {
                   console.log(list[i]);
                   convo.ask({
                     text: "and finally... " + list[i] + "?",
