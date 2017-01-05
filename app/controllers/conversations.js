@@ -57,14 +57,9 @@ module.exports = function (controller) {
       bot.reply(message, "got here");
   });
 
-  controller.on('message_received', function(bot, incoming) {  
-    if (incoming.payload) {
-      console.log("!!!!!!!!got here !!!!!!!!!!!!")
-    } else {
+  controller.on('message_received', function(bot, incoming) {
       var object = JSON.stringify(incoming, null, 4);
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
-    }
-
   });
 
 
