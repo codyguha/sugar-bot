@@ -45,16 +45,20 @@ window.extAsyncInit = function() {
      });
 };
 
-var sliplist = document.querySelector('ul#slippylist');
-new Slip(sliplist);
+function setupSlip(list) {
 
-list.addEventListener('slip:beforeswipe', function(e) {
-  e.preventDefault(); // won't move sideways if prevented
-});
+  list.addEventListener('slip:beforeswipe', function(e){e.preventDefault();}, false);
 
-list.addEventListener('slip:reorder', function(e) {
-  e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
-});
+  list.addEventListener('slip:reorder', function(e){
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+        return false;
+  }, false);
+
+  return new Slip(list);
+
+}
+
+setupSlip(document.getElementById('slippylist'));
 
 </script>
 </body>
