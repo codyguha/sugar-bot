@@ -53,13 +53,7 @@ list.addEventListener('slip:beforeswipe', function(e) {
 });
 
 list.addEventListener('slip:reorder', function(e) {
-    // e.target list item reordered.
-    if (reorderedOK) {
-        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
-    } else {
-        // element will fly back to original position
-        e.preventDefault();
-    }
+  e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
 });
 
 </script>
