@@ -24,11 +24,11 @@ var handler = function (obj) {
       for (var m = 0; m < obj.entry[e].messaging.length; m++) {
         var facebook_message = obj.entry[e].messaging[m]
 
-        // console.log(facebook_message)
+        console.log(facebook_message)
 
         // normal message
         if (facebook_message.message) {
-          if (facebook_message.message.quick_reply.payload !== undefined){
+          if (facebook_message.message.quick_reply){
             message = {
               text: facebook_message.message.text,
               user: facebook_message.sender.id,
