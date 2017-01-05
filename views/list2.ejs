@@ -53,5 +53,20 @@ function setupSlip(list) {
 
 setupSlip(document.getElementById('slippylist'));
 
+var startX, startY, endX, endY;
+document.addEventListener("touchstart", function(e){
+    startX = e.touches[0].pageX;
+    startY = e.touches[0].pageY;
+
+    window.scroll(startX, startY);
+}, false);
+
+document.addEventListener("touchend", function(e){
+    endX = e.touches[0].pageX;
+    endY = e.touches[0].pageY;
+
+  window.scroll(endX, endY);
+}, false);
+
 </script>
 </body>
