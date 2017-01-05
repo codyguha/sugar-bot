@@ -44,10 +44,6 @@ module.exports = function (controller) {
       }
     }})
   });
-  controller.on('message_received', function(bot, incoming) {
-      var cnslbody = JSON.stringify(incoming, null, 4);
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>LIST: "+ cnslbody)
-  });
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
       bot.reply(message, "You can talk to me and I will respond!");
