@@ -60,11 +60,19 @@ module.exports = function (controller) {
   controller.hears(['question002'], 'message_received', function(bot, message) {
       bot.reply(message, "got here");
   });
-  controller.on('message_received', function(bot, message) {
-    if (message.message.quick_reply.payload === "question002") {
-      bot.reply(message, "got here");
+  controller.on('message_received', function(bot, incoming) {
+    var id = incoming.user
+    if (incoming.attachments){
+    } else if(incoming.quick_reply){
+      var text = incoming.text
+      var payload = incoming.quick_reply.payload
+        if (payload === "question002") {
+          bot.reply(message, "got here");
+        } else if (payload === "feedback"){
+          ////
+        }
     } else {
-      
+      console.log(">>>>>>>>>>NOMETHODFOR: " + incoming)
     }
   });
 
