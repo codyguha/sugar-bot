@@ -66,6 +66,7 @@ module.exports = function (controller) {
                 console.log(list[i]);
             }
           });
+        }
       } else {
         var object = JSON.stringify(incoming, null, 4);
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
