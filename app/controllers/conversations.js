@@ -62,7 +62,7 @@ module.exports = function (controller) {
         if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
-            bot.startConversation(message, function(err, convo) {
+            bot.startConversation(incoming, function(err, convo) {
               for (i = 0; i < list.length; ++i) {
                   console.log(list[i]);
                   convo.ask({
