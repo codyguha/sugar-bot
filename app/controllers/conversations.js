@@ -63,7 +63,7 @@ module.exports = function (controller) {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
             bot.startConversation(incoming, function(err, convo) {
-              for (i = 0; i < list.length; ++i) {
+              for (i = 1; i < list.length; ++i) {
                   console.log(list[i]);
                   convo.ask({
                     text: "and what about... " + list[i] + "?",
