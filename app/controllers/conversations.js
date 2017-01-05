@@ -62,9 +62,44 @@ module.exports = function (controller) {
         if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
-            for (i = 0; i < list.length; ++i) {
-                console.log(list[i]);
-            }
+            bot.startConversation(message, function(err, convo) {
+              for (i = 0; i < list.length; ++i) {
+                  console.log(list[i]);
+                  convo.ask({
+                    text: "and what about... " + list[i] + "?",
+                    quick_replies: [
+                        {
+                            "content_type": "text",
+                            "title": "Only type I consume",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Preferred type",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Consume,prefer other",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "I’ve tried it",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Don't know much",
+                            "payload": "333",
+                        }
+                    ]
+                  }, function(response, convo) {
+                    // whoa, I got the postback payload as a response to my convo.ask!
+                    convo.next();
+                  });
+              }
+            });
           });
         }
       } else {
