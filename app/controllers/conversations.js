@@ -60,6 +60,13 @@ module.exports = function (controller) {
   controller.hears(['question002'], 'message_received', function(bot, message) {
       bot.reply(message, "got here");
   });
+  controller.on('message_received', function(bot, message) {
+    if (message.message.quick_reply.payload === "question002") {
+      bot.reply(message, "got here");
+    } else {
+      
+    }
+  });
 
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
