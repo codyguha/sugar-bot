@@ -72,27 +72,27 @@ module.exports = function (controller) {
                         {
                             "content_type": "text",
                             "title": "Only type I consume",
-                            "payload": "333",
+                            "payload": "question003",
                         },
                         {
                             "content_type": "text",
                             "title": "Preferred type",
-                            "payload": "333",
+                            "payload": "question003",
                         },
                         {
                             "content_type": "text",
                             "title": "Consume,prefer other",
-                            "payload": "333",
+                            "payload": "question003",
                         },
                         {
                             "content_type": "text",
                             "title": "I’ve tried it",
-                            "payload": "333",
+                            "payload": "question003",
                         },
                         {
                             "content_type": "text",
                             "title": "Don't know much",
-                            "payload": "333",
+                            "payload": "question003",
                         }
                     ]
                   }, function(response, convo) {
@@ -139,7 +139,9 @@ module.exports = function (controller) {
             });
           });
         }
-      } else {
+      } else if(incoming.payload === "question003") {
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>GOT HERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+      }else {
         var object = JSON.stringify(incoming, null, 4);
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
       }
