@@ -59,11 +59,14 @@ module.exports = function (controller) {
 
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
-        controller.storage.users.get(incoming.user, function(err, user_data) {
-          var object = JSON.stringify(user_data, null, 4);
-          console.log(">>>" + object)
-        });
-      }else{
+        if (incoming.payload === "question002") {
+          controller.storage.users.get(incoming.user, function(err, user_data) {
+            var list = user_data.list
+            for (i = 0; i < list.length; ++i) {
+                console.log(list[i]);
+            }
+          });
+      } else {
         var object = JSON.stringify(incoming, null, 4);
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
       }
