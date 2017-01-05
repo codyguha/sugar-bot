@@ -1,5 +1,6 @@
 var facebook_handler = require('../controllers/botkit').handler
 var broadcaster = require('../controllers/botkit').broadcast
+var getList = require('../controllers/botkit').getList
 
 module.exports = function (app) {
 
@@ -23,9 +24,11 @@ module.exports = function (app) {
       res.render('list', {list: list});
   });
 
-  app.get('/list2/:list',
+  app.get('/list2/:id',
     function(req, res){
-      res.render('list2', {list: req.params.list});
+      var listy = getList(req.params.id)
+      console.log(listy)
+      res.render('list2', {list: listy});
   });
 
   var userslist

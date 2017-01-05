@@ -147,8 +147,6 @@ module.exports = function (controller) {
   });
 
 function askNextQuestion(bot, incoming){
-  controller.storage.users.get(incoming.user, function(err, user_data) {
-  var list = user_data.list
     bot.reply(incoming, {"attachment":{
       "type":"template",
       "payload":{
@@ -157,7 +155,7 @@ function askNextQuestion(bot, incoming){
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/list2/" + list,
+            "url":"https://lit-thicket-26597.herokuapp.com/list2/" + incoming.user,
             "title":"Rank Sugars",
             "messenger_extensions": true,
             "webview_height_ratio": "compact"
@@ -165,7 +163,6 @@ function askNextQuestion(bot, incoming){
         ]
       }
     }});
-  });
 }
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
