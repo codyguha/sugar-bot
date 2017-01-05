@@ -35,7 +35,8 @@ var handler = function (obj) {
             timestamp: facebook_message.timestamp,
             seq: facebook_message.message.seq,
             mid: facebook_message.message.mid,
-            attachments: facebook_message.message.attachments
+            attachments: facebook_message.message.attachments,
+            payload: facebook_message.message.payload
           }
 
           // save if user comes from m.me adress or Facebook search
@@ -120,10 +121,9 @@ var broadcast = function (id, list) {
       text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `,
       channel: id
   });
-  bot.startConversation(message, function(err, convo) {
+  bot.startConversation({user: id}, function(err, convo) {
      convo.ask({
        text: list[0],
-       channel: id,
        quick_replies: [
           {
               "content_type": "text",
