@@ -35,7 +35,6 @@ var handler = function (obj) {
             timestamp: facebook_message.timestamp,
             seq: facebook_message.message.seq,
             mid: facebook_message.message.mid,
-            added: "something",
             attachments: facebook_message.message.attachments,
             payload: facebook_message.message.quick_reply.payload
           }
