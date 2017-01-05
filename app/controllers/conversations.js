@@ -147,7 +147,25 @@ module.exports = function (controller) {
   });
 
 function askNextQuestion(bot, incoming){
-  bot.reply(incoming, "yay!")
+  controller.storage.users.get(incoming.user, function(err, user_data) {
+  var list = user_data.list
+    bot.reply(message, {"attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc.  We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://lit-thicket-26597.herokuapp.com/list2/" + list,
+            "title":"Rank Sugars",
+            "messenger_extensions": true,
+            "webview_height_ratio": "compact"
+          }
+        ]
+      }
+    }});
+  });
 }
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {

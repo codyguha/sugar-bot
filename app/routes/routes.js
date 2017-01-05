@@ -23,9 +23,9 @@ module.exports = function (app) {
       res.render('list', {list: list});
   });
 
-  app.get('/list2',
+  app.get('/list2/:list',
     function(req, res){
-      res.render('list2', {list: list});
+      res.render('list2', {list: req.params.list});
   });
 
   var userslist
