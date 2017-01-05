@@ -63,16 +63,17 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
     var id = incoming.user
     if (incoming.attachments){
-    } else if(incoming.quick_reply){
-      var text = incoming.text
-      var payload = incoming.quick_reply.payload
+
+    } else if(incoming.message.quick_reply){
+      var text = incoming.message.text
+      var payload = incoming.message.quick_reply.payload
         if (payload === "question002") {
           bot.reply(message, "got here");
         } else if (payload === "feedback"){
           ////
         }
     } else {
-      console.log(">>>>>>>>>>NOMETHODFOR: " + incoming)
+      console.log(">>>>>>>>>>NOMETHODFOR: " + JSON.stringify(incoming, null, 4);)
     }
   });
 
