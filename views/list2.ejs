@@ -49,9 +49,7 @@ var sliplist = document.querySelector('ul#slippylist');
 new Slip(sliplist);
 
 list.addEventListener('slip:beforeswipe', function(e) {
-    if (shouldNotSwipe(e.target)) {
-        e.preventDefault(); // won't move sideways if prevented
-    }
+  e.preventDefault(); // won't move sideways if prevented
 });
 
 list.addEventListener('slip:reorder', function(e) {
