@@ -66,9 +66,8 @@ module.exports = function (controller) {
               for (i = 1; i < list.length; ++i) {
                 if (i === (list.length-1)) {
                   console.log(list[i]);
-                  bot.say({
+                  convo.ask({
                     text: "and finally... " + list[i] + "?",
-                    channel: incoming.user,
                     quick_replies: [
                         {
                             "content_type": "text",
@@ -96,6 +95,9 @@ module.exports = function (controller) {
                             "payload": "question003",
                         }
                     ]
+                  }, function(response, convo) {
+                    // whoa, I got the postback payload as a response to my convo.ask!
+                    askNextQuestion(bot, incoming);
                   });
                 } else {
                   console.log(list[i]);
@@ -136,8 +138,6 @@ module.exports = function (controller) {
               }
             });
           });
-        } else if (incoming.payload === "question003") {
-          console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>GOT HERERERERER>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
         }
       } else {
         var object = JSON.stringify(incoming, null, 4);
@@ -146,7 +146,9 @@ module.exports = function (controller) {
 
   });
 
-
+function askNextQuestion(bot, incoming){
+  bot.reply(incoming, "yay!")
+}
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
   //   bot.reply(message, 'you said ' + message.match[1])
