@@ -14,6 +14,9 @@
   width: 14.0em;
   cursor: move;
 }
+body{
+  overflow-y: hidden
+}
 </style>
 
 
@@ -44,10 +47,6 @@ function setupSlip(list) {
   list.addEventListener('slip:reorder', function(e){
         e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
         return false;
-  }, false);
-
-  list.addEventListener('slip:beforewait', function(e){
-    e.preventDefault();
   }, false);
 
   return new Slip(list);
