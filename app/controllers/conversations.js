@@ -60,7 +60,7 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
     var object = JSON.stringify(incoming, null, 4);
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
-  }
+  });
 
 
   // user says anything else
