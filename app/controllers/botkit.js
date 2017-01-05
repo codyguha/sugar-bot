@@ -133,8 +133,8 @@ var create_user_if_new = function (id, ts) {
 controller.on('tick', function(bot, event) { });
 
 var broadcast = function (id, list) {
-  var beans = {id: id, list: list};
-  controller.storage.teams.save(beans);
+  var user_data = {id: id, list: list};
+  controller.storage.users.save(user_data);
   bot.say({
       text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `+ list[0],
       channel: id,

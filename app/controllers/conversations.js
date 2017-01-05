@@ -59,7 +59,9 @@ module.exports = function (controller) {
 
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>YESSSSSSSSSSSSSSSSSS")
+        controller.storage.users.get(incoming.user, function(err, user_data) {
+          console.log(">>>" + user_data)
+        }); 
       }else{
         var object = JSON.stringify(incoming, null, 4);
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
