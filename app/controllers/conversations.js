@@ -64,6 +64,42 @@ module.exports = function (controller) {
             var list = user_data.list
             bot.startConversation(incoming, function(err, convo) {
               for (i = 1; i < list.length; ++i) {
+                if (list.length === i-1 ){
+                  console.log(list[i]);
+                  convo.ask({
+                    text: "and finally... " + list[i] + "?",
+                    quick_replies: [
+                        {
+                            "content_type": "text",
+                            "title": "Only type I consume",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Preferred type",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Consume,prefer other",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "I’ve tried it",
+                            "payload": "333",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Don't know much",
+                            "payload": "333",
+                        }
+                    ]
+                  }, function(response, convo) {
+                    // whoa, I got the postback payload as a response to my convo.ask!
+                    convo.next();
+                  });
+                } else {
                   console.log(list[i]);
                   convo.ask({
                     text: "and what about... " + list[i] + "?",
@@ -98,6 +134,7 @@ module.exports = function (controller) {
                     // whoa, I got the postback payload as a response to my convo.ask!
                     convo.next();
                   });
+                }
               }
             });
           });
