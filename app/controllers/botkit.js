@@ -121,7 +121,7 @@ var broadcast = function (id, list) {
       text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `,
       channel: id
   });
-  bot.startConversation({user: id}, function(err, convo) {
+  bot.startConversation(, function(err, convo) {
      convo.ask({
        text: list[0],
        quick_replies: [
