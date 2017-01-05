@@ -2,25 +2,17 @@
 <html dir="ltr" lang="en-US">
 <% include ./partials/head %>
 <style>
-#drag-1, #drag-2 {
-  width: 25%;
-  height: 100%;
-  min-height: 6.5em;
-  margin: 10%;
-
-  background-color: #29e;
-  color: white;
-
-  border-radius: 0.75em;
-  padding: 4%;
-
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-}
-
-#drag-me::before {
-  content: "#" attr(id);
-  font-weight: bold;
+#sugaritem {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:#1f93ff;
+  width: 14.0em;
+  cursor: move;
 }
 </style>
 
@@ -29,7 +21,7 @@
 <ul id="slippylist">
   <% for(var i=0; i<list.length; i++) {%>
 
-      <li><%= list[i] %></li>
+      <li id="sugaritem"><%= list[i] %></li>
 
   <% } %>
 
@@ -57,7 +49,7 @@ function setupSlip(list) {
   list.addEventListener('slip:beforewait', function(e){
     e.preventDefault();
   }, false);
-  
+
   return new Slip(list);
 
 }
