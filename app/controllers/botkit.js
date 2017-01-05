@@ -117,9 +117,14 @@ var broadcast = function (id, list) {
   var beans = {id: id, list: list};
   controller.storage.teams.save(beans);
   bot.say({
-      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... ` + list[0],
-      channel: id,
-      quick_replies: [
+      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `,
+      channel: id
+  });
+  bot.startConversation(message, function(err, convo) {
+     convo.ask({
+       text: list[0],
+       channel: id,
+       quick_replies: [
           {
               "content_type": "text",
               "title": "Only type I consume",
@@ -146,7 +151,12 @@ var broadcast = function (id, list) {
               "payload": "question002",
           }
       ]
-  });
+     }, function(response, convo) {
+         console.log(response)// whoa, I got the postback payload as a response to my convo.ask!
+         convo.next();
+     });
+ });
+
 }
 
 exports.handler = handler
