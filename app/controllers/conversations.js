@@ -149,7 +149,7 @@ module.exports = function (controller) {
 function askNextQuestion(bot, incoming){
   controller.storage.users.get(incoming.user, function(err, user_data) {
   var list = user_data.list
-    bot.reply(message, {"attachment":{
+    bot.reply(incoming, {"attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
