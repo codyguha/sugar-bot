@@ -68,6 +68,7 @@ module.exports = function (controller) {
                   console.log(list[i]);
                   bot.say({
                     text: "and finally... " + list[i] + "?",
+                    channel: incoming.user,
                     quick_replies: [
                         {
                             "content_type": "text",
