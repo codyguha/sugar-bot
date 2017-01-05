@@ -28,21 +28,39 @@ var handler = function (obj) {
 
         // normal message
         if (facebook_message.message) {
-          message = {
-            text: facebook_message.message.text,
-            user: facebook_message.sender.id,
-            channel: facebook_message.sender.id,
-            timestamp: facebook_message.timestamp,
-            seq: facebook_message.message.seq,
-            mid: facebook_message.message.mid,
-            attachments: facebook_message.message.attachments,
-            payload: facebook_message.message.quick_reply.payload
+          if (facebook_message.message.quick_reply.payload !== undefined){
+            message = {
+              text: facebook_message.message.text,
+              user: facebook_message.sender.id,
+              channel: facebook_message.sender.id,
+              timestamp: facebook_message.timestamp,
+              seq: facebook_message.message.seq,
+              mid: facebook_message.message.mid,
+              attachments: facebook_message.message.attachments,
+              payload: facebook_message.message.quick_reply.payload
+            }
+
+            // save if user comes from m.me adress or Facebook search
+            // create_user_if_new(facebook_message.sender.id, facebook_message.timestamp)
+
+            controller.receiveMessage(bot, message)
+          } else {
+            message = {
+              text: facebook_message.message.text,
+              user: facebook_message.sender.id,
+              channel: facebook_message.sender.id,
+              timestamp: facebook_message.timestamp,
+              seq: facebook_message.message.seq,
+              mid: facebook_message.message.mid,
+              attachments: facebook_message.message.attachments,
+            }
+
+            // save if user comes from m.me adress or Facebook search
+            // create_user_if_new(facebook_message.sender.id, facebook_message.timestamp)
+
+            controller.receiveMessage(bot, message)
           }
 
-          // save if user comes from m.me adress or Facebook search
-          // create_user_if_new(facebook_message.sender.id, facebook_message.timestamp)
-
-          controller.receiveMessage(bot, message)
         }
         // When a user clicks on "Send to Messenger"
         else if (facebook_message.optin ||
