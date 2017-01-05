@@ -97,7 +97,7 @@ module.exports = function (controller) {
                     ]
                   }, function(response, convo) {
                     // whoa, I got the postback payload as a response to my convo.ask!
-                    convo.next();
+                    convo.end();
                   });
                 } else {
                   console.log(list[i]);
@@ -138,10 +138,10 @@ module.exports = function (controller) {
               }
             });
           });
+        } else if (incoming.payload === "question003"){
+                    console.log(">>>>>>>>>>>>>>>>>>>>>>>GOT HERERERERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
         }
-      } else if(incoming.payload === "question003") {
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>GOT HERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-      }else {
+      } else {
         var object = JSON.stringify(incoming, null, 4);
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
       }
