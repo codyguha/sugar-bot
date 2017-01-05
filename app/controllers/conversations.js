@@ -57,6 +57,12 @@ module.exports = function (controller) {
       bot.reply(message, "got here");
   });
 
+  controller.on('message_received', function(bot, incoming) {
+    var object = JSON.stringify(incoming, null, 4);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + object)
+  }
+
+
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
   //   bot.reply(message, 'you said ' + message.match[1])
