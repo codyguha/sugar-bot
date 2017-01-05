@@ -73,7 +73,8 @@ module.exports = function (controller) {
           ////
         }
     } else {
-      console.log(">>>>>>>>>>NOMETHODFOR: " + JSON.stringify(incoming, null, 4);)
+      var object = JSON.stringify(incoming, null, 4);
+      console.log(">>>>>>>>>>NOMETHODFOR: " + object)
     }
   });
 
