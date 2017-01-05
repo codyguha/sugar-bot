@@ -56,23 +56,6 @@ module.exports = function (controller) {
   controller.hears(['question002'], 'message_received', function(bot, message) {
       bot.reply(message, "got here");
   });
-  controller.on('message_received', function(bot, incoming) {
-    var id = incoming.user
-    if (incoming.attachments){
-
-    } else if(incoming.message.quick_reply){
-      var text = incoming.message.text
-      var payload = incoming.message.quick_reply.payload
-        if (payload === "question002") {
-          bot.reply(message, "got here");
-        } else if (payload === "feedback"){
-          ////
-        }
-    } else {
-      var object = JSON.stringify(incoming, null, 4);
-      console.log(">>>>>>>>>>NOMETHODFOR: " + object)
-    }
-  });
 
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
