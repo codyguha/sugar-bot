@@ -167,7 +167,7 @@ var broadcast = function (id, list) {
       ]
   });
 }
-var orderedlist2 = function (id) {
+var orderedlist3 = function (id) {
   bot.say({
       channel: id,
       "attachment":{
@@ -190,4 +190,4 @@ var orderedlist2 = function (id) {
 }
 exports.handler = handler
 exports.broadcast = broadcast
-exports.getList = getlist
+exports.orderedlist3 = orderedlist3
