@@ -34,6 +34,11 @@ module.exports = function (app) {
       res.render('list3', {list: userslist});
   });
 
+  app.get('/list4',
+    function(req, res){
+      res.render('list4', {list: userslist});
+  });
+
   var userslist
   var list = ["Sugar", "Cane Sugar", "Sucrose", "Fructose", "Lactose", "Corn Syrup", "Maltodextrin", "Dextrose", "Glucose", "Evaporated Cane Juice", "Molasses", "High Fructose Corn Syrup", "Coconut Sugar", "Palm Sugar", "Rice Malt Syrup", "Malt", "Fruit Juice Concentrate", "Honey", "Maple Syrup", "Agave","Date Syrup", "Stevia", "Monk Fruit Juice", "Luo Han Guo", "Thaumatin", "Unrefined Sugar", "Mannitol", "Xylitol", "Sorbitol", "Tagatose", "Isomaltulose", "Polydextrose", "Aspartame (i.e. Equal)", "Sucralose (i.e. Splenda)", "Acesulphame Potassium", "Saccharin (i.e. Sweet ‘N Low)"]
   app.post('/list',function(req,res){
@@ -57,6 +62,28 @@ module.exports = function (app) {
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + natural_order_list)
     orderedlist3(facebook_id)
+  })
+
+  app.post('/list3',function(req,res){
+    var facebook_id = req.body.fb_id
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    var keys = Object.keys(req.body)
+    keys.splice(0, 1);
+    var taste_order_list = keys
+  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + natural_order_list)
+    orderedlist4(facebook_id)
+  })
+
+  app.post('/list4',function(req,res){
+    var facebook_id = req.body.fb_id
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    var keys = Object.keys(req.body)
+    keys.splice(0, 1);
+    var healthy_order_list = keys
+  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + natural_order_list)
+    orderedlist4(facebook_id)
   })
 
 

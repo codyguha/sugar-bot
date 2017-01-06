@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+<style>
+#sugaritem {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:#1f93ff;
+  width: 14.0em;
+  cursor: move;
+}
+#sugaritemgreen {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:green;
+  width: 14.0em;
+  cursor: move;
+}
+#sugaritemblue {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:blue;
+  width: 14.0em;
+  cursor: move;
+}
+
+</style>
+
+
+<body>
+  <form id="sugarList2" method="post" action="/list3">
+    <input id="facebook_id" type="hidden" name='fb_id'>
+
+    <div>
+      <div id="sugaritemgreen" class="no-reorder">>>>>>Most Good For You</div>
+        <ol id="slippylist">
+
+          <% for(var i=0; i<list.length; i++) {%>
+
+              <li id="sugaritem">
+                <%= list[i] %>
+                <input type="hidden" name='<%= list[i] %>'>
+              </li>
+
+          <% } %>
+
+        </ol>
+      <div id="sugaritemblue" class="no-reorder">>>>>>Not Good For You</div>
+    </div>
+
+
+    <div id="sugarbutton" class="done">
+       <label>
+          <input type="hidden" value='Done'><span>Done</span>
+       </label>
+    </div>
+  </form>
+<script>
+
+window.extAsyncInit = function() {
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid.toString();
+       $("#facebook_id").val(psid)
+     }, function error(err) {
+
+     });
+};
+
+function setupSlip(list) {
+
+  list.addEventListener('slip:beforeswipe', function(e){e.preventDefault();}, false);
+
+  list.addEventListener('slip:beforereorder', function(e){
+            if (e.target.classList.indexOf('no-reorder') >= 0) {
+                e.preventDefault();
+            }
+        }, false);
+
+  list.addEventListener('slip:reorder', function(e){
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+        return false;
+  }, false);
+
+  return new Slip(list);
+
+}
+
+setupSlip(document.getElementById('slippylist'));
+
+var startX, startY, endX, endY;
+document.addEventListener("touchmove", function(e){
+    pageX = e.touches[0].pageX;
+    pageY = e.touches[0].pageY;
+
+    window.scroll(pageX, pageY);
+}, false);
+
+$('#sugarbutton.done').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+});
+
+</script>
+</body>
