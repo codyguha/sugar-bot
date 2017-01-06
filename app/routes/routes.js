@@ -43,5 +43,17 @@ module.exports = function (app) {
     broadcaster(facebook_id, scoped_list)
   })
 
+  app.post('/list2',function(req,res){
+    var facebook_id = req.body.fb_id
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    var keys = Object.keys(req.body)
+    keys.splice(0, 1);
+    var scoped_list = keys
+  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + scoped_list)
+
+  })
+
+
 
 }
