@@ -14,19 +14,22 @@
   width: 14.0em;
   cursor: move;
 }
-
+ol li:before {
+  content: counter(level1) " "; /*Instead of ". " */
+  counter-increment: level1;
+}
 </style>
 
 
 <body>
-<ul id="slippylist">
+<ol id="slippylist">
   <% for(var i=0; i<list.length; i++) {%>
 
       <li id="sugaritem"><%= list[i] %></li>
 
   <% } %>
 
-</ul>
+</ol>
 <script>
 
 window.extAsyncInit = function() {
