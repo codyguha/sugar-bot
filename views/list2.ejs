@@ -43,19 +43,33 @@
 
 
 <body>
-<div>
-  <div id="sugaritemgreen" class="no-reorder">>>>>>Most Natural</div>
-    <ol id="slippylist">
+  <form id="sugarList2" method="post" action="/list2">
+    <input id="facebook_id" type="hidden" name='fb_id'>
 
-      <% for(var i=0; i<list.length; i++) {%>
+    <div>
+      <div id="sugaritemgreen" class="no-reorder">>>>>>Most Natural</div>
+        <ol id="slippylist">
 
-          <li id="sugaritem"><%= list[i] %></li>
+          <% for(var i=0; i<list.length; i++) {%>
 
-      <% } %>
+              <li id="sugaritem">
+                <%= list[i] %>
+                <input type="hidden" name='<%= list[i] %>'>
+              </li>
 
-    </ol>
-  <div id="sugaritemblue" class="no-reorder">>>>>>Most Artificial</div>
-</div>
+          <% } %>
+
+        </ol>
+      <div id="sugaritemblue" class="no-reorder">>>>>>Most Artificial</div>
+    </div>
+
+
+    <div id="sugarbutton" class="done">
+       <label>
+          <input type="hidden" value='Done'><span>Done</span>
+       </label>
+    </div>
+  </form>
 <script>
 
 window.extAsyncInit = function() {
@@ -96,6 +110,15 @@ document.addEventListener("touchmove", function(e){
     window.scroll(pageX, pageY);
 }, false);
 
+$('#sugarbutton.done').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+});
 
 </script>
 </body>
