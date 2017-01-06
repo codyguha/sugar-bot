@@ -26,11 +26,8 @@ module.exports = function (app) {
 
   app.get('/list2/:id',
     function(req, res){
-      controller.storage.users.get(req.params.id, function(err, user_data) {
-      var listy = user_data.list;
-      console.log(">>>>>>>>>>>>>>>>>>>LISTTED: " + listy)
-      });
-      res.render('list2', {list: listy});
+      getList(req.params.id)
+      res.render('list2', {list: [req.params.id]});
   });
 
   var userslist
