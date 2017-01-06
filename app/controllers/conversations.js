@@ -222,15 +222,6 @@ module.exports = function (controller) {
                 }
               }
           });
-        } else if (incoming.payload === "question009"){
-
-            convo.ask({
-              text: "Why?"
-            }, function(response, convo) {
-              convo.say({text: "Thanks for your input – the sugar vs. sweetener issue can be quite a hot topic so it’s important that your voice is heard and we can make decisions on behalf of our customers."})
-              // whoa, I got the postback payload as a response to my convo.ask!
-              convo.next();
-            });
         }
       } else {
         var object = JSON.stringify(incoming, null, 4);
@@ -281,6 +272,15 @@ function naturalOrArtificial(bot, incoming){
     ]
   });
 }
+
+controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
+  convo.ask({
+    text: "why?"
+  }, function(response, convo) {
+    console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
+    convo.next();
+  });
+});
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
   //   bot.reply(message, 'you said ' + message.match[1])
