@@ -178,7 +178,7 @@ var orderedlist3 = function (id) {
           "buttons":[
             {
               "type":"web_url",
-              "url":"https://lit-thicket-26597.herokuapp.com/list3/" + incoming.user,
+              "url":"https://lit-thicket-26597.herokuapp.com/list3",
               "title":"Rank Sugars",
               "messenger_extensions": true,
               "webview_height_ratio": "compact"
