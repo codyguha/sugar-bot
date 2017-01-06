@@ -223,7 +223,7 @@ module.exports = function (controller) {
               }
           });
         } else if (incoming.payload === "question009"){
-          bot.startConversation(incoming, function(err, convo) {
+
             convo.ask({
               text: "Why?"
             }, function(response, convo) {
@@ -231,7 +231,6 @@ module.exports = function (controller) {
               // whoa, I got the postback payload as a response to my convo.ask!
               convo.next();
             });
-          });
         }
       } else {
         var object = JSON.stringify(incoming, null, 4);
