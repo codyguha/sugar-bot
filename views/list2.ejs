@@ -14,14 +14,12 @@
   width: 14.0em;
   cursor: move;
 }
-ol li:before {
-  content: counter(level1) " "; /*Instead of ". " */
-  counter-increment: level1;
-}
+
 </style>
 
 
 <body>
+<p>most natural<p>
 <ol id="slippylist">
   <% for(var i=0; i<list.length; i++) {%>
 
@@ -30,6 +28,7 @@ ol li:before {
   <% } %>
 
 </ol>
+<p>most artificial<p>
 <script>
 
 window.extAsyncInit = function() {
