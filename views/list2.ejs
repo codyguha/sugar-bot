@@ -14,21 +14,46 @@
   width: 14.0em;
   cursor: move;
 }
+#sugaritemgreen {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:green;
+  width: 14.0em;
+  cursor: move;
+}
+#sugaritemblue {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:blue;
+  width: 14.0em;
+  cursor: move;
+}
 
 </style>
 
 
 <body>
-<p>most natural<p>
+
 <ol id="slippylist">
+  <li id="sugaritemgreen" class="no-reorder">Most Natural</li>
   <% for(var i=0; i<list.length; i++) {%>
 
       <li id="sugaritem"><%= list[i] %></li>
 
   <% } %>
-
+  <li id="sugaritemblue" class="no-reorder">Most Artificial</li>
 </ol>
-<p>most artificial<p>
+
 <script>
 
 window.extAsyncInit = function() {
@@ -43,6 +68,12 @@ window.extAsyncInit = function() {
 function setupSlip(list) {
 
   list.addEventListener('slip:beforeswipe', function(e){e.preventDefault();}, false);
+
+  list.addEventListener('slip:beforereorder', function(e){
+            if (e.target.classList.indexOf('no-reorder') >= 0) {
+                e.preventDefault();
+            }
+        }, false);
 
   list.addEventListener('slip:reorder', function(e){
         e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
