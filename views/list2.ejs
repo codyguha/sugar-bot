@@ -70,7 +70,7 @@ function setupSlip(list) {
   list.addEventListener('slip:beforeswipe', function(e){e.preventDefault();}, false);
 
   list.addEventListener('slip:beforereorder', function(e){
-            if (e.target.classList.indexOf('no-reorder')) {
+            if (e.target.classList.indexOf('no-reorder') >= 0) {
                 e.preventDefault();
             }
         }, false);
