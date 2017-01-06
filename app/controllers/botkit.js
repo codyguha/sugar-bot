@@ -171,6 +171,7 @@ var getlist = function (id) {
   controller.storage.users.get(id, function(err, user_data) {
   var list = user_data.list;
   return list
+  console.log(">>>>>>>>>>>>>>>>>>>LISTTED: " + list)
   });
 }
 exports.handler = handler
