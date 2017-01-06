@@ -139,6 +139,89 @@ module.exports = function (controller) {
               }
             });
           });
+        } else if(incoming.payload === "question008"){
+          var questions = [ "I pay close attention to the type(s) of sugar or sweetener in the products I buy",
+                            "I would rather consume a lower/zero calorie sugar substitute",
+                            "I would feel guilty feeding artificial sweeteners to my family",
+                            "I buy whatever is available, regardless of sugar type",
+                            "Some artificial sweeteners are better for me than others",
+                            "I lean more towards sugar than sweeteners",
+                            "Some natural sugars are better for me than others",
+                            "I would like to see more choice of sweeteners across the products I buy",
+                            "I am more of a sweetener person than a sugar person" ]
+          bot.startConversation(incoming, function(err, convo) {
+              for (i = 1; i < questions.length; ++i) {
+                if (i === (questions.length-1)) {
+                  convo.ask({
+                    text: "END!!!!",
+                    quick_replies: [
+                        {
+                            "content_type": "text",
+                            "title": "Strongly agree",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Somewhat agree",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Neither",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Somewhat disagree",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Strongly disagree",
+                            "payload": "888",
+                        }
+                    ]
+                  }, function(response, convo) {
+                    // whoa, I got the postback payload as a response to my convo.ask!
+                    convo.next();
+                  });
+                } else {
+                  convo.ask({
+                    text: questions[i],
+                    quick_replies: [
+                        {
+                            "content_type": "text",
+                            "title": "Strongly agree",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Somewhat agree",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Neither",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Somewhat disagree",
+                            "payload": "888",
+                        },
+                        {
+                            "content_type": "text",
+                            "title": "Strongly disagree",
+                            "payload": "888",
+                        }
+                    ]
+                  }, function(response, convo) {
+                    // whoa, I got the postback payload as a response to my convo.ask!
+                    convo.next();
+                  });
+                }
+              }
+          });
         }
       } else {
         var object = JSON.stringify(incoming, null, 4);

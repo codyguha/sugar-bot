@@ -114,5 +114,6 @@ module.exports = function (app) {
     var healthy_order_list = keys
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
+    attitudinal(facebook_id)
   })
 }

@@ -251,9 +251,44 @@ var orderedlist6 = function (id) {
       }
   });
 }
+var attitudinal = function (id) {
+  bot.say({
+      text: `How strongly do you agree with the following statements about sugars and sweeteners? 'I think that natural sugars are better for me than artificial sweeteners'`,
+      channel: id,
+      quick_replies: [
+          {
+              "content_type": "text",
+              "title": "Strongly agree",
+              "payload": "question008",
+          },
+          {
+              "content_type": "text",
+              "title": "Somewhat agree",
+              "payload": "question008",
+          },
+          {
+              "content_type": "text",
+              "title": "Neither",
+              "payload": "question008",
+          },
+          {
+              "content_type": "text",
+              "title": "Somewhat disagree",
+              "payload": "question008",
+          },
+          {
+              "content_type": "text",
+              "title": "Strongly disagree",
+              "payload": "question008",
+          }
+      ]
+  });
+}
+
 exports.handler = handler
 exports.broadcast = broadcast
 exports.orderedlist3 = orderedlist3
 exports.orderedlist4 = orderedlist4
 exports.orderedlist5 = orderedlist5
 exports.orderedlist6 = orderedlist6
+exports.attitudinal = attitudinal
