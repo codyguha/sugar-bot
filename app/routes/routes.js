@@ -26,8 +26,7 @@ module.exports = function (app) {
 
   app.get('/list2/:id',
     function(req, res){
-      getList(req.params.id)
-      res.render('list2', {list: list});
+      res.render('list2', {list: userslist});
   });
 
   var userslist
