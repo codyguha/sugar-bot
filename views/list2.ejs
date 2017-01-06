@@ -43,17 +43,19 @@
 
 
 <body>
-
-<ol id="slippylist">
+<div>
   <div id="sugaritemgreen" class="no-reorder">Most Natural</div>
-  <% for(var i=0; i<list.length; i++) {%>
+    <ol id="slippylist">
 
-      <li id="sugaritem"><%= list[i] %></li>
+      <% for(var i=0; i<list.length; i++) {%>
 
-  <% } %>
+          <li id="sugaritem"><%= list[i] %></li>
+
+      <% } %>
+
+    </ol>
   <div id="sugaritemblue" class="no-reorder">Most Artificial</div>
-</ol>
-
+</div>
 <script>
 
 window.extAsyncInit = function() {
