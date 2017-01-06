@@ -59,7 +59,9 @@ module.exports = function (controller) {
 
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
-        if (incoming.payload === "question002") {
+        if (incoming.payload === "question009") {
+          cosole.log("GOT HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        }else if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
             bot.startConversation(incoming, function(err, convo) {
@@ -183,6 +185,7 @@ module.exports = function (controller) {
                     ]
                   }, function(response, convo) {
                     // whoa, I got the postback payload as a response to my convo.ask!
+                    convo.stop()
                     naturalOrArtificial(bot, incoming)
                   });
                 } else {
