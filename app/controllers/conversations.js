@@ -279,7 +279,7 @@ function naturalOrArtificial(bot, incoming){
             "payload": "question009",
         }
     ]
-  }
+  });
 }
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
