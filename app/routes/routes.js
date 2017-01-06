@@ -1,6 +1,9 @@
 var facebook_handler = require('../controllers/botkit').handler
 var broadcaster = require('../controllers/botkit').broadcast
 var orderedlist3 = require('../controllers/botkit').orderedlist3
+var orderedlist4 = require('../controllers/botkit').orderedlist4
+var orderedlist5 = require('../controllers/botkit').orderedlist5
+var orderedlist6 = require('../controllers/botkit').orderedlist6
 
 module.exports = function (app) {
 
@@ -37,6 +40,14 @@ module.exports = function (app) {
   app.get('/list4',
     function(req, res){
       res.render('list4', {list: userslist});
+  });
+  app.get('/list5',
+    function(req, res){
+      res.render('list5', {list: userslist});
+  });
+  app.get('/list6',
+    function(req, res){
+      res.render('list6', {list: userslist});
   });
 
   var userslist
@@ -83,9 +94,25 @@ module.exports = function (app) {
     var healthy_order_list = keys
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
-    orderedlist4(facebook_id)
+    orderedlist5(facebook_id)
   })
-
-
-
+  app.post('/list5',function(req,res){
+    var facebook_id = req.body.fb_id
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    var keys = Object.keys(req.body)
+    keys.splice(0, 1);
+    var healthy_order_list = keys
+  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
+    orderedlist6(facebook_id)
+  })
+  app.post('/list6',function(req,res){
+    var facebook_id = req.body.fb_id
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    var keys = Object.keys(req.body)
+    keys.splice(0, 1);
+    var healthy_order_list = keys
+  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
+  })
 }

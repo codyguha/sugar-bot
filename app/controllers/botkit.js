@@ -188,6 +188,72 @@ var orderedlist3 = function (id) {
       }
   });
 }
+var orderedlist4 = function (id) {
+  bot.say({
+      channel: id,
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"Any conversation about sugars and sweeteners includes health considerations.  How would you classify each of these in terms of being healthy?   Please rank where #1 is the most good for you down to those which are not good for you.",
+          "buttons":[
+            {
+              "type":"web_url",
+              "url":"https://lit-thicket-26597.herokuapp.com/list4",
+              "title":"Rank Sugars",
+              "messenger_extensions": true,
+              "webview_height_ratio": "compact"
+            }
+          ]
+        }
+      }
+  });
+}
+var orderedlist5 = function (id) {
+  bot.say({
+      channel: id,
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
+          "buttons":[
+            {
+              "type":"web_url",
+              "url":"https://lit-thicket-26597.herokuapp.com/list5",
+              "title":"Rank Sugars",
+              "messenger_extensions": true,
+              "webview_height_ratio": "compact"
+            }
+          ]
+        }
+      }
+  });
+}
+var orderedlist6 = function (id) {
+  bot.say({
+      channel: id,
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"Thinking of how likely you would be to consider buying a product containing each of these, please rank them where #1 is the one you would most likely consider down to the one you would least likely consider.",
+          "buttons":[
+            {
+              "type":"web_url",
+              "url":"https://lit-thicket-26597.herokuapp.com/list6",
+              "title":"Rank Sugars",
+              "messenger_extensions": true,
+              "webview_height_ratio": "compact"
+            }
+          ]
+        }
+      }
+  });
+}
 exports.handler = handler
 exports.broadcast = broadcast
 exports.orderedlist3 = orderedlist3
+exports.orderedlist4 = orderedlist4
+exports.orderedlist3 = orderedlist5
+exports.orderedlist4 = orderedlist6
