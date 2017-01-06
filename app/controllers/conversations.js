@@ -153,7 +153,7 @@ module.exports = function (controller) {
               for (i = 1; i < questions.length; ++i) {
                 if (i === (questions.length-1)) {
                   convo.ask({
-                    text: "END!!!!",
+                    text: questions[i],
                     quick_replies: [
                         {
                             "content_type": "text",
@@ -183,7 +183,7 @@ module.exports = function (controller) {
                     ]
                   }, function(response, convo) {
                     // whoa, I got the postback payload as a response to my convo.ask!
-                    convo.next();
+                    naturalOrArtificial(bot, incoming)
                   });
                 } else {
                   convo.ask({
@@ -222,6 +222,16 @@ module.exports = function (controller) {
                 }
               }
           });
+        } else if (incoming.payload === "question009"){
+          bot.startConversation(incoming, function(err, convo) {
+            convo.ask({
+              text: "Why?"
+            }, function(response, convo) {
+              convo.say({text: "Thanks for your input – the sugar vs. sweetener issue can be quite a hot topic so it’s important that your voice is heard and we can make decisions on behalf of our customers."})
+              // whoa, I got the postback payload as a response to my convo.ask!
+              convo.next();
+            });
+          }
         }
       } else {
         var object = JSON.stringify(incoming, null, 4);
@@ -247,6 +257,29 @@ function askNextQuestion(bot, incoming){
         ]
       }
     }});
+}
+
+function naturalOrArtificial(bot, incoming){
+  bot.say({
+    text: "Given the choice, do you have a preference between natural sugars or artificial sweeteners?"
+    quick_replies: [
+        {
+            "content_type": "text",
+            "title": "I prefer natural",
+            "payload": "question009",
+        },
+        {
+            "content_type": "text",
+            "title": "I prefer artificial",
+            "payload": "question009",
+        },
+        {
+            "content_type": "text",
+            "title": "No preference",
+            "payload": "question009",
+        }
+    ]
+  }
 }
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
