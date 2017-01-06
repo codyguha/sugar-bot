@@ -71,7 +71,7 @@ module.exports = function (app) {
     keys.splice(0, 1);
     var taste_order_list = keys
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + natural_order_list)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + taste_order_list)
     orderedlist4(facebook_id)
   })
 
@@ -82,7 +82,7 @@ module.exports = function (app) {
     keys.splice(0, 1);
     var healthy_order_list = keys
   	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + natural_order_list)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
     orderedlist4(facebook_id)
   })
 
