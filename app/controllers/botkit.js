@@ -255,5 +255,5 @@ exports.handler = handler
 exports.broadcast = broadcast
 exports.orderedlist3 = orderedlist3
 exports.orderedlist4 = orderedlist4
-exports.orderedlist3 = orderedlist5
+exports.orderedlist5 = orderedlist5
 exports.orderedlist6 = orderedlist6
