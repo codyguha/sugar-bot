@@ -231,7 +231,7 @@ module.exports = function (controller) {
               // whoa, I got the postback payload as a response to my convo.ask!
               convo.next();
             });
-          }
+          });
         }
       } else {
         var object = JSON.stringify(incoming, null, 4);
