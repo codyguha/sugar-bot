@@ -167,10 +167,25 @@ var broadcast = function (id, list) {
       ]
   });
 }
-var getlist = function (id) {
-  controller.storage.users.get(id, function(err, user_data) {
-  var list = user_data.list;
-  console.log(">>>>>>>>>>>>>>>>>>>LISTTED: " + list)
+var orderedlist2 = function (id) {
+  bot.say({
+      channel: id,
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"Aside from what they’re made of, taste is a big part of why we choose the sugars and sweeteners that we like!  How would you classify each of these in terms of taste?  Please rank them where #1 tastes good down to tastes bad.",
+          "buttons":[
+            {
+              "type":"web_url",
+              "url":"https://lit-thicket-26597.herokuapp.com/list3/" + incoming.user,
+              "title":"Rank Sugars",
+              "messenger_extensions": true,
+              "webview_height_ratio": "compact"
+            }
+          ]
+        }
+      }
   });
 }
 exports.handler = handler
