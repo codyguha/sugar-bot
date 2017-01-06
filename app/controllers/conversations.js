@@ -60,7 +60,14 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
-          console.log("GOT HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+          bot.startConversation(incoming, function(err, convo) {
+            convo.ask({
+              text: "why?"
+            }, function(response, convo) {
+              console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
+              convo.next();
+            });
+          });
         }else if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
@@ -276,14 +283,14 @@ function naturalOrArtificial(bot, incoming){
   });
 }
 
-controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
-  convo.ask({
-    text: "why?"
-  }, function(response, convo) {
-    console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
-    convo.next();
-  });
-});
+// controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
+//   convo.ask({
+//     text: "why?"
+//   }, function(response, convo) {
+//     console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
+//     convo.next();
+//   });
+// });
   // user says anything else
   // controller.hears('(.*)', 'message_received', function (bot, message) {
   //   bot.reply(message, 'you said ' + message.match[1])
