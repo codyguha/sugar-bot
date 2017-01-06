@@ -261,7 +261,7 @@ function askNextQuestion(bot, incoming){
 
 function naturalOrArtificial(bot, incoming){
   bot.say({
-    text: "Given the choice, do you have a preference between natural sugars or artificial sweeteners?"
+    text: "Given the choice, do you have a preference between natural sugars or artificial sweeteners?",
     quick_replies: [
         {
             "content_type": "text",
