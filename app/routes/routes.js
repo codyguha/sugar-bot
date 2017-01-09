@@ -121,4 +121,10 @@ module.exports = function (app) {
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
     attitudinal(facebook_id)
   })
+  app.post('/products',function(req,res){
+    var facebook_id = req.body.fb_id
+    var cnslbody = JSON.stringify(req.body, null, 4);
+  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + cnslbody)
+  })
 }
