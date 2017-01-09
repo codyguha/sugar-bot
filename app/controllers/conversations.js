@@ -59,7 +59,7 @@ module.exports = function (controller) {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             user_data.preference = incoming.text
             controller.storage.users.save({user_data});
-          }
+          });
           bot.startConversation(incoming, function(err, convo) {
             convo.ask({
               text: "why is that?"
@@ -67,7 +67,7 @@ module.exports = function (controller) {
               controller.storage.users.get(incoming.user, function(err, user_data) {
                 user_data.reason = response.text
                 controller.storage.users.save({user_data});
-              }
+              });
               convo.stop();
               productPreference(bot, incoming)
             });
