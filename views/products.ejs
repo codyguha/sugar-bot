@@ -47,7 +47,15 @@ window.extAsyncInit = function() {
 
      });
 };
+$('img').live('click', function(){
+    var $this = $(this);
+    $this.toggleClass('selected');
 
+    if($this.hasClass('selected'))
+        $this.next(':hidden').val($this.data('id'))
+    else
+        $this.next(':hidden').val('');
+});
 $('#done').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
