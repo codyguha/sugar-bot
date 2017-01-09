@@ -60,12 +60,14 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
+          controller.storage.users.save({id: incoming.user, preference: incoming.text});
           bot.startConversation(incoming, function(err, convo) {
             convo.ask({
               text: "why?"
             }, function(response, convo) {
+              controller.storage.users.save({id: incoming.user, reason: response.text});
+              productPreference(bot, incoming)
               console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
-              controller.storage.users.save({id: incoming.user, preference: response.text});
               convo.next();
             });
           });
@@ -106,7 +108,6 @@ module.exports = function (controller) {
                         }
                     ]
                   }, function(response, convo) {
-                    // whoa, I got the postback payload as a response to my convo.ask!
                     convo.stop()
                     askNextQuestion(bot, incoming);
                   });
@@ -142,7 +143,6 @@ module.exports = function (controller) {
                         }
                     ]
                   }, function(response, convo) {
-                    // whoa, I got the postback payload as a response to my convo.ask!
                     convo.next();
                   });
                 }
@@ -192,7 +192,6 @@ module.exports = function (controller) {
                         }
                     ]
                   }, function(response, convo) {
-                    // whoa, I got the postback payload as a response to my convo.ask!
                     convo.stop()
                     naturalOrArtificial(bot, incoming)
                   });
@@ -227,7 +226,6 @@ module.exports = function (controller) {
                         }
                     ]
                   }, function(response, convo) {
-                    // whoa, I got the postback payload as a response to my convo.ask!
                     convo.next();
                   });
                 }
@@ -284,6 +282,24 @@ function naturalOrArtificial(bot, incoming){
   });
 }
 
+function productPreference(bot, incoming){
+  bot.reply(incoming, {"attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"Thanks for your input – the sugar vs. sweetener issue can be quite a hot topic so it’s important that your voice is heard and we can make decisions on behalf of our customers.  Switching gears a bit from sugar vs. sweetener, we’d like to know which of the following products you would consider purchasing and which you would not.",
+      "buttons":[
+        {
+          "type":"web_url",
+          "url":"https://lit-thicket-26597.herokuapp.com/products",
+          "title":"Show Me The Products",
+          "messenger_extensions": true,
+          "webview_height_ratio": "compact"
+        }
+      ]
+    }
+  }});
+}
 // controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
 //   convo.ask({
 //     text: "why?"

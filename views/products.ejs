@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+<style>
+.selected { border: 3px solid #555; }
+img{width: 150px;}
+</style>
+
+<body>
+  <p>select which of these you would consider purchasing</p>
+
+    <form id="ProductList" method="post" action="/products">
+      <input id="facebook_id" type="hidden" name='fb_id'>
+          <div>
+                <img src="http://i5.walmartimages.ca/images/Large/290/921/999999-65633290921.jpg" />
+                <input type="hidden" name="LuckyCharms" />
+            </div>
+            <div>
+                <img src="https://s-media-cache-ak0.pinimg.com/originals/85/f0/59/85f0590839661d206afe7506ae6a7b24.jpg" />
+                <input type="hidden" name="CornFlakes" />
+            </div>
+            <div>
+                <img src="http://www.mrbreakfast.com/ucp/144_4564_ucp.jpg" />
+                <input type="hidden" name="FrostedFlakes" />
+            </div>
+            <div>
+                <img  src="http://wdy.h-cdn.co/assets/cm/15/09/480x552/54ec077f76ab1_-_planters-creamy-peanut-butter-xl.jpg" />
+                <input type="hidden" name="PlanterPB" />
+            </div>
+            <div>
+                <img  src="http://wdy.h-cdn.co/assets/cm/15/09/480x552/54ec0781ab301_-_smuckers-chunky-natural-peanut-butter-xl.jpg" />
+                <input type="hidden" name="SmuckerPB" />
+            </div>
+            <div>
+                <img src="http://wdy.h-cdn.co/assets/cm/15/09/480x552/54ec0784637bb_-_maranatha-dark-chocolate-peanut-spread-xl.jpg" />
+                <input type="hidden" name="DarckChocolatePB" />
+            </div>
+        <input id="done" type="submit" value="submit" />
+    </form>
+<script>
+
+window.extAsyncInit = function() {
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid.toString();
+       $("#facebook_id").val(psid)
+     }, function error(err) {
+
+     });
+};
+
+$('#done').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+});
+
+</script>
+</body>
