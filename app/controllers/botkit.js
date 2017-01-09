@@ -284,6 +284,36 @@ var attitudinal = function (id) {
       ]
   });
 }
+var compromise = function (id , list) {
+  controller.storage.users.save({id: id, would_buy: list});
+  var user_data = controller.storage.users.get(id);
+  if (user_data.pre)
+
+  bot.say({
+      text: `We know that you prefer to consume natural sugars, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
+      channel: id
+  });
+  comprimise2(id);
+}
+var compromise2 = function (id) {
+  bot.say({
+      text: `Imagine yourself in some of these situations – whether it’s under a time crunch, certain locations, the people you are with, etc. -- and think of when you would compromise and consume artificial sweeteners.`,
+      channel: id,
+      quick_replies: [
+          {
+              "content_type": "text",
+              "title": "Not Now",
+              "payload": "compromise",
+          },
+          {
+              "content_type": "text",
+              "title": "Get Started",
+              "payload": "compromise",
+          }
+      ]
+  });
+}
+
 
 exports.handler = handler
 exports.broadcast = broadcast
@@ -292,3 +322,4 @@ exports.orderedlist4 = orderedlist4
 exports.orderedlist5 = orderedlist5
 exports.orderedlist6 = orderedlist6
 exports.attitudinal = attitudinal
+exports.compromise = compromise

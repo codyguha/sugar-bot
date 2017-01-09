@@ -5,6 +5,7 @@ var orderedlist4 = require('../controllers/botkit').orderedlist4
 var orderedlist5 = require('../controllers/botkit').orderedlist5
 var orderedlist6 = require('../controllers/botkit').orderedlist6
 var attitudinal = require('../controllers/botkit').attitudinal
+var compromise = require('../controllers/botkit').compromise
 
 module.exports = function (app) {
 
@@ -124,7 +125,7 @@ module.exports = function (app) {
   app.post('/products',function(req,res){
     var facebook_id = req.body.fb_id
     var cnslbody = JSON.stringify(req.body, null, 4);
-  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + cnslbody)
+    var list_of_products =  req.body.products
+    compromise(facebook_id, list_of_products)
   })
 }

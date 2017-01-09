@@ -56,16 +56,22 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
-          controller.storage.users.save({id: incoming.user, preference: incoming.text});
+          var new_save = controller.storage.users.get(id);
+          new_save.preference = incoming.text
+          controller.storage.users.save({new_save});
           bot.startConversation(incoming, function(err, convo) {
             convo.ask({
               text: "why is that?"
             }, function(response, convo) {
-              controller.storage.users.save({id: incoming.user, reason: response.text});
+              var new_save = controller.storage.users.get(id);
+              new_save.reason = incoming.text
+              controller.storage.users.save({new_save});
               convo.stop();
               productPreference(bot, incoming)
             });
           });
+        }else if((incoming.payload === "compromise")){
+
         }else if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
