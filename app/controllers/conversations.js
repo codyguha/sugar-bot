@@ -57,6 +57,7 @@ module.exports = function (controller) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
               var new_save = controller.storage.users.get(incoming.user);
+              console.log(">>>>>>>>>>>>SAVE WHERE ???>>>>>>>>>>>" + new_save)
               new_save.preference = incoming.text
               controller.storage.users.save({new_save});
           bot.startConversation(incoming, function(err, convo) {
