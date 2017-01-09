@@ -56,17 +56,18 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
-              new_save = controller.storage.users.get('1058353670959004');
-              console.log(">>>>>>>>>>>>SAVE WHERE ???>>>>>>>>>>>" + new_save)
-              new_save.preference = incoming.text
-              controller.storage.users.save({new_save});
+          controller.storage.users.get(incoming.user, function(err, user_data) {
+            user_data.preference = incoming.text
+            controller.storage.users.save({user_data});
+          }
           bot.startConversation(incoming, function(err, convo) {
             convo.ask({
               text: "why is that?"
             }, function(response, convo) {
-              var new_save = controller.storage.users.get(incoming.user);
-              new_save.reason = incoming.text
-              controller.storage.users.save({new_save});
+              controller.storage.users.get(incoming.user, function(err, user_data) {
+                user_data.reason = response.text
+                controller.storage.users.save({user_data});
+              }
               convo.stop();
               productPreference(bot, incoming)
             });
