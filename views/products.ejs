@@ -9,6 +9,7 @@ img{width: 150px;}
   <p>select which of these you would consider purchasing</p>
 
     <form id="ProductList" method="post" action="/products">
+        <input id="facebook_id" type="hidden" name='fb_id'>
       <select multiple="multiple" class="image-picker" name="products">
         <option data-img-src="/images/luckycharms.jpg" value="Lucky Charms">Lucky Charms</option>
         <option data-img-src="/images/cornflakes.jpg" value="Corn Flakes">Corn Flakes</option>

@@ -53,10 +53,6 @@ module.exports = function (controller) {
       bot.reply(message, "type 'hello'");
   });
 
-  controller.hears(['question002'], 'message_received', function(bot, message) {
-      bot.reply(message, "got here");
-  });
-
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
