@@ -59,7 +59,7 @@ module.exports = function (controller) {
               // var new_save = controller.storage.users.get(incoming.user);
               // new_save.preference = incoming.text
               // controller.storage.users.save({new_save});
-              // bot.startConversation(incoming, function(err, convo) {
+          bot.startConversation(incoming, function(err, convo) {
             convo.ask({
               text: "why is that?"
             }, function(response, convo) {
