@@ -56,14 +56,14 @@ module.exports = function (controller) {
   controller.on('message_received', function(bot, incoming) {
       if (incoming.payload){
         if (incoming.payload === "question009") {
-          var new_save = controller.storage.users.get(id);
+          var new_save = controller.storage.users.get(incoming.user);
           new_save.preference = incoming.text
           controller.storage.users.save({new_save});
           bot.startConversation(incoming, function(err, convo) {
             convo.ask({
               text: "why is that?"
             }, function(response, convo) {
-              var new_save = controller.storage.users.get(id);
+              var new_save = controller.storage.users.get(incoming.user);
               new_save.reason = incoming.text
               controller.storage.users.save({new_save});
               convo.stop();
