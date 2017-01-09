@@ -63,12 +63,11 @@ module.exports = function (controller) {
           controller.storage.users.save({id: incoming.user, preference: incoming.text});
           bot.startConversation(incoming, function(err, convo) {
             convo.ask({
-              text: "why?"
+              text: "why is that?"
             }, function(response, convo) {
               controller.storage.users.save({id: incoming.user, reason: response.text});
+              convo.stop();
               productPreference(bot, incoming)
-              console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
-              convo.next();
             });
           });
         }else if (incoming.payload === "question002") {
@@ -287,7 +286,7 @@ function productPreference(bot, incoming){
     "type":"template",
     "payload":{
       "template_type":"button",
-      "text":"Thanks for your input – the sugar vs. sweetener issue can be quite a hot topic so it’s important that your voice is heard and we can make decisions on behalf of our customers.  Switching gears a bit from sugar vs. sweetener, we’d like to know which of the following products you would consider purchasing and which you would not.",
+      "text":"Thanks for your input – the sugar vs. sweetener issue can be quite a hot topic.  Switching gears a bit from sugar vs. sweetener, we’d like to know which of the following products you would consider purchasing and which you would not.",
       "buttons":[
         {
           "type":"web_url",
