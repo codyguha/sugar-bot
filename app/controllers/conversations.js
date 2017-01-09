@@ -64,6 +64,7 @@ module.exports = function (controller) {
               text: "why is that?"
             }, function(response, convo) {
               var new_save = controller.storage.users.get(incoming.user);
+              console.log("HERE")
               new_save.reason = incoming.text
               controller.storage.users.save({new_save});
               convo.stop();
