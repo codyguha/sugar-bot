@@ -65,6 +65,7 @@ module.exports = function (controller) {
               text: "why?"
             }, function(response, convo) {
               console.log('whoa')// whoa, I got the postback payload as a response to my convo.ask!
+              controller.storage.users.save({id: incoming.user, preference: response.text});
               convo.next();
             });
           });
