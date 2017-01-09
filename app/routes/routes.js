@@ -125,7 +125,8 @@ module.exports = function (app) {
   app.post('/products',function(req,res){
     var facebook_id = req.body.fb_id
     var cnslbody = JSON.stringify(req.body, null, 4);
-    var list_of_products =  req.body.products
+    console.log(cnslbody)
+    var list_of_products =  req.body
     compromise(facebook_id, list_of_products)
   })
 }
