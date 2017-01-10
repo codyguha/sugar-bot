@@ -72,8 +72,18 @@ module.exports = function (controller) {
               productPreference(bot, incoming)
             });
           });
-        }else if((incoming.payload === "compromise")){
-
+        }else if((incoming.payload === "compromise")) {
+          controller.storage.users.get(id, function(err, user_data) {
+            if (user_data.preference === "I prefer natural") {
+              var user_choice = "natural sugars"
+              var not_user_choice = "artificial sweeteners"
+              compromiseConvo(bot, incoming, user_choice, not_user_choice)
+            } else if (user_data.preference === "I prefer artificial"){
+              user_choice = "artificial sweeteners"
+              not_user_choice = "natural sugars"
+              compromiseConvo(bot, incoming, user_choice, not_user_choice)
+            }
+          });
         }else if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
@@ -302,6 +312,86 @@ function productPreference(bot, incoming){
       ]
     }
   }});
+}
+
+function compromiseConvo(bot, incoming, user_choice, not_user_choice) {
+  var questions = [ "There is a brand that I like which contains " + not_user_choice,
+                    "The " + user_choice + "option is significantly more expensive",
+                    "I would have to go out of my way in terms of convenience to seek out a "+user_choice+"alternative to what is on offer",
+                    "I am with other people (friends, colleagues, etc.) who are consuming products with " +not_user_choice
+                     ]
+  bot.startConversation(incoming, function(err, convo) {
+      for (i = 1; i < questions.length; ++i) {
+        if (i === (questions.length-1)) {
+          convo.ask({
+            text: questions[i],
+            quick_replies: [
+                {
+                    "content_type": "text",
+                    "title": "Strongly agree",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Somewhat agree",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Neither",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Somewhat disagree",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Strongly disagree",
+                    "payload": "888",
+                }
+            ]
+          }, function(response, convo) {
+            convo.stop()
+            naturalOrArtificial(bot, incoming)
+          });
+        } else {
+          convo.ask({
+            text: questions[i],
+            quick_replies: [
+                {
+                    "content_type": "text",
+                    "title": "Strongly agree",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Somewhat agree",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Neither",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Somewhat disagree",
+                    "payload": "888",
+                },
+                {
+                    "content_type": "text",
+                    "title": "Strongly disagree",
+                    "payload": "888",
+                }
+            ]
+          }, function(response, convo) {
+            convo.next();
+          });
+        }
+      }
+  });
 }
 // controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
 //   convo.ask({
