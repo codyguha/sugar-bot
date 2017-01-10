@@ -285,26 +285,32 @@ var attitudinal = function (id) {
   });
 }
 var compromise = function (id , list) {
+  var user_choice
+  var not_user_choice
   controller.storage.users.get(id, function(err, user_data) {
     user_data.products = list
     controller.storage.users.save(user_data);
     if (user_data.preference === "I prefer natural") {
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NATURAL !!!!")
+      user_choice = "natural sugars"
+      not_user_choice = "artificial sweeteners"
+
     } else if (user_data.preference === "I prefer artificial"){
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ARTIFICIAL !!!!")
+      user_choice = "artificial sweeteners"
+      not_user_choice = "natural sugars"
+
     } else {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NEITHER !!!!")
     }
   });
-  // bot.say({
-  //     text: `We know that you prefer to consume natural sugars, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
-  //     channel: id
-  // });
-  // comprimise2(id);
-}
-var compromise2 = function (id) {
   bot.say({
-      text: `Imagine yourself in some of these situations – whether it’s under a time crunch, certain locations, the people you are with, etc. -- and think of when you would compromise and consume artificial sweeteners.`,
+      text: `We know that you prefer to consume ` + user_choice + `, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
+      channel: id
+  });
+  comprimise2(id, not_user_choice);
+}
+var compromise2 = function (id, not_user_choice) {
+  bot.say({
+      text: `Imagine yourself in some of these situations – whether it’s under a time crunch, certain locations, the people you are with, etc. -- and think of when you would compromise and consume ` + not_user_choice + `.`,
       channel: id,
       quick_replies: [
           {
