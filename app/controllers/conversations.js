@@ -423,6 +423,7 @@ function compromise3(bot, incoming, user_choice, not_user_choice){
           }
       ]
     }, function(response, convo) {
+      convo.next()
       convo.ask({
         text: "Is there a particular meal occasion when you would be more likely to consider a product with "+not_user_choice+"?",
         quick_replies: [
