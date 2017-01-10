@@ -293,15 +293,19 @@ var compromise = function (id , list) {
     if (user_data.preference === "I prefer natural") {
       user_choice = "natural sugars"
       not_user_choice = "artificial sweeteners"
-
+      compchoice(id, user_choice, not_user_choice)
     } else if (user_data.preference === "I prefer artificial"){
       user_choice = "artificial sweeteners"
       not_user_choice = "natural sugars"
-
+      compchoice(id, user_choice, not_user_choice)
     } else {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NEITHER !!!!")
     }
   });
+
+
+}
+var compchoice = function (id , user_choice, not_user_choice){
   bot.say({
       text: `We know that you prefer to consume ` + user_choice + `, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
       channel: id
