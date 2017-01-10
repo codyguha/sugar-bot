@@ -73,7 +73,7 @@ module.exports = function (controller) {
             });
           });
         }else if(incoming.payload === "compromise") {
-          controller.storage.users.get(id, function(err, user_data) {
+          controller.storage.users.get(incoming.user, function(err, user_data) {
             if (user_data.preference === "I prefer natural") {
               var user_choice = "natural sugars"
               var not_user_choice = "artificial sweeteners"
