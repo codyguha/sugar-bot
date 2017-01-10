@@ -285,15 +285,22 @@ var attitudinal = function (id) {
   });
 }
 var compromise = function (id , list) {
-  controller.storage.users.save({id: id, would_buy: list});
-  var user_data = controller.storage.users.get(id);
-  if (user_data.pre)
-
-  bot.say({
-      text: `We know that you prefer to consume natural sugars, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
-      channel: id
+  controller.storage.users.get(id, function(err, user_data) {
+    user_data.products = list
+    controller.storage.users.save(user_data);
+    if (user_data.preference === "I prefer natural") {
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NATURAL !!!!")
+    } else if (user_data.preference === "I prefer artificial"){
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ARTIFICIAL !!!!")
+    } else {
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NEITHER !!!!")
+    }
   });
-  comprimise2(id);
+  // bot.say({
+  //     text: `We know that you prefer to consume natural sugars, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
+  //     channel: id
+  // });
+  // comprimise2(id);
 }
 var compromise2 = function (id) {
   bot.say({
