@@ -310,7 +310,7 @@ var compchoice = function (id , user_choice, not_user_choice){
       text: `We know that you prefer to consume ` + user_choice + `, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
       channel: id
   });
-  comprimise2(id, not_user_choice);
+  compromise2(id, not_user_choice);
 }
 var compromise2 = function (id, not_user_choice) {
   bot.say({
