@@ -72,7 +72,7 @@ module.exports = function (controller) {
               productPreference(bot, incoming)
             });
           });
-        }else if((incoming.payload === "compromise")) {
+        }else if(incoming.payload === "compromise") {
           controller.storage.users.get(id, function(err, user_data) {
             if (user_data.preference === "I prefer natural") {
               var user_choice = "natural sugars"
@@ -84,6 +84,8 @@ module.exports = function (controller) {
               compromiseConvo(bot, incoming, user_choice, not_user_choice)
             }
           });
+        }else if(incoming.payload === "timeofday"){
+          lastQuestion(bot, incoming)
         }else if (incoming.payload === "question002") {
           controller.storage.users.get(incoming.user, function(err, user_data) {
             var list = user_data.list
@@ -316,8 +318,8 @@ function productPreference(bot, incoming){
 
 function compromiseConvo(bot, incoming, user_choice, not_user_choice) {
   var questions = [ "There is a brand that I like which contains " + not_user_choice,
-                    "The " + user_choice + "option is significantly more expensive",
-                    "I would have to go out of my way in terms of convenience to seek out a "+user_choice+"alternative to what is on offer",
+                    "The " + user_choice + " option is significantly more expensive",
+                    "I would have to go out of my way in terms of convenience to seek out a "+user_choice+" alternative to what is on offer",
                     "I am with other people (friends, colleagues, etc.) who are consuming products with " +not_user_choice
                      ]
   bot.startConversation(incoming, function(err, convo) {
@@ -328,33 +330,28 @@ function compromiseConvo(bot, incoming, user_choice, not_user_choice) {
             quick_replies: [
                 {
                     "content_type": "text",
-                    "title": "Strongly agree",
-                    "payload": "888",
+                    "title": "Very unlikely",
+                    "payload": "compromise2",
                 },
                 {
                     "content_type": "text",
-                    "title": "Somewhat agree",
-                    "payload": "888",
+                    "title": "Somewhat unlikely",
+                    "payload": "compromise2",
                 },
                 {
                     "content_type": "text",
-                    "title": "Neither",
-                    "payload": "888",
+                    "title": "Somewhat likely",
+                    "payload": "compromise2",
                 },
                 {
                     "content_type": "text",
-                    "title": "Somewhat disagree",
-                    "payload": "888",
-                },
-                {
-                    "content_type": "text",
-                    "title": "Strongly disagree",
-                    "payload": "888",
+                    "title": "Very likely",
+                    "payload": "compromise2",
                 }
             ]
           }, function(response, convo) {
             convo.stop()
-            naturalOrArtificial(bot, incoming)
+            compromise3(bot, incoming, user_choice, not_user_choice)
           });
         } else {
           convo.ask({
@@ -362,27 +359,22 @@ function compromiseConvo(bot, incoming, user_choice, not_user_choice) {
             quick_replies: [
                 {
                     "content_type": "text",
-                    "title": "Strongly agree",
+                    "title": "Very unlikely",
                     "payload": "888",
                 },
                 {
                     "content_type": "text",
-                    "title": "Somewhat agree",
+                    "title": "Somewhat unlikely",
                     "payload": "888",
                 },
                 {
                     "content_type": "text",
-                    "title": "Neither",
+                    "title": "Somewhat likely",
                     "payload": "888",
                 },
                 {
                     "content_type": "text",
-                    "title": "Somewhat disagree",
-                    "payload": "888",
-                },
-                {
-                    "content_type": "text",
-                    "title": "Strongly disagree",
+                    "title": "Very likely",
                     "payload": "888",
                 }
             ]
@@ -393,6 +385,86 @@ function compromiseConvo(bot, incoming, user_choice, not_user_choice) {
       }
   });
 }
+
+function compromise3(bot, incoming, user_choice, not_user_choice){
+  bot.startConversation(incoming, function(err, convo) {
+    convo.ask({
+      text: "We appreciate that you prefer "+user_choice+", but let’s imagine that you had to consider "+not_user_choice+".  When would you be mostly likely to consider a product with "+not_user_choice+"?",
+      quick_replies: [
+          {
+              "content_type": "text",
+              "title": "Morning",
+              "payload": "999",
+          },
+          {
+              "content_type": "text",
+              "title": "Midday",
+              "payload": "999",
+          },
+          {
+              "content_type": "text",
+              "title": "Afternoon",
+              "payload": "999",
+          },
+          {
+              "content_type": "text",
+              "title": "Evening",
+              "payload": "999",
+          },
+          {
+              "content_type": "text",
+              "title": "Late night",
+              "payload": "999",
+          },
+          {
+              "content_type": "text",
+              "title": "I would never",
+              "payload": "999",
+          }
+      ]
+    }, function(response, convo) {
+      convo.ask({
+        text: "Is there a particular meal occasion when you would be more likely to consider a product with "+not_user_choice+"?",
+        quick_replies: [
+            {
+                "content_type": "text",
+                "title": "Breakfast",
+                "payload": "timeofday",
+            },
+            {
+                "content_type": "text",
+                "title": "Mid-morning snack",
+                "payload": "timeofday",
+            },
+            {
+                "content_type": "text",
+                "title": "Lunch",
+                "payload": "timeofday",
+            },
+            {
+                "content_type": "text",
+                "title": "Afternoon snack",
+                "payload": "timeofday",
+            },
+            {
+                "content_type": "text",
+                "title": "Dinner",
+                "payload": "timeofday",
+            },
+            {
+                "content_type": "text",
+                "title": "I would never",
+                "payload": "timeofday",
+            }
+        ]
+      }, function(response, convo) {
+        convo.next();
+      });
+    });
+  });
+}
+
+
 // controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
 //   convo.ask({
 //     text: "why?"
