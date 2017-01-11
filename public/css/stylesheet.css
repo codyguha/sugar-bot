@@ -27,7 +27,7 @@
     color:white;
 }
 #sugarbutton {
-  margin:8px;
+  margin:6px;
   background-color:#f7f7f7;
   border-radius:14px;
   border:1px solid #D0D0D0;
@@ -44,7 +44,7 @@
   position: relative;
   overflow: hidden;
   color:#1f93ff;
-  font-size: 1em;
+  font-size: 1.2em;
   width:16.0em;
 }
 
