@@ -60,7 +60,7 @@
 }
 
 #sugarbutton input:checked + span {
-    background-color:#3b5998;
+    background-color: #0084ff;
     color:white;
 }
 .description{
@@ -76,7 +76,7 @@
   padding: 20px;
   text-align:left;
   vertical-align: middle;
-  display: table-cell;   
+  display: table-cell;
 }
 
 .content
