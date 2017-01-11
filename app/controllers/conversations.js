@@ -8,17 +8,17 @@ module.exports = function (controller) {
   controller.hears(['hi'], 'message_received', function (bot, message) {
     bot.reply(message, 'Hey there.')
   });
-  controller.hears(['sugarfacematch'], 'message_received', function (bot, message) {
+  controller.hears(['Q1'], 'message_received', function (bot, message) {
     bot.reply(message, {"attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"We would like you to imagine that natural sugar and artificial sweetener are people, and choose which of these people they would be based on your first impression. You may only choose one person for each.",
+        "text":"We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please click on all the products below that you are aware of:",
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/personality",
-            "title":"Choose Sugar Person",
+            "url":"https://lit-thicket-26597.herokuapp.com/list",
+            "title":"Show List",
             "messenger_extensions": true,
             "webview_height_ratio": "compact"
           }
@@ -475,7 +475,7 @@ function compromise3(bot, incoming, user_choice, not_user_choice){
 //   });
 // });
   // user says anything else
-  controller.hears('(.*)', 'message_received', function (bot, message) {
-    bot.reply(message, 'you said ' + message.match[1])
-  });
+  // controller.hears('(.*)', 'message_received', function (bot, message) {
+  //   bot.reply(message, 'you said ' + message.match[1])
+  // });
 }
