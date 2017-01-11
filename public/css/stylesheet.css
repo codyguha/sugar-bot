@@ -64,8 +64,12 @@
     color:white;
 }
 
-#description {
-    top: 0px;
-    position: fixed;
-    background-color: white;
+.content
+{
+    position:absolute;
+    top: 50px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow-y:scroll;
 }
