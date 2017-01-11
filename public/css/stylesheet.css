@@ -63,11 +63,14 @@
     background-color:#3b5998;
     color:white;
 }
-
+.description{
+  padding: 2px;
+  background-color: grey;
+}
 .content
 {
     position:absolute;
-    top: 75px;
+    top: 85px;
     left:0px;
     right:0px;
     bottom:0px;
