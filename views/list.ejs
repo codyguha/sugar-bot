@@ -16,9 +16,9 @@
     </div>
   <% } %>
 
-  <div class="fixed-action-btn">
+  <div id="submit" class="fixed-action-btn">
     <a class="btn-floating btn-large red">
-       Submit
+      <i class="material-icons right">send</i>
      </a>
  </div>
 </form>
@@ -33,7 +33,7 @@ window.extAsyncInit = function() {
      });
 };
 
-$('#sugarbutton.done').click(function (evt) {
+$('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
     MessengerExtensions.requestCloseBrowser(function success() {
@@ -44,4 +44,6 @@ $('#sugarbutton.done').click(function (evt) {
 });
 
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/js/materialize.js"></script>
 </body>
