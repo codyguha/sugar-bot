@@ -65,7 +65,8 @@
 }
 .description{
   padding: 2px;
-  background-color: grey;
+  background-color: lightgray;
+  height: 85px;
 }
 .content
 {
