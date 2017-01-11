@@ -63,6 +63,7 @@
     background-color: #0084ff;
     color:white;
 }
+
 .description{
   padding: 2px;
   background-color: #0084ff;
@@ -72,7 +73,7 @@
   display: table;
   z-index: 1;
 }
-.description p{
+.description p {
   padding: 20px;
   text-align:left;
   vertical-align: middle;

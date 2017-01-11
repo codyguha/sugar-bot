@@ -43,33 +43,37 @@
 
 
 <body>
-  <form id="sugarList2" method="post" action="/list2">
-    <input id="facebook_id" type="hidden" name='fb_id'>
+  <div class="description">  <p>There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.</p></div>
 
-    <div>
-      <div id="sugaritemgreen" class="no-reorder">>>>>>Most Natural</div>
-        <ol id="slippylist">
+  <div class="content">
+    <form id="sugarList2" method="post" action="/list2">
+      <input id="facebook_id" type="hidden" name='fb_id'>
 
-          <% for(var i=0; i<list.length; i++) {%>
+      <div>
 
-              <li id="sugaritem">
-                <%= list[i] %>
-                <input type="hidden" name='<%= list[i] %>'>
-              </li>
+          <ol id="slippylist">
+            <li id="sugaritemgreen" class="no-reorder">>>>>>Most Natural</li>
+            <% for(var i=0; i<list.length; i++) {%>
 
-          <% } %>
+                <li id="sugaritem">
+                  <%= list[i] %>
+                  <input type="hidden" name='<%= list[i] %>'>
+                </li>
 
-        </ol>
-      <div id="sugaritemblue" class="no-reorder">>>>>>Most Artificial</div>
-    </div>
+            <% } %>
+            <li id="sugaritemblue" class="no-reorder">>>>>>Most Artificial</li>
+          </ol>
+
+      </div>
 
 
-    <div id="sugarbutton" class="done">
-       <label>
-          <input type="hidden" value='Done'><span>Done</span>
-       </label>
-    </div>
-  </form>
+      <div id="submit" class="fixed-action-btn">
+        <a class="btn-floating btn-large blue">
+          <i class="material-icons">send</i>
+         </a>
+     </div>
+    </form>
+  </div>
 <script>
 
 window.extAsyncInit = function() {
@@ -110,7 +114,7 @@ document.addEventListener("touchmove", function(e){
     window.scroll(pageX, pageY);
 }, false);
 
-$('#sugarbutton.done').click(function (evt) {
+$('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
     MessengerExtensions.requestCloseBrowser(function success() {
