@@ -69,8 +69,16 @@
   height: 120px;
   position: fixed;
   color:white;
+  display: table;
   z-index: 1;
 }
+.description p{
+  padding: 20px;
+  text-align:left;
+  vertical-align: middle;
+  display: table-cell;   
+}
+
 .content
 {
     position:absolute;
