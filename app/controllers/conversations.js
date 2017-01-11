@@ -266,7 +266,7 @@ function askNextQuestion(bot, incoming){
             "url":"https://lit-thicket-26597.herokuapp.com/list2",
             "title":"Rank Sugars",
             "messenger_extensions": true,
-            "webview_height_ratio": "compact"
+            "webview_height_ratio": "tall"
           }
         ]
       }
