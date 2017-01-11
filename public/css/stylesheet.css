@@ -69,6 +69,7 @@
   height: 120px;
   position: fixed;
   color:white;
+  z-index: 1;
 }
 .content
 {
@@ -80,4 +81,5 @@
     overflow-y:scroll;
     -webkit-overflow-scrolling: touch;
     height:100%;
+    z-index: 0;
 }
