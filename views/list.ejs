@@ -5,23 +5,28 @@
 
 
 <body>
-<form id="sugarList" method="post" action="/list">
-  <input id="facebook_id" type="hidden" name='fb_id'>
+<div class="col-md-8">
+  <form id="sugarList" method="post" action="/list">
+    <input id="facebook_id" type="hidden" name='fb_id'>
 
-  <% for(var i=0; i<list.length; i++) {%>
-    <div id="sugarbutton">
-      <label>
-        <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
-      </label>
-    </div>
-  <% } %>
+    <% for(var i=0; i<list.length; i++) {%>
+      <div id="sugarbutton">
+        <label>
+          <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
+        </label>
+      </div>
+    <% } %>
 
-  <div id="submit" class="fixed-action-btn">
-    <a class="btn-floating btn-large red">
-      <i class="material-icons" style="padding-top: 5px;">send</i>
-     </a>
- </div>
-</form>
+    <div id="submit" class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="material-icons" style="padding-top: 5px;">send</i>
+       </a>
+   </div>
+  </form>
+</div>
+<div class="col-md-4">
+  <p>We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please click on all the products that you are aware of:</p>
+</div>
 
 <script>
 window.extAsyncInit = function() {
