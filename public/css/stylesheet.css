@@ -63,3 +63,9 @@
     background-color:#3b5998;
     color:white;
 }
+
+#description {
+    top: 0px;
+    position: fixed;
+    left: 75%;
+}
