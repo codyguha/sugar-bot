@@ -33,7 +33,6 @@
   border:1px solid #D0D0D0;
   overflow:auto;
   float:left;
-  color:#1f93ff !important;
   cursor: move;
 }
 #sugarbutton.over {
@@ -44,6 +43,8 @@
   display: block;
   position: relative;
   overflow: hidden;
+  color:#1f93ff;
+  font-size: 1em;
   width:16.0em;
 }
 
