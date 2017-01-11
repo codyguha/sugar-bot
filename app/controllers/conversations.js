@@ -5,7 +5,7 @@ module.exports = function (controller) {
   })
 
   // user said hello
-  controller.hears(['hello'], 'message_received', function (bot, message) {
+  controller.hears(['hi'], 'message_received', function (bot, message) {
     bot.reply(message, 'Hey there.')
   });
   controller.hears(['Q1'], 'message_received', function (bot, message) {
@@ -46,11 +46,11 @@ module.exports = function (controller) {
   });
 
   controller.hears(['what can I do here?'], 'message_received', function(bot, message) {
-      bot.reply(message, "You can talk to me and I will respond!");
+      bot.reply(message, "In the future i will be able to determine your sugar IQ!");
   });
 
   controller.hears(['help'], 'message_received', function(bot, message) {
-      bot.reply(message, "type 'hello'");
+      bot.reply(message, "type 'hi'");
   });
 
   controller.on('message_received', function(bot, incoming) {
@@ -475,7 +475,7 @@ function compromise3(bot, incoming, user_choice, not_user_choice){
 //   });
 // });
   // user says anything else
-  // controller.hears('(.*)', 'message_received', function (bot, message) {
-  //   bot.reply(message, 'you said ' + message.match[1])
-  // });
+  controller.hears('(.*)', 'message_received', function (bot, message) {
+    bot.reply(message, 'you said ' + message.match[1])
+  });
 }
