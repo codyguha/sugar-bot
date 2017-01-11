@@ -65,13 +65,15 @@
 }
 .description{
   padding: 2px;
-  background-color: lightgray;
-  height: 100px;
+  background-color: #0084ff;
+  height: 120px;
+  position: fixed;
+  color:white;
 }
 .content
 {
     position:absolute;
-    top: 100px;
+    top: 120px;
     left:0px;
     right:0px;
     bottom:0px;
