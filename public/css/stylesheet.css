@@ -66,12 +66,12 @@
 .description{
   padding: 2px;
   background-color: lightgray;
-  height: 85px;
+  height: 100px;
 }
 .content
 {
     position:absolute;
-    top: 85px;
+    top: 100px;
     left:0px;
     right:0px;
     bottom:0px;
