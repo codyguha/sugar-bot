@@ -20,7 +20,7 @@ module.exports = function (controller) {
             "url":"https://lit-thicket-26597.herokuapp.com/list",
             "title":"Show List",
             "messenger_extensions": true,
-            "webview_height_ratio": "compact"
+            "webview_height_ratio": "tall"
           }
         ]
       }
