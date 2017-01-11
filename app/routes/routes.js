@@ -55,6 +55,14 @@ module.exports = function (app) {
     function(req, res){
       res.render('products', {list: userslist});
   });
+  app.get('/personality',
+    function(req, res){
+      res.render('personality_sugar');
+  });
+  app.get('/personality2',
+    function(req, res){
+      res.render('personality_sweetners');
+  });
 
   var userslist
   var list = ["Sugar", "Cane Sugar", "Sucrose", "Fructose", "Lactose", "Corn Syrup", "Maltodextrin", "Dextrose", "Glucose", "Evaporated Cane Juice", "Molasses", "High Fructose Corn Syrup", "Coconut Sugar", "Palm Sugar", "Rice Malt Syrup", "Malt", "Fruit Juice Concentrate", "Honey", "Maple Syrup", "Agave","Date Syrup", "Stevia", "Monk Fruit Juice", "Luo Han Guo", "Thaumatin", "Unrefined Sugar", "Mannitol", "Xylitol", "Sorbitol", "Tagatose", "Isomaltulose", "Polydextrose", "Aspartame (i.e. Equal)", "Sucralose (i.e. Splenda)", "Acesulphame Potassium", "Saccharin (i.e. Sweet ‘N Low)"]
@@ -128,5 +136,12 @@ module.exports = function (app) {
     console.log(cnslbody)
     var list_of_products =  req.body
     compromise(facebook_id, list_of_products)
+  })
+  app.post('/sugarperson',function(req,res){
+    var facebook_id = req.body.fb_id
+    var cnslbody = JSON.stringify(req.body, null, 4);
+    console.log(cnslbody)
+    var sugarperson =  req.body.person
+    personality2(facebook_id, sugarperson)
   })
 }

@@ -8,17 +8,17 @@ module.exports = function (controller) {
   controller.hears(['hi'], 'message_received', function (bot, message) {
     bot.reply(message, 'Hey there.')
   });
-  controller.hears(['Q1'], 'message_received', function (bot, message) {
+  controller.hears(['sugarfacematch'], 'message_received', function (bot, message) {
     bot.reply(message, {"attachment":{
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please click on all the products below that you are aware of:",
+        "text":"We would like you to imagine that natural sugar and artificial sweetener are people, and choose which of these people they would be based on your first impression. You may only choose one person for each.",
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/list",
-            "title":"Show List",
+            "url":"https://lit-thicket-26597.herokuapp.com/personality",
+            "title":"Choose Sugar Person",
             "messenger_extensions": true,
             "webview_height_ratio": "compact"
           }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+<style>
+img{width: 150px;}
+</style>
+
+<body>
+  <p>Choose apersonto represent natural sugar</p>
+
+    <form id="ProductList" method="post" action="/sugarperson">
+        <input id="facebook_id" type="hidden" name='fb_id'>
+      <select class="image-picker" name="person">
+        <option data-img-src="/images/Henry Yoo.JPG" value="Henry">Lucky Charms</option>
+        <option data-img-src="/images/Ivan Rickard Liow.JPG" value="Ivan">Corn Flakes</option>
+        <option data-img-src="/images/Toto Lai.JPG" value="Toto">Frosted Flakes</option>
+        <option data-img-src="/images/Wilson Chu.JPG" value="Wilson">Cute Kitten 4</option>
+      </select>
+        <input id="done" type="submit" value="submit" />
+    </form>
+<script>
+
+window.extAsyncInit = function() {
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid.toString();
+       $("#facebook_id").val(psid)
+     }, function error(err) {
+
+     });
+};
+$("select").imagepicker();
+
+$('#done').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+});
+
+</script>
+</body>
