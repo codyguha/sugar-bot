@@ -263,7 +263,7 @@ function askNextQuestion(bot, incoming){
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/list2",
+            "url":"https://lit-thicket-26597.herokuapp.com/rank1",
             "title":"Rank Sugars",
             "messenger_extensions": true,
             "webview_height_ratio": "tall"
