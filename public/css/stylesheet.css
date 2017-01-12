@@ -1,13 +1,5 @@
 
-#sugarbutton.done {
-    margin:4px;
-    background-color:#ff0000;
-    border-radius:14px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
-    color:white;
-}
+
 #sugarbutton.green {
     margin:4px;
     background-color:#4CBB17;
@@ -17,7 +9,7 @@
     float:left;
     color:white;
 }
-#sugarbutton.blue {
+.sugarbutton .blue {
     margin:4px;
     background-color:#0000FF;
     border-radius:14px;
@@ -26,7 +18,7 @@
     float:left;
     color:white;
 }
-#sugarbutton {
+.sugarbutton {
   margin:6px;
   background-color:#f7f7f7;
   border-radius:14px;
@@ -35,11 +27,8 @@
   float:left;
   cursor: move;
 }
-#sugarbutton.over {
-  border: 2px dashed #ff0000;
-}
 
-#sugarbutton label {
+.sugarbutton label {
   display: block;
   position: relative;
   overflow: hidden;
@@ -48,18 +37,18 @@
   width:16.0em;
 }
 
-#sugarbutton label span {
+.sugarbutton label span {
   text-align:center;
   padding:3px 0px;
   display:block;
 }
 
-#sugarbutton label input {
+.sugarbutton label input {
     position:absolute;
     top:-20px;
 }
 
-#sugarbutton input:checked + span {
+.sugarbutton input:checked + span {
     background-color: #0084ff;
     color:white;
 }
