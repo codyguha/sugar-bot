@@ -29,9 +29,9 @@ module.exports = function (app) {
       res.render('list', {list: list});
   });
 
-  app.get('/list2',
+  app.get('/rank1',
     function(req, res){
-      res.render('list2', {list: userslist});
+      res.render('rank1', {list: userslist});
   });
 
   app.get('/list3',
