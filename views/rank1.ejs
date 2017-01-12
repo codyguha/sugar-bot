@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+<style>
+#sugaritem {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:#1f93ff;
+  width: 14.0em;
+  cursor: move;
+}
+#sugaritemgreen {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:green;
+  width: 14.0em;
+  cursor: move;
+}
+#sugaritemblue {
+  margin:4px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius:14px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+  color:blue;
+  width: 14.0em;
+  cursor: move;
+}
+
+</style>
+
+
+<body>
+  <div class="description">  <p>There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.</p></div>
+
+  <div class="content">
+    <form id="sugarList2" method="post" action="/rank1">
+      <input id="facebook_id" type="hidden" name='fb_id'>
+
+      <div>
+
+          <ol id="rankinglist">
+            <li class="sugarbutton" class="no-reorder">>>>>>Most Natural</li>
+
+            <% for(var i=0; i<list.length; i++) {%>
+              <li class="sugarbutton">
+                <%= list[i] %>
+                <input type="hidden" name='<%= list[i] %>'>
+              </li>
+            <% } %>
+
+            <li class="sugarbutton" >>>>>>Most Artificial</li>
+          </ol>
+
+
+
+
+      <div id="submit" class="fixed-action-btn">
+        <a class="btn-floating btn-large blue">
+          <i class="material-icons">send</i>
+         </a>
+     </div>
+    </form>
+  </div>
+<script>
+
+window.extAsyncInit = function() {
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid.toString();
+       $("#facebook_id").val(psid)
+     }, function error(err) {
+
+     });
+};
+
+$('#submit').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+});
+
+</script>
+</body>
