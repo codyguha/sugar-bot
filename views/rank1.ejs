@@ -52,16 +52,31 @@
       <div>
 
           <ol id="rankinglist">
-            <li class="sugarbutton" class="no-reorder">>>>>>Most Natural</li>
+            <li>
+              <div class="sugarbutton">
+                <label>
+                  <span>Most Natural</span>
+                </label>
+              </div>
+            </li>
 
             <% for(var i=0; i<list.length; i++) {%>
-              <li class="sugarbutton">
-                <%= list[i] %>
-                <input type="hidden" name='<%= list[i] %>'>
+              <li>
+                <div class="sugarbutton">
+                  <label>
+                    <input type="hidden" name='<%= list[i] %>'><span><%= list[i] %></span>
+                  </label>
+                </div>
               </li>
             <% } %>
 
-            <li class="sugarbutton" >>>>>>Most Artificial</li>
+            <li>
+              <div class="sugarbutton">
+                <label>
+                  <span>Most Atificial</span>
+                </label>
+              </div>
+            </li>
           </ol>
 
 
