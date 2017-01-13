@@ -86,7 +86,8 @@ module.exports = function (app) {
     });
   })
   app.post('/rank5',function(req,res){
-    res.end();
+    var facebook_id = req.body.fb_id
+    attitudinal(facebook_id)
   })
   app.get('/products',
     function(req, res){
@@ -115,58 +116,6 @@ module.exports = function (app) {
     broadcaster(facebook_id, scoped_list)
   })
 
-  app.post('/list2',function(req,res){
-    var facebook_id = req.body.fb_id
-    // var cnslbody = JSON.stringify(req.body, null, 4);
-    var keys = Object.keys(req.body)
-    keys.splice(0, 1);
-    var natural_order_list = keys
-  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + natural_order_list)
-    orderedlist3(facebook_id)
-  })
-
-  app.post('/list3',function(req,res){
-    var facebook_id = req.body.fb_id
-    // var cnslbody = JSON.stringify(req.body, null, 4);
-    var keys = Object.keys(req.body)
-    keys.splice(0, 1);
-    var taste_order_list = keys
-  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + taste_order_list)
-    orderedlist4(facebook_id)
-  })
-
-  app.post('/list4',function(req,res){
-    var facebook_id = req.body.fb_id
-    // var cnslbody = JSON.stringify(req.body, null, 4);
-    var keys = Object.keys(req.body)
-    keys.splice(0, 1);
-    var healthy_order_list = keys
-  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
-    orderedlist5(facebook_id)
-  })
-  app.post('/list5',function(req,res){
-    var facebook_id = req.body.fb_id
-    // var cnslbody = JSON.stringify(req.body, null, 4);
-    var keys = Object.keys(req.body)
-    keys.splice(0, 1);
-    var healthy_order_list = keys
-  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
-    orderedlist6(facebook_id)
-  })
-  app.post('/list6',function(req,res){
-    var facebook_id = req.body.fb_id
-    // var cnslbody = JSON.stringify(req.body, null, 4);
-    var keys = Object.keys(req.body)
-    keys.splice(0, 1);
-    var healthy_order_list = keys
-  	console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ID: " + req.body.fb_id)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FORM: " + healthy_order_list)
-    attitudinal(facebook_id)
-  })
   app.post('/products',function(req,res){
     var facebook_id = req.body.fb_id
     var cnslbody = JSON.stringify(req.body, null, 4);
