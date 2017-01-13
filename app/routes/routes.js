@@ -49,6 +49,15 @@ module.exports = function (app) {
       submit: "submit"
     });
   })
+  app.post('/rank2',function(req,res){
+    res.render('rank', {list: userslist,
+      Hrank: "Good For you",
+      Lrank: "Bad For you",
+      description: "Any conversation about sugars and sweeteners includes health considerations.  How would you classify each of these in terms of being healthy?   Please rank where #1 is the most good for you down to those which are not good for you.",
+      action: "/rank3",
+      submit: "submit"
+    });
+  })
 
   app.get('/list3',
     function(req, res){

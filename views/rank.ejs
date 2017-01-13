@@ -20,7 +20,7 @@
 
         <% for(var i=0; i<list.length; i++) {%>
           <li>
-            <div class="sugarbutton" draggable="true">
+            <div class="sugarbutton re-order" draggable="true">
               <label>
                 <input type="hidden" name='<%= list[i] %>'><span><%= list[i] %></span>
               </label>
@@ -59,7 +59,7 @@ var iosDragDropShim = { enableEnterLeave: true }
 var dragSrcEl = null;
 
 function handleDragStart(e) {
-  this.style.opacity = '0.4';  // this / e.target is the source node.
+  // this.style.opacity = '0.4';  // this / e.target is the source node.
 
   dragSrcEl = this;
 
@@ -106,7 +106,7 @@ function handleDragEnd(e) {
     row.classList.remove('over');
   });
 }
-var rows = document.querySelectorAll('#rankinglist .sugarbutton');
+var rows = document.querySelectorAll('#rankinglist .re-order');
 [].forEach.call(rows, function(row) {
   row.addEventListener('dragstart', handleDragStart, false);
   row.addEventListener('dragenter', handleDragEnter, false);
