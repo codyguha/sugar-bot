@@ -136,11 +136,11 @@ var broadcast = function (id, list) {
   var user_data = {id: id, list: list};
   controller.storage.users.save(user_data);
   bot.say({
-      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `,
+      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of.`,
       channel: id
   });
   bot.say({
-      text: list[0],
+      text: "Starting with... "+list[0],
       channel: id,
       quick_replies: [
           {
