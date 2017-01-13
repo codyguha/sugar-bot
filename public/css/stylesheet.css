@@ -82,9 +82,10 @@
 }
 #top-rank {
   background-color: #4caf50;
-  color: white;
 }
 #low-rank {
   background-color: #0084ff;
+}
+#top-rank #lowrank label span {
   color: white;
 }
