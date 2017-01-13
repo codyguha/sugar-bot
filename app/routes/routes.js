@@ -22,7 +22,8 @@ module.exports = function (app) {
 
   app.get('/list',
     function(req, res){
-      res.render('list', {list: list});
+      var randomorder = shuffle(list)
+      res.render('list', {list: randomorder});
   });
 
   app.get('/rank',
