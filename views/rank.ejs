@@ -85,7 +85,7 @@ function handleDragLeave(e) {
 }
 function handleDrop(e) {
   // this / e.target is current target element.
-  this.style.opacity = '1'; 
+
   if (e.stopPropagation) {
     e.stopPropagation(); // stops the browser from redirecting.
   }
@@ -101,7 +101,7 @@ function handleDrop(e) {
 }
 function handleDragEnd(e) {
   // this/e.target is the source node.
-
+  this.style.opacity = '1'; 
   [].forEach.call(rows, function (row) {
     row.classList.remove('over');
   });
