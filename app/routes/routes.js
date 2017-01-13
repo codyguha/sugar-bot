@@ -27,7 +27,8 @@ module.exports = function (app) {
 
   app.get('/rank',
     function(req, res){
-      res.render('rank', {list: shuffle(userslist),
+      var randomorder = shuffle(userslist)
+      res.render('rank', {list: randomorder,
         Hrank: "Most Natural",
         Lrank: "Most Artificial",
         description: "There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",
@@ -37,7 +38,7 @@ module.exports = function (app) {
   });
 
   app.post('/rank1',function(req,res){
-    res.render('rank', {list: shuffle(userslist),
+    res.render('rank', {list: userslist,
       Hrank: "Tastes Good",
       Lrank: "Tastes Bad",
       description: "Aside from what they’re made of, taste is a big part of why we choose the sugars and sweeteners that we like!  How would you classify each of these in terms of taste?  Please rank them where #1 tastes good down to tastes bad.",
@@ -46,7 +47,7 @@ module.exports = function (app) {
     });
   })
   app.post('/rank2',function(req,res){
-    res.render('rank', {list: shuffle(userslist),
+    res.render('rank', {list: userslist,
       Hrank: "Good For you",
       Lrank: "Bad For you",
       description: "Any conversation about sugars and sweeteners includes health considerations.  How would you classify each of these in terms of being healthy?   Please rank where #1 is the most good for you down to those which are not good for you.",
@@ -55,7 +56,7 @@ module.exports = function (app) {
     });
   })
   app.post('/rank3',function(req,res){
-    res.render('rank', {list: shuffle(userslist),
+    res.render('rank', {list: userslist,
       Hrank: "Most Common",
       Lrank: "Most Obscure",
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
@@ -64,7 +65,7 @@ module.exports = function (app) {
     });
   })
   app.post('/rank3',function(req,res){
-    res.render('rank', {list: shuffle(userslist),
+    res.render('rank', {list: userslist,
       Hrank: "Most Common",
       Lrank: "Most Obscure",
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
@@ -73,7 +74,7 @@ module.exports = function (app) {
     });
   })
   app.post('/rank4',function(req,res){
-    res.render('rank', {list: shuffle(userslist),
+    res.render('rank', {list: userslist,
       Hrank: "Most Likely Consider",
       Lrank: "Least Likely Consider",
       description: "Thinking of how likely you would be to consider buying a product containing each of these, please rank them where #1 is the one you would most likely consider down to the one you would least likely consider.",
@@ -128,12 +129,22 @@ module.exports = function (app) {
   })
 }
 
-function shuffle(a) {
-    var j, x, i;
-    for (i = a.length; i; i--) {
-        j = Math.floor(Math.random() * i);
-        x = a[i - 1];
-        a[i - 1] = a[j];
-        a[j] = x;
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
     }
+
+    return array;
 }
