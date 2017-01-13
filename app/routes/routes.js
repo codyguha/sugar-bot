@@ -1,9 +1,5 @@
 var facebook_handler = require('../controllers/botkit').handler
 var broadcaster = require('../controllers/botkit').broadcast
-var orderedlist3 = require('../controllers/botkit').orderedlist3
-var orderedlist4 = require('../controllers/botkit').orderedlist4
-var orderedlist5 = require('../controllers/botkit').orderedlist5
-var orderedlist6 = require('../controllers/botkit').orderedlist6
 var attitudinal = require('../controllers/botkit').attitudinal
 var compromise = require('../controllers/botkit').compromise
 
