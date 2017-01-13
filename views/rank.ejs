@@ -9,7 +9,7 @@
     <form id="sugarList2" method="post" action="<%= action %>">
       <input id="facebook_id" type="hidden" name='fb_id'>
 
-      <ol id="rankinglist" style="list-style:none;">
+      <ul id="rankinglist" style="list-style:none;">
         <li>
           <div id="top-rank" class="sugarbutton">
             <label>
@@ -36,7 +36,7 @@
           </div>
         </li>
 
-      </ol>
+      </ul>
 
       <div id="<%= submit %>" class="fixed-action-btn">
         <a class="btn-floating btn-large blue">
@@ -117,7 +117,7 @@ window.extAsyncInit = function() {
 //   row.addEventListener('dragend', handleDragEnd, false);
 // });
 $( function() {
-    $( "#rankinglist" ).sortable();
+    $( "ul" ).sortable();
   } );
 $('#submit').click(function (evt) {
     $('form').submit();
