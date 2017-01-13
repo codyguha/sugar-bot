@@ -43,42 +43,40 @@
 
 
 <body>
-  <div class="description">  <p>There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.</p></div>
+  <div class="description">  <p><%= description %></p></div>
 
   <div class="content">
-    <form id="sugarList2" method="post" action="/rank1">
+    <form id="sugarList2" method="post" action="<%= action %>">
       <input id="facebook_id" type="hidden" name='fb_id'>
 
-          <ol id="rankinglist" style="list-style:none;">
-            <li>
-              <div class="sugarbutton">
-                <label>
-                  <span>Most Natural</span>
-                </label>
-              </div>
-            </li>
+      <ol id="rankinglist" style="list-style:none;">
+        <li>
+          <div class="sugarbutton">
+            <label>
+              <span><%= Hrank %></span>
+            </label>
+          </div>
+        </li>
 
-            <% for(var i=0; i<list.length; i++) {%>
-              <li>
-                <div class="sugarbutton">
-                  <label>
-                    <input type="hidden" name='<%= list[i] %>'><span><%= list[i] %></span>
-                  </label>
-                </div>
-              </li>
-            <% } %>
+        <% for(var i=0; i<list.length; i++) {%>
+          <li>
+            <div class="sugarbutton" draggable="true">
+              <label>
+                <input type="hidden" name='<%= list[i] %>'><span><%= list[i] %></span>
+              </label>
+            </div>
+          </li>
+        <% } %>
 
-            <li>
-              <div class="sugarbutton">
-                <label>
-                  <span>Most Atificial</span>
-                </label>
-              </div>
-            </li>
-          </ol>
+        <li>
+          <div class="sugarbutton">
+            <label>
+              <span><%= Lrank %></span>
+            </label>
+          </div>
+        </li>
 
-
-
+      </ol>
 
       <div id="submit" class="fixed-action-btn">
         <a class="btn-floating btn-large blue">
@@ -101,11 +99,7 @@ window.extAsyncInit = function() {
 $('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
-    MessengerExtensions.requestCloseBrowser(function success() {
-
-      }, function error(err) {
-
-      });
+    MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
 });
 
 </script>

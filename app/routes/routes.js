@@ -29,9 +29,14 @@ module.exports = function (app) {
       res.render('list', {list: list});
   });
 
-  app.get('/rank1',
+  app.get('/rank',
     function(req, res){
-      res.render('rank1', {list: userslist});
+      res.render('rank', {list: list,
+        Hrank: "Most Natural",
+        Lrank: "Most Artificial",
+        description: "There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",
+        action: "/rank1"
+      });
   });
 
   app.get('/list3',
