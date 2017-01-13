@@ -58,7 +58,8 @@ window.extAsyncInit = function() {
 var dragSrcEl = null;
 
 function handleDragStart(e) {
-  this.style.opacity = '0.4';  // this / e.target is the source node.
+  // this.style.opacity = '0.4';  // this / e.target is the source node.
+
   dragSrcEl = this;
 
   e.dataTransfer.effectAllowed = 'move';
