@@ -58,24 +58,36 @@ module.exports = function (app) {
       submit: "submit"
     });
   })
-
-  app.get('/list3',
-    function(req, res){
-      res.render('list3', {list: userslist});
-  });
-
-  app.get('/list4',
-    function(req, res){
-      res.render('list4', {list: userslist});
-  });
-  app.get('/list5',
-    function(req, res){
-      res.render('list5', {list: userslist});
-  });
-  app.get('/list6',
-    function(req, res){
-      res.render('list6', {list: userslist});
-  });
+  app.post('/rank3',function(req,res){
+    res.render('rank', {list: userslist,
+      Hrank: "Most Common",
+      Lrank: "Most Obscure",
+      description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
+      action: "/rank4",
+      submit: "submit"
+    });
+  })
+  app.post('/rank3',function(req,res){
+    res.render('rank', {list: userslist,
+      Hrank: "Most Common",
+      Lrank: "Most Obscure",
+      description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
+      action: "/rank4",
+      submit: "submit"
+    });
+  })
+  app.post('/rank4',function(req,res){
+    res.render('rank', {list: userslist,
+      Hrank: "Most Likely Consider",
+      Lrank: "Least Likely Consider",
+      description: "Thinking of how likely you would be to consider buying a product containing each of these, please rank them where #1 is the one you would most likely consider down to the one you would least likely consider.",
+      action: "/rank5",
+      submit: "submit-final"
+    });
+  })
+  app.post('/rank5',function(req,res){
+    res.end();
+  })
   app.get('/products',
     function(req, res){
       res.render('products', {list: userslist});
