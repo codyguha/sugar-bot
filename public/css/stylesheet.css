@@ -52,7 +52,9 @@
     background-color: #0084ff;
     color:white;
 }
-
+.sugarbutton.over {
+  border: 2px dashed #000;
+}
 .description {
   padding: 2px;
   background-color: #0084ff;
@@ -80,6 +82,7 @@
     height:100%;
     z-index: 0;
 }
+
 #top-rank {
   background-color: #4caf50;
 }

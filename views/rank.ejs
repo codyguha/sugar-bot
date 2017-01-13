@@ -1,46 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <% include ./partials/head %>
-<style>
-#sugaritem {
-  margin:4px;
-  text-align: center;
-  background-color:#f7f7f7;
-  border-radius:14px;
-  border:1px solid #D0D0D0;
-  overflow:auto;
-  float:left;
-  color:#1f93ff;
-  width: 14.0em;
-  cursor: move;
-}
-#sugaritemgreen {
-  margin:4px;
-  text-align: center;
-  background-color:#f7f7f7;
-  border-radius:14px;
-  border:1px solid #D0D0D0;
-  overflow:auto;
-  float:left;
-  color:green;
-  width: 14.0em;
-  cursor: move;
-}
-#sugaritemblue {
-  margin:4px;
-  text-align: center;
-  background-color:#f7f7f7;
-  border-radius:14px;
-  border:1px solid #D0D0D0;
-  overflow:auto;
-  float:left;
-  color:blue;
-  width: 14.0em;
-  cursor: move;
-}
-
-</style>
-
 
 <body>
   <div class="description">  <p><%= description %></p></div>
@@ -99,10 +59,32 @@ window.extAsyncInit = function() {
 function handleDragStart(e) {
   this.style.opacity = '0.4';  // this / e.target is the source node.
 }
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault(); // Necessary. Allows us to drop.
+  }
+
+  e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+  return false;
+}
+function handleDragEnter(e) {
+  // this / e.target is the current hover target.
+  this.classList.add('over');
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('over');  // this / e.target is previous target element.
+}
+
 var rows = document.querySelectorAll('#rankinglist .sugarbutton');
 [].forEach.call(rows, function(row) {
   row.addEventListener('dragstart', handleDragStart, false);
+  row.addEventListener('dragenter', handleDragEnter, false);
+  row.addEventListener('dragover', handleDragOver, false);
+  row.addEventListener('dragleave', handleDragLeave, false);
 });
+
 $('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
