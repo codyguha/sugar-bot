@@ -96,6 +96,13 @@ window.extAsyncInit = function() {
      });
 };
 
+function handleDragStart(e) {
+  this.style.opacity = '0.4';  // this / e.target is the source node.
+}
+var rows = document.querySelectorAll('#rankinglist .sugarbutton');
+[].forEach.call(rows, function(row) {
+  row.addEventListener('dragstart', handleDragStart, false);
+});
 $('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
