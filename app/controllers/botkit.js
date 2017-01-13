@@ -136,7 +136,11 @@ var broadcast = function (id, list) {
   var user_data = {id: id, list: list};
   controller.storage.users.save(user_data);
   bot.say({
-      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `+ list[0],
+      text: `I bet you didn’t know there were so many types of sweeteners did you! Now tell us about which of these statements best describes how you feel about the ones you are aware of. Starting with... `,
+      channel: id
+  });
+  bot.say({
+      text: list[0],
       channel: id,
       quick_replies: [
           {
@@ -170,7 +174,11 @@ var broadcast = function (id, list) {
 
 var attitudinal = function (id) {
   bot.say({
-      text: `How strongly do you agree with the following statements about sugars and sweeteners? 'I think that natural sugars are better for me than artificial sweeteners'`,
+      text: `How strongly do you agree with the following statements about sugars and sweeteners?`,
+      channel: id
+  });
+  bot.say({
+      text: `I think that natural sugars are better for me than artificial sweeteners`,
       channel: id,
       quick_replies: [
           {
