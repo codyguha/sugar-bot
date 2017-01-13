@@ -38,7 +38,7 @@
 
       </ol>
 
-      <div id="submit" class="fixed-action-btn">
+      <div id="<%= submit %>" class="fixed-action-btn">
         <a class="btn-floating btn-large blue">
           <i class="material-icons">send</i>
          </a>
@@ -59,7 +59,7 @@ var iosDragDropShim = { enableEnterLeave: true }
 var dragSrcEl = null;
 
 function handleDragStart(e) {
-  // this.style.opacity = '0.4';  // this / e.target is the source node.
+  this.style.opacity = '0.4';  // this / e.target is the source node.
 
   dragSrcEl = this;
 
@@ -117,6 +117,10 @@ var rows = document.querySelectorAll('#rankinglist .sugarbutton');
 });
 
 $('#submit').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+});
+$('#submit-final').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
     MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});

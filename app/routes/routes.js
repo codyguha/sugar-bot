@@ -31,13 +31,24 @@ module.exports = function (app) {
 
   app.get('/rank',
     function(req, res){
-      res.render('rank', {list: list,
+      res.render('rank', {list: userslist,
         Hrank: "Most Natural",
         Lrank: "Most Artificial",
         description: "There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",
-        action: "/rank1"
+        action: "/rank1",
+        submit: "submit"
       });
   });
+
+  app.post('/rank1',function(req,res){
+    res.render('rank', {list: userslist,
+      Hrank: "Tastes Good",
+      Lrank: "Tastes Bad",
+      description: "Aside from what they’re made of, taste is a big part of why we choose the sugars and sweeteners that we like!  How would you classify each of these in terms of taste?  Please rank them where #1 tastes good down to tastes bad.",
+      action: "/rank2",
+      submit: "submit"
+    });
+  })
 
   app.get('/list3',
     function(req, res){
