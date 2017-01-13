@@ -38,7 +38,8 @@ module.exports = function (app) {
   });
 
   app.post('/rank1',function(req,res){
-    res.render('rank', {list: userslist,
+    var randomorder = shuffle(userslist)
+    res.render('rank', {list: randomorder,
       Hrank: "Tastes Good",
       Lrank: "Tastes Bad",
       description: "Aside from what they’re made of, taste is a big part of why we choose the sugars and sweeteners that we like!  How would you classify each of these in terms of taste?  Please rank them where #1 tastes good down to tastes bad.",
@@ -47,7 +48,8 @@ module.exports = function (app) {
     });
   })
   app.post('/rank2',function(req,res){
-    res.render('rank', {list: userslist,
+    var randomorder = shuffle(userslist)
+    res.render('rank', {list: randomorder,
       Hrank: "Good For you",
       Lrank: "Bad For you",
       description: "Any conversation about sugars and sweeteners includes health considerations.  How would you classify each of these in terms of being healthy?   Please rank where #1 is the most good for you down to those which are not good for you.",
@@ -56,7 +58,8 @@ module.exports = function (app) {
     });
   })
   app.post('/rank3',function(req,res){
-    res.render('rank', {list: userslist,
+    var randomorder = shuffle(userslist)
+    res.render('rank', {list: randomorder,
       Hrank: "Most Common",
       Lrank: "Most Obscure",
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
@@ -65,7 +68,8 @@ module.exports = function (app) {
     });
   })
   app.post('/rank3',function(req,res){
-    res.render('rank', {list: userslist,
+    var randomorder = shuffle(userslist)
+    res.render('rank', {list: randomorder,
       Hrank: "Most Common",
       Lrank: "Most Obscure",
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
@@ -74,7 +78,8 @@ module.exports = function (app) {
     });
   })
   app.post('/rank4',function(req,res){
-    res.render('rank', {list: userslist,
+    var randomorder = shuffle(userslist)
+    res.render('rank', {list: randomorder,
       Hrank: "Most Likely Consider",
       Lrank: "Least Likely Consider",
       description: "Thinking of how likely you would be to consider buying a product containing each of these, please rank them where #1 is the one you would most likely consider down to the one you would least likely consider.",
