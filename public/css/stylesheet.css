@@ -75,6 +75,9 @@
 .content {
     position: relative;
     top: 140px;
+    left:0px;
+    right:0px;
+    bottom:0px;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     height:400px;
