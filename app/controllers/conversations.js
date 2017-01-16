@@ -38,7 +38,7 @@ module.exports = function (controller) {
             "url":"https://lit-thicket-26597.herokuapp.com/rank",
             "title":"Rank Sugars",
             "messenger_extensions": true,
-            "webview_height_ratio": "compact"
+            "webview_height_ratio": "tall"
           }
         ]
       }
