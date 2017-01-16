@@ -9,7 +9,7 @@
   <div class="content">
     <form id="sugarList2" method="post" action="<%= action %>">
       <input id="facebook_id" type="hidden" name='fb_id'>
-      <div id="top-rank" class="sugarbutton">
+      <div id="top-rank" class="sugarbutton-rank">
         <label>
           <span style="color: white;"><%= Hrank %></span>
         </label>
@@ -17,7 +17,7 @@
       <div id="rankinglist" class="list-group">
 
         <% for(var i=0; i<list.length; i++) {%>
-            <div class="sugarbutton re-order list-group-item">
+            <div class="sugarbutton-rank re-order list-group-item">
               <label>
                 <input type="hidden" name='<%= list[i] %>'><span><%= list[i] %></span>
               </label>
@@ -25,7 +25,7 @@
         <% } %>
 
       </div>
-      <div id="low-rank" class="sugarbutton">
+      <div id="low-rank" class="sugarbutton-rank">
         <label>
           <span style="color: white;"><%= Lrank %></span>
         </label>
