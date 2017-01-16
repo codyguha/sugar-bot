@@ -89,3 +89,7 @@
 #low-rank {
   background-color: #0084ff;
 }
+.ghost {
+  opacity: .5;
+  background: #C8EBFB;
+}
