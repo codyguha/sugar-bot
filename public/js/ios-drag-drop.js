@@ -47,7 +47,7 @@
     log("dragstart");
 
     if (this.dispatchDragStart()) {
-      this.createDragImage();
+      // this.createDragImage();
       this.listen();
     }
   }
