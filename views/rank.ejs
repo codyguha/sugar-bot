@@ -5,7 +5,7 @@
 <body>
   <div class="description">  <p><%= description %></p></div>
 
-  <div class="content">
+  <div class="content z-depth-3">
     <form id="sugarList2" method="post" action="<%= action %>">
       <input id="facebook_id" type="hidden" name='fb_id'>
 
@@ -40,7 +40,7 @@
 
       <div id="<%= submit %>" class="fixed-action-btn">
         <a class="btn-floating btn-large blue">
-          <i class="material-icons">send</i>
+          <i class="material-icons">done</i>
          </a>
      </div>
     </form>
@@ -83,23 +83,23 @@ function handleDragEnter(e) {
 function handleDragLeave(e) {
   this.classList.remove('over');  // this / e.target is previous target element.
 }
-// function handleDrop(e) {
-//   // this / e.target is current target element.
-//
-//   if (e.stopPropagation) {
-//     e.stopPropagation(); // stops the browser from redirecting.
-//   }
-//
-//   // Don't do anything if dropping the same column we're dragging.
-//   if (dragSrcEl != this) {
-//      // Set the source column's HTML to the HTML of the column we dropped on.
-//      dragSrcEl.innerHTML = this.innerHTML;
-//
-//      this.innerHTML = e.dataTransfer.getData('text/html');
-//   }
-//
-//   return false;
-// }
+function handleDrop(e) {
+  // this / e.target is current target element.
+
+  if (e.stopPropagation) {
+    e.stopPropagation(); // stops the browser from redirecting.
+  }
+
+  // Don't do anything if dropping the same column we're dragging.
+  if (dragSrcEl != this) {
+     // Set the source column's HTML to the HTML of the column we dropped on.
+    //  dragSrcEl.innerHTML = this.innerHTML;
+     //
+    //  this.innerHTML = e.dataTransfer.getData('text/html');
+  }
+
+  return false;
+}
 function handleDragEnd(e) {
   // this/e.target is the source node.
   this.style.opacity = '1';
@@ -113,7 +113,7 @@ var rows = document.querySelectorAll('#rankinglist .re-order');
   row.addEventListener('dragenter', handleDragEnter, false);
   row.addEventListener('dragover', handleDragOver, false);
   row.addEventListener('dragleave', handleDragLeave, false);
-  // row.addEventListener('drop', handleDrop, false);
+  row.addEventListener('drop', handleDrop, false);
   row.addEventListener('dragend', handleDragEnd, false);
 });
 
