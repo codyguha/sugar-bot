@@ -55,34 +55,34 @@ window.extAsyncInit = function() {
 
      });
 };
-// var iosDragDropShim = { enableEnterLeave: true }
-// var dragSrcEl = null;
-//
-// function handleDragStart(e) {
-//   this.style.opacity = '0.4';  // this / e.target is the source node.
-//
-//   dragSrcEl = this;
-//
-//   e.dataTransfer.effectAllowed = 'move';
-//   e.dataTransfer.setData('text/html', this.innerHTML);
-// }
-// function handleDragOver(e) {
-//   if (e.preventDefault) {
-//     e.preventDefault(); // Necessary. Allows us to drop.
-//   }
-//
-//   e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-//
-//   return false;
-// }
-// function handleDragEnter(e) {
-//   // this / e.target is the current hover target.
-//   this.classList.add('over');
-// }
-//
-// function handleDragLeave(e) {
-//   this.classList.remove('over');  // this / e.target is previous target element.
-// }
+var iosDragDropShim = { enableEnterLeave: true }
+var dragSrcEl = null;
+
+function handleDragStart(e) {
+  this.style.opacity = '0.4';  // this / e.target is the source node.
+
+  dragSrcEl = this;
+
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+}
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault(); // Necessary. Allows us to drop.
+  }
+
+  e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+  return false;
+}
+function handleDragEnter(e) {
+  // this / e.target is the current hover target.
+  this.classList.add('over');
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('over');  // this / e.target is previous target element.
+}
 // function handleDrop(e) {
 //   // this / e.target is current target element.
 //
@@ -100,22 +100,22 @@ window.extAsyncInit = function() {
 //
 //   return false;
 // }
-// function handleDragEnd(e) {
-//   // this/e.target is the source node.
-//   this.style.opacity = '1';
-//   [].forEach.call(rows, function (row) {
-//     row.classList.remove('over');
-//   });
-// }
-// var rows = document.querySelectorAll('#rankinglist .re-order');
-// [].forEach.call(rows, function(row) {
-//   row.addEventListener('dragstart', handleDragStart, false);
-//   row.addEventListener('dragenter', handleDragEnter, false);
-//   row.addEventListener('dragover', handleDragOver, false);
-//   row.addEventListener('dragleave', handleDragLeave, false);
-//   row.addEventListener('drop', handleDrop, false);
-//   row.addEventListener('dragend', handleDragEnd, false);
-// });
+function handleDragEnd(e) {
+  // this/e.target is the source node.
+  this.style.opacity = '1';
+  [].forEach.call(rows, function (row) {
+    row.classList.remove('over');
+  });
+}
+var rows = document.querySelectorAll('#rankinglist .re-order');
+[].forEach.call(rows, function(row) {
+  row.addEventListener('dragstart', handleDragStart, false);
+  row.addEventListener('dragenter', handleDragEnter, false);
+  row.addEventListener('dragover', handleDragOver, false);
+  row.addEventListener('dragleave', handleDragLeave, false);
+  // row.addEventListener('drop', handleDrop, false);
+  row.addEventListener('dragend', handleDragEnd, false);
+});
 
 Sortable.create(rankinglist, { /* options */ });
 
@@ -131,5 +131,5 @@ $('#submit-final').click(function (evt) {
 });
 
 </script>
-<!-- <script src="/js/ios-drag-drop.js"></script> -->
+<script src="/js/ios-drag-drop.js"></script>
 </body>
