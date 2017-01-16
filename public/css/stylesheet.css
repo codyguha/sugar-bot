@@ -73,7 +73,8 @@
 }
 
 .content {
-    top: 400px;
+    position: relative;
+    top: 140px;
     left:0px;
     right:0px;
     bottom:0px;
