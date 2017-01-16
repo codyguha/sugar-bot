@@ -57,12 +57,10 @@
 }
 .description {
   top:0;
-  padding: 2px;
   background-color: #0084ff;
   height: 140px;
   position: relative;
   color:white;
-  z-index: 1;
 }
 .description p {
   padding: 20px;
@@ -72,6 +70,7 @@
 
 .content {
     position: relative;
+    width: 300px;
     top: 0px;
     left:0px;
     right:0px;
@@ -80,7 +79,6 @@
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     height:100%;
-    z-index: 0;
 }
 
 #top-rank {
