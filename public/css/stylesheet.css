@@ -69,7 +69,9 @@
   text-align:left;
   vertical-align: middle;
 }
-
+.container{
+  width: 1080px;
+}
 .content {
     position: relative;
     top: 0px;
