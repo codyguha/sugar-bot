@@ -340,23 +340,23 @@
   }
 
   // DOM helpers
-  // function elementFromTouchEvent(el,event) {
-  //   var touch = event.changedTouches[0];
-  //   var target = doc.elementFromPoint(
-  //     touch[coordinateSystemForElementFromPoint + "X"],
-  //     touch[coordinateSystemForElementFromPoint + "Y"]
-  //   );
-  //   return target;
-  // }
-  //
-  // //calculate the offset position of an element (relative to the window, not the document)
-  // function getOffset(el) {
-  //   var rect = el.getBoundingClientRect();
-  //   return {
-  //     "x": rect.left,
-  //     "y": rect.top
-  //   };
-  // }
+  function elementFromTouchEvent(el,event) {
+    var touch = event.changedTouches[0];
+    var target = doc.elementFromPoint(
+      touch[coordinateSystemForElementFromPoint + "X"],
+      touch[coordinateSystemForElementFromPoint + "Y"]
+    );
+    return target;
+  }
+
+  //calculate the offset position of an element (relative to the window, not the document)
+  function getOffset(el) {
+    var rect = el.getBoundingClientRect();
+    return {
+      "x": rect.left,
+      "y": rect.top
+    };
+  }
 
   function onEvt(el, event, handler, context) {
     if(context) {
