@@ -1,6 +1,8 @@
 .sugarbutton-rank {
   background-image: url(/images/green-gradient.jpg);
   background-attachment: fixed;
+  background-repeat:no-repeat;
+	background-position: inherit;
   margin:6px;
   /*background-color:#f7f7f7;*/
   border-radius:14px;
