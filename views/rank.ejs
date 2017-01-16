@@ -13,17 +13,15 @@
           <span style="color: white;"><%= Hrank %></span>
         </label>
       </div>
-      <ul id="rankinglist" style="list-style:none;">
+      <div id="rankinglist" class="list-group" style="overflow: hidden; height: 300px;">
         <% for(var i=0; i<list.length; i++) {%>
-          <li>
-            <div class="sugarbutton re-order">
+            <div class="sugarbutton re-order list-group-item">
               <label>
                 <input type="hidden" name='<%= list[i] %>'><span><%= list[i] %></span>
               </label>
             </div>
-          </li>
         <% } %>
-      </ul>
+      </div>
       <div id="low-rank" class="sugarbutton">
         <label>
           <span style="color: white;"><%= Lrank %></span>
