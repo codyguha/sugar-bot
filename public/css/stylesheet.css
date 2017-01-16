@@ -76,6 +76,8 @@
     left:0px;
     right:0px;
     bottom:0px;
+    width: 16.0em;
+    margin: 0 auto;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     height:100%;
