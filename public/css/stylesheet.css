@@ -19,8 +19,13 @@
     color:white;
 }*/
 .sugarbutton {
+  background: red; /* For browsers that do not support gradients */
+   background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(red, yellow); /* Standard syntax (must be last) */
   margin:6px;
-  background-color:#f7f7f7;
+  /*background-color:#f7f7f7;*/
   border-radius:14px;
   border:1px solid #D0D0D0;
   overflow:auto;
