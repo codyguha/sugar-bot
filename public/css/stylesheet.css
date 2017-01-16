@@ -58,7 +58,7 @@
 .description {
   padding: 2px;
   background-color: #0084ff;
-  height: 120px;
+  height: 140px;
   position: fixed;
   color:white;
   display: table;
@@ -73,7 +73,7 @@
 
 .content {
     position:absolute;
-    top: 120px;
+    top: 140px;
     left:0px;
     right:0px;
     bottom:0px;
