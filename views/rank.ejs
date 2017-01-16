@@ -39,7 +39,7 @@
       </ul>
 
       <div id="<%= submit %>" class="fixed-action-btn">
-        <a class="btn-floating btn-large blue">
+        <a class="btn-floating btn-large blue z-depth-2">
           <i class="material-icons">done</i>
          </a>
      </div>
@@ -64,7 +64,7 @@ function handleDragStart(e) {
   dragSrcEl = this;
 
   e.dataTransfer.effectAllowed = 'move';
-  // e.dataTransfer.setData('text/html', this.innerHTML);
+  e.dataTransfer.setData('text/html', this.innerHTML);
 }
 function handleDragOver(e) {
   if (e.preventDefault) {
