@@ -72,13 +72,12 @@
 }
 
 .content {
-    position:absolute;
-    top: 140px;
+    margin-top: 140px;
     left:0px;
     right:0px;
     bottom:0px;
     overflow: hidden;
-    /*-webkit-overflow-scrolling: touch;*/
+    -webkit-overflow-scrolling: touch;
     height:100%;
     z-index: 0;
 }
