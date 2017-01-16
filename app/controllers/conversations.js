@@ -35,7 +35,7 @@ module.exports = function (controller) {
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/list2",
+            "url":"https://lit-thicket-26597.herokuapp.com/rank",
             "title":"Rank Sugars",
             "messenger_extensions": true,
             "webview_height_ratio": "compact"
