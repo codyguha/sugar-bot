@@ -28,8 +28,8 @@ module.exports = function (app) {
 
   app.get('/rank',
     function(req, res){
-      var randomorder = shuffle(userslist)
-      res.render('rank', {list: randomorder,
+      // var randomorder = shuffle(userslist)
+      res.render('rank', {list: list,
         Hrank: "Most Natural",
         Lrank: "Most Artificial",
         description: "There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",

@@ -116,9 +116,10 @@ window.extAsyncInit = function() {
 //   row.addEventListener('drop', handleDrop, false);
 //   row.addEventListener('dragend', handleDragEnd, false);
 // });
-$( function() {
-    $( "ul" ).sortable();
-  } );
+
+Sortable.create(rankinglist, { /* options */ });
+
+
 $('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
