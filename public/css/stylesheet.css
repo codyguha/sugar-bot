@@ -60,7 +60,7 @@
   padding: 2px;
   background-color: #0084ff;
   height: 140px;
-  position: fixed;
+  position: relative;
   color:white;
   z-index: 1;
 }
