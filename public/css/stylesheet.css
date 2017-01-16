@@ -78,6 +78,7 @@
     right:0px;
     bottom:0px;
     overflow-y:scroll;
+    overflow: hidden;
     -webkit-overflow-scrolling: touch;
     height:100%;
     z-index: 0;
