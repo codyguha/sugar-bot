@@ -55,7 +55,6 @@ window.extAsyncInit = function() {
 $('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
-    MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
 });
 
 
