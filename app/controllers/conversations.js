@@ -459,6 +459,7 @@ function compromise3(bot, incoming, user_choice, not_user_choice){
             }
         ]
       }, function(response, convo) {
+        lastQuestion(bot, incoming)
         convo.next();
       });
     });
