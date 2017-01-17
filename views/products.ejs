@@ -36,25 +36,12 @@ window.extAsyncInit = function() {
 };
 $("select").imagepicker();
 
-// $('#submit').click(function (evt) {
-//     $('form').submit();
-//     evt.preventDefault();
-//
-// });
-$('#submit').click( function() {
-    $.ajax({
-        url: 'https://lit-thicket-26597.herokuapp.com/products',
-        type: 'post',
-        dataType: 'json',
-        data: $('form'),
-        success: function(data) {
-          MessengerExtensions.requestCloseBrowser(function success() {
+$('#submit').click(function (evt) {
+    MessengerExtensions.requestCloseBrowser(function success() {
+      $('form').submit();
+      }, function error(err) {
 
-            }, function error(err) {
-
-            });
-                 }
-    });
+      });
 });
 
 </script>
