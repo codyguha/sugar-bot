@@ -143,7 +143,7 @@ module.exports = function (app) {
     // console.log(cnslbody)
     var sugarperson =  req.body.sugarperson
     var sweetenerperson =  req.body.sweetenerperson
-    res.render('personality_sugar', {sugarperson: sugarperson, sweetenerperson: sweetenerperson, list: [Alive, Sporty, Energetic, Goal-orientated, Assertive, Ambitious, Stylish, Determined, Serious, Self-centered, Quiet, Reserved, Modest, Ordinary, Tranquil, Kind, Friendly, Cheerful, Bright, Joyful]});
+    res.render('personality_sugar', {sugarperson: sugarperson, sweetenerperson: sweetenerperson, list: ["Alive", "Sporty", "Energetic", "Goal-orientated", "Assertive", "Ambitious", "Stylish", "Determined", "Serious", "Self-centered", "Quiet", "Reserved", "Modest", "Ordinary", "Tranquil", "Kind", "Friendly", "Cheerful", "Bright", "Joyful"]});
   })
   app.post('/personality1',function(req,res){
     var facebook_id = req.body.fb_id
@@ -151,7 +151,7 @@ module.exports = function (app) {
     // console.log(cnslbody)
     var sugarperson =  req.body.sugarperson
     var sweetenerperson =  req.body.sweetenerperson
-    res.render('personality_sweetners', {sugarperson: sugarperson, sweetenerperson: sweetenerperson, list: [Alive, Sporty, Energetic, Goal-orientated, Assertive, Ambitious, Stylish, Determined, Serious, Self-centered, Quiet, Reserved, Modest, Ordinary, Tranquil, Kind, Friendly, Cheerful, Bright, Joyful]});
+    res.render('personality_sweetners', {sugarperson: sugarperson, sweetenerperson: sweetenerperson, list: ["Alive", "Sporty", "Energetic", "Goal-orientated", "Assertive", "Ambitious", "Stylish", "Determined", "Serious", "Self-centered", "Quiet", "Reserved", "Modest", "Ordinary", "Tranquil", "Kind", "Friendly", "Cheerful", "Bright", "Joyful"]});
   })
 }
 
