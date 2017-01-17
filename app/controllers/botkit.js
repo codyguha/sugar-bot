@@ -177,6 +177,11 @@ var attitudinal = function (id) {
       text: `How strongly do you agree with the following statements about sugars and sweeteners?`,
       channel: id
   });
+  setTimeout(function() {
+    attitudinal2(id);
+  }, 3000)
+}
+var attitudinal2 = function (id) {
   bot.say({
       text: `I think that natural sugars are better for me than artificial sweeteners`,
       channel: id,
