@@ -6,11 +6,12 @@ img{width: 150px;}
 </style>
 
 <body>
-  <p>select which of these you would consider purchasing</p>
+  <div class="description z-depth-2"> <p>Select all that you would consider purchasing</p></div>
 
+<div class="content">
     <form id="ProductList" method="post" action="/products">
         <input id="facebook_id" type="hidden" name='fb_id'>
-      <select multiple="multiple" class="image-picker" name="products">
+      <select multiple="multiple" id="product-picker" class="image-picker" name="products">
         <option data-img-src="/images/luckycharms.jpg" value="Lucky Charms">Lucky Charms</option>
         <option data-img-src="/images/cornflakes.jpg" value="Corn Flakes">Corn Flakes</option>
         <option data-img-src="/images/frostedflakes.jpg" value="Frosted Flakes">Frosted Flakes</option>
@@ -24,9 +25,10 @@ img{width: 150px;}
            </a>
        </div>
     </form>
+</div>
 <script>
 $(document).ready(function () {
-    $("select").imagepicker({
+    $("#product-picker").imagepicker({
         hide_select: true
     });
 
@@ -34,7 +36,7 @@ $(document).ready(function () {
     // initialize
     $container.imagesLoaded(function () {
         $container.masonry({
-            columnWidth: 30,
+            columnWidth: 10,
             itemSelector: '.thumbnail'
         });
     });
