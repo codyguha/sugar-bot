@@ -54,12 +54,11 @@ window.extAsyncInit = function() {
 
 
 $('#submit').click(function (evt) {
-    MessengerExtensions.requestCloseBrowser(function success() {
-      $('form').submit();
-      }, function error(err) {
-
-      });
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
 });
+
 
 </script>
 </body>
