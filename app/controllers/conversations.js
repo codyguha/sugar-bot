@@ -309,7 +309,7 @@ function productPreference(bot, incoming){
           "url":"https://lit-thicket-26597.herokuapp.com/products",
           "title":"Show Me The Products",
           "messenger_extensions": true,
-          "webview_height_ratio": "compact"
+          "webview_height_ratio": "tall"
         }
       ]
     }
