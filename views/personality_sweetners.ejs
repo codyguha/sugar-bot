@@ -2,22 +2,49 @@
 <html dir="ltr" lang="en-US">
 <% include ./partials/head %>
 <style>
-img{width: 150px;}
+img{
+  width: 100px;
+  margin: 0 auto;
+  postion: absolute;
+}
 </style>
 
 <body>
-  <p>Choose apersonto represent artificial sweetner</p>
+  <div class="description z-depth-2">
+    <p>How would you describe this person? (Choose all that apply.)
+      <% if (sweetenerperson === "Henry") {%>
+        <img src="/images/Henry Yoo.JPG">
+      <% } else if (sweetenerperson === "Ivan") {%>
+          <img src="/images/Ivan Rickard Liow.JPG">
+      <% } else if (sweetenerperson === "Wilson") {%>
+          <img src="/images/Wilson Chu.JPG">
+      <% } else if (sweetenerperson === "Toto") {%>
+          <img src="/images/Toto Lai.JPG">
+      <% } %>
+    </p>
+  </div>
 
-    <form id="ProductList" method="post" action="/sweetnerperson">
-        <input id="facebook_id" type="hidden" name='fb_id'>
-      <select multiple="multiple" class="image-picker" name="products">
-        <option data-img-src="/images/Henry Yoo.JPG" value="Henry">Lucky Charms</option>
-        <option data-img-src="/images/Ivan Rickard Liow.JPG" value="Ivan">Corn Flakes</option>
-        <option data-img-src="/images/Toto Lai.JPG" value="Toto">Frosted Flakes</option>
-        <option data-img-src="/images/Wilson Chu.JPG" value="Wilson">Cute Kitten 4</option>
-      </select>
-        <input id="done" type="submit" value="submit" />
-    </form>
+<div class="content">
+
+  <form id="sugarList" method="post" action="/personality2">
+    <input id="facebook_id" type="hidden" name='fb_id'>
+    <input type="hidden" name='sugarperson' value="<%= sugarperson %>">
+    <input type="hidden" name='sweetenerperson' value="<%= sweetenerperson %>">
+    <% for(var i=0; i<list.length; i++) {%>
+      <div class="sugarbutton">
+        <label>
+          <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
+        </label>
+      </div>
+    <% } %>
+
+    <div id="submit" class="fixed-action-btn">
+      <a class="btn-floating btn-large blue">
+        <i class="material-icons">send</i>
+       </a>
+   </div>
+  </form>
+</div>
 <script>
 
 window.extAsyncInit = function() {
@@ -30,14 +57,10 @@ window.extAsyncInit = function() {
 };
 $("select").imagepicker();
 
-$('#done').click(function (evt) {
+$('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
-    MessengerExtensions.requestCloseBrowser(function success() {
-
-      }, function error(err) {
-
-      });
+    MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
 });
 
 </script>

@@ -263,8 +263,14 @@ var compromise2 = function (id, not_user_choice) {
   });
 
 }
+var sayThanks = function (id) {
+  bot.say({
+      text: `That’s all the questions we have for you today.  Thank you so much for your time – your feedback is much appreciated!  Keep your eye out in the coming months for a Shareback of what we learned from you today.`,
+      channel: id
+  });
+}
 
-
+exports.sayThanks = sayThanks
 exports.handler = handler
 exports.broadcast = broadcast
 exports.attitudinal = attitudinal
