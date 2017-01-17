@@ -25,6 +25,20 @@ img{width: 150px;}
        </div>
     </form>
 <script>
+$(document).ready(function () {
+    $("#select").imagepicker({
+        hide_select: true
+    });
+
+    var $container = $('.image_picker_selector');
+    // initialize
+    $container.imagesLoaded(function () {
+        $container.masonry({
+            columnWidth: 30,
+            itemSelector: '.thumbnail'
+        });
+    });
+});
 
 window.extAsyncInit = function() {
   MessengerExtensions.getUserID(function success(uids) {
@@ -34,7 +48,7 @@ window.extAsyncInit = function() {
 
      });
 };
-$("select").imagepicker();
+
 
 $('#submit').click(function (evt) {
     MessengerExtensions.requestCloseBrowser(function success() {
