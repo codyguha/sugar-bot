@@ -18,7 +18,11 @@ img{width: 150px;}
         <option data-img-src="/images/creamyPB.jpg" value="PlanterPb">Cute Kitten 4</option>
         <option data-img-src="/images/darkchocolatePB.jpg" value="DarkChocolatePB">Cute Kitten 4</option>
       </select>
-        <input id="done" type="submit" value="submit" />
+        <div id="submit" class="fixed-action-btn">
+          <a class="btn-floating btn-large blue z-depth-2">
+            <i class="material-icons">done</i>
+           </a>
+       </div>
     </form>
 <script>
 
@@ -32,14 +36,26 @@ window.extAsyncInit = function() {
 };
 $("select").imagepicker();
 
-$('#done').click(function (evt) {
-    $('form').submit();
+// $('#submit').click(function (evt) {
+//     $('form').submit();
+//     evt.preventDefault();
+//
+// });
+$('#submit').click( function() {
+    $.ajax({
+        url: 'https://lit-thicket-26597.herokuapp.com/products',
+        type: 'post',
+        dataType: 'json',
+        data: $('form'),
+        success: function(data) {
+          MessengerExtensions.requestCloseBrowser(function success() {
+
+            }, function error(err) {
+
+            });
+                 }
+    });
     evt.preventDefault();
-    MessengerExtensions.requestCloseBrowser(function success() {
-
-      }, function error(err) {
-
-      });
 });
 
 </script>
