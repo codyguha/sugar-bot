@@ -235,7 +235,7 @@ var compchoice = function (id , user_choice, not_user_choice){
       text: `We know that you prefer to consume ` + user_choice + `, but life gets hectic and there are certain times and situations where it may be more difficult to stick to your preference.`,
       channel: id
   });
-  compromise2(id, not_user_choice);
+  setTimeout(compromise2(id, not_user_choice), 5000);
 }
 var compromise2 = function (id, not_user_choice) {
   bot.say({
