@@ -2,22 +2,44 @@
 <html dir="ltr" lang="en-US">
 <% include ./partials/head %>
 <style>
-img{width: 150px;}
+img{width: 100px;}
 </style>
 
 <body>
-  <p>Choose apersonto represent natural sugar</p>
+  <div class="description z-depth-2">
+    <p>How would you describe this person? (Choose all that apply.)</p>
+    <% if (<%= sugarperson %> === "Henry") {%>
+      <img src="/images/Henry Yoo.JPG">
+    <% } else if (<%= sugarperson %> === "Ivan") {%>
+        <img src="/images/Ivan Rickard Liow.JPG">
+    <% } else if (<%= sugarperson %> === "Wilson") {%>
+        <img src="/images/Wilson Chu.JPG">
+    <% } else if (<%= sugarperson %> === "Toto") {%>
+        <img src="/images/Toto Lai.JPG">
+    <% } %>
 
-    <form id="ProductList" method="post" action="/sugarperson">
-        <input id="facebook_id" type="hidden" name='fb_id'>
-      <select class="image-picker" name="person">
-        <option data-img-src="/images/Henry Yoo.JPG" value="Henry">Lucky Charms</option>
-        <option data-img-src="/images/Ivan Rickard Liow.JPG" value="Ivan">Corn Flakes</option>
-        <option data-img-src="/images/Toto Lai.JPG" value="Toto">Frosted Flakes</option>
-        <option data-img-src="/images/Wilson Chu.JPG" value="Wilson">Cute Kitten 4</option>
-      </select>
-        <input id="done" type="submit" value="submit" />
-    </form>
+  </div>
+
+<div class="content">
+  <form id="sugarList" method="post" action="/personality1">
+    <input id="facebook_id" type="hidden" name='fb_id'>
+    <input type="hidden" name='sugarperson' value="<%= sugarperson %>">
+    <input type="hidden" name='sweetenerperson' value="<%= sweetenerperson %>">
+    <% for(var i=0; i<list.length; i++) {%>
+      <div class="sugarbutton">
+        <label>
+          <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
+        </label>
+      </div>
+    <% } %>
+
+    <div id="submit" class="fixed-action-btn">
+      <a class="btn-floating btn-large blue">
+        <i class="material-icons">send</i>
+       </a>
+   </div>
+  </form>
+</div>
 <script>
 
 window.extAsyncInit = function() {
@@ -30,14 +52,9 @@ window.extAsyncInit = function() {
 };
 $("select").imagepicker();
 
-$('#done').click(function (evt) {
+$('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
-    MessengerExtensions.requestCloseBrowser(function success() {
-
-      }, function error(err) {
-
-      });
 });
 
 </script>

@@ -261,6 +261,7 @@ var compromise2 = function (id, not_user_choice) {
           }
       ]
   });
+
 }
 
 
