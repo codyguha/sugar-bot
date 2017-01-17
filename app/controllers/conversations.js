@@ -465,6 +465,40 @@ function compromise3(bot, incoming, user_choice, not_user_choice){
   });
 }
 
+function lastQuestion(bot, incoming) {
+  bot.reply(incoming, {
+      text: `You’re almost done!`,
+  });
+  setTimeout(function() {
+    lastQuestion2(bot, incoming);
+  }, 1000)
+}
+function lastQuestion2(bot, incoming) {
+  bot.reply(incoming, {
+      text: `We all know how first impressions work – we tend to make certain assumptions about someone the first time we see them.  You may change your impression of someone over time but we’d like to tap into what you think at first sight.`,
+  });
+  setTimeout(function() {
+    lastQuestion3(bot, incoming);
+  }, 2000)
+}
+function lastQuestion3(bot, incoming) {
+  bot.reply(incoming, {"attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"We would like you to imagine that natural sugar and artificial sweetener are people, and choose which of these people they would be based on your first impression.  You may only choose one person for each.",
+      "buttons":[
+        {
+          "type":"web_url",
+          "url":"https://lit-thicket-26597.herokuapp.com/people",
+          "title":"Show Me The People",
+          "messenger_extensions": true,
+          "webview_height_ratio": "tall"
+        }
+      ]
+    }
+  }});
+}
 
 // controller.hears(['I prefer natural', 'I prefer artificial', 'No preference'], 'message_received', function(bot, incoming) {
 //   convo.ask({

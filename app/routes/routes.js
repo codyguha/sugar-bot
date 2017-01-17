@@ -25,6 +25,10 @@ module.exports = function (app) {
       var randomorder = shuffle(list)
       res.render('list', {list: randomorder});
   });
+  app.get('/people',
+    function(req, res){
+      res.render('people');
+  });
 
   app.get('/rank',
     function(req, res){
@@ -128,10 +132,18 @@ module.exports = function (app) {
   })
   app.post('/sugarperson',function(req,res){
     var facebook_id = req.body.fb_id
-    var cnslbody = JSON.stringify(req.body, null, 4);
-    console.log(cnslbody)
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    // console.log(cnslbody)
     var sugarperson =  req.body.person
-    personality2(facebook_id, sugarperson)
+    res.render('people2', {sugarperson: sugarperson});
+  })
+  app.post('/sweetenerperson',function(req,res){
+    var facebook_id = req.body.fb_id
+    // var cnslbody = JSON.stringify(req.body, null, 4);
+    // console.log(cnslbody)
+    var sugarperson =  req.body.sugarperson
+    var sweetenerperson =  req.body.sweetenerperson
+    res.render('people2', {sugarperson: sugarperson});
   })
 }
 

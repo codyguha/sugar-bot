@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<% include ./partials/head %>
+<style>
+img{width: 150px;}
+</style>
+
+<body>
+  <div class="description z-depth-2" style="margin-bottom: 20px;"> <p>Here are some photos of different people who are all roughly the same age and earn approximately the same amount of money.  However, it’s important to notice that each one has a different personality.  Please select the person you would like to associate with "Artificial Sweeteners".</p></div>
+
+<div class="content">
+    <form id="ProductList" method="post" action="/sweetenerperson">
+        <input type="hidden" name='sugarperson' value="<%= sugarperson %>">
+        <input id="facebook_id" type="hidden" name='fb_id'>
+      <select id="product-picker" class="image-picker" name="sweetenerperson">
+        <option data-img-src="/images/Henry Yoo.JPG" value="Henry">Henry</option>
+        <option data-img-src="/images/Toto Lai.JPG" value="Toto">Toto</option>
+        <option data-img-src="/images/Ivan Rickard Liow.JPG" value="Ivan">Ivan</option>
+        <option data-img-src="/images/Wilson Chu.JPG" value="Wilson">Wilson</option>
+      </select>
+        <div id="submit" class="fixed-action-btn">
+          <a class="btn-floating btn-large blue z-depth-2">
+            <i class="material-icons">done</i>
+           </a>
+       </div>
+    </form>
+</div>
+<script>
+$(document).ready(function () {
+    $("#product-picker").imagepicker({
+        hide_select: true
+    });
+
+    var $container = $('.image_picker_selector');
+    // initialize
+    $container.imagesLoaded(function () {
+        $container.masonry({
+            columnWidth: 10,
+            itemSelector: '.thumbnail'
+        });
+    });
+});
+
+window.extAsyncInit = function() {
+  MessengerExtensions.getUserID(function success(uids) {
+       var psid = uids.psid.toString();
+       $("#facebook_id").val(psid)
+     }, function error(err) {
+
+     });
+};
+
+
+
+$('#submit').click(function (evt) {
+    $('form').submit();
+    evt.preventDefault();
+    MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
+});
+
+
+</script>
+</body>
