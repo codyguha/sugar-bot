@@ -1,8 +1,7 @@
 module.exports = function (controller) {
   // this is triggered when a user clicks the send-to-messenger plugin
   controller.on('facebook_optin', function (bot, message) {
-    bot.reply({
-      channel: message.user,
+    bot.reply(message.user, {
       text: "Would you like to take a not so quick survey about sugar?",
       quick_replies: [
           {
@@ -21,8 +20,7 @@ module.exports = function (controller) {
 
   // user said hello
   controller.hears(['hi', 'hello', 'Hi'], 'message_received', function (bot, message) {
-    bot.reply({
-      channel: message.user,
+    bot.reply(message.user, {
       text: "Would you like to take a not so quick survey about sugar?",
       quick_replies: [
           {
