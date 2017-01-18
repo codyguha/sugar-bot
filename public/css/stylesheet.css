@@ -59,15 +59,16 @@
   border: 2px dashed #1f93ff;
 }
 .description {
+  margin: 0;
+  padding: 0;
   background-color: #0084ff;
   height: 140px;
   position: relative;
   color:white;
 }
-.description p {
+p {
   padding: 20px;
   text-align:left;
-  vertical-align: middle;
 }
 .content {
     position: relative;
