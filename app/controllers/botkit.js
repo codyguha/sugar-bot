@@ -179,7 +179,7 @@ var attitudinal = function (id) {
   });
   setTimeout(function() {
     attitudinal2(id);
-  }, 3000)
+  }, 2000)
 }
 var attitudinal2 = function (id) {
   bot.say({

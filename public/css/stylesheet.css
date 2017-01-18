@@ -93,5 +93,6 @@
   background: #C8EBFB;
 }
 .jq-toast-wrap {
-  opacity: 0.5;
+  opacity: 0.8;
+  font-size: 1.2em;
 }
