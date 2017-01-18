@@ -98,9 +98,12 @@ p {
   font-size: 1.2em;
 }
 .personality-img{
-  width: 150px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: -20px;
+}
+
+img {
+  width: 150px;
 }
