@@ -4,10 +4,10 @@ module.exports = function (controller) {
     bot.reply(message, 'Welcome, friend')
   })
 
-  // // user said hello
-  // controller.hears(['hi'], 'message_received', function (bot, message) {
-  //   bot.reply(message, 'Hey there.')
-  // });
+  // user said hello
+  controller.hears(['face'], 'message_received', function (bot, message) {
+     lastQuestion(bot, incoming)
+  });
   controller.hears(['hi', 'hello', 'Hi'], 'message_received', function (bot, message) {
     bot.reply(message, {"attachment":{
       "type":"template",
