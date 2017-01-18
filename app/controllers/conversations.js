@@ -1,14 +1,44 @@
 module.exports = function (controller) {
   // this is triggered when a user clicks the send-to-messenger plugin
   controller.on('facebook_optin', function (bot, message) {
-    bot.reply(message, 'Welcome, friend')
+    bot.reply({
+      channel: message.user,
+      text: "Would you like to take a not so quick survey about sugar?",
+      quick_replies: [
+          {
+              "content_type": "text",
+              "title": "Yes",
+              "payload": "start",
+          },
+          {
+              "content_type": "text",
+              "title": "No",
+              "payload": "start",
+          }
+      ]
+    });
   })
 
   // user said hello
-  controller.hears(['face'], 'message_received', function (bot, message) {
-     lastQuestion(bot, incoming)
-  });
   controller.hears(['hi', 'hello', 'Hi'], 'message_received', function (bot, message) {
+    bot.reply({
+      channel: message.user,
+      text: "Would you like to take a not so quick survey about sugar?",
+      quick_replies: [
+          {
+              "content_type": "text",
+              "title": "Yes",
+              "payload": "start",
+          },
+          {
+              "content_type": "text",
+              "title": "No",
+              "payload": "start",
+          }
+      ]
+    });
+  });
+  controller.hears(['Yes'], 'message_received', function (bot, message) {
     bot.reply(message, {"attachment":{
       "type":"template",
       "payload":{

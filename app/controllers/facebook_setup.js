@@ -45,12 +45,12 @@ module.exports = function (controller) {
     'call_to_actions': [
       {
         'type': 'postback',
-        'title': 'Item 1',
+        'title': ' Menu Item 1',
         'payload': 'Item 1'
       },
       {
         'type': 'postback',
-        'title': 'Item 2',
+        'title': 'Menu Item 2',
         'payload': 'Item 2'
       }
     ]
@@ -69,7 +69,7 @@ module.exports = function (controller) {
   var form3 = {
     'setting_type': 'greeting',
     'greeting': {
-      'text': 'Your greetings message'
+      'text': 'What is your sugar IQ?'
     }
   }
 

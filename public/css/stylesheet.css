@@ -93,10 +93,12 @@ p {
   opacity: .5;
   background: #C8EBFB;
 }
+
 .jq-toast-wrap {
   opacity: 0.8;
   font-size: 1.2em;
 }
+
 .personality-img{
   display: block;
   margin-left: auto;
