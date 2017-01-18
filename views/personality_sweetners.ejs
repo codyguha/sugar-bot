@@ -3,15 +3,16 @@
 <% include ./partials/head %>
 <style>
 img{
-  width: 100px;
-  margin: 0 auto;
-  postion: absolute;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 
 <body>
   <div class="description z-depth-2">
-    <p>How would you describe this person? (Choose all that apply.)
+    <p>How would you describe this person? (Choose all that apply.)</p>
       <% if (sweetenerperson === "Henry") {%>
         <img src="/images/Henry Yoo.JPG">
       <% } else if (sweetenerperson === "Ivan") {%>
@@ -21,7 +22,7 @@ img{
       <% } else if (sweetenerperson === "Toto") {%>
           <img src="/images/Toto Lai.JPG">
       <% } %>
-    </p>
+
   </div>
 
 <div class="content">
