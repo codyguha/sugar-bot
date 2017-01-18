@@ -118,7 +118,7 @@ Sortable.create(rankinglist, {
 
 $('#submit').click(function (evt) {
   $.toast({
-    text : "Let's test some HTML stuff... <a href='#'>github</a>",
+    text : "Submitting your list... loading next question...",
     showHideTransition : 'fade',  // It can be plain, fade or slide
     bgColor : '#1f93ff',              // Background color for toast
     textColor : 'white',            // text color
@@ -128,7 +128,7 @@ $('#submit').click(function (evt) {
     textAlign : 'left',            // Alignment of text i.e. left, right, center
     position : 'bottom-left'       // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
   })
-  window.setTimeout(toastSubmit, 3000)  
+  window.setTimeout(toastSubmit, 2000)  
 });
 
 function toastSubmit() {
