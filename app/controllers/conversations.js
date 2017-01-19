@@ -45,7 +45,7 @@ module.exports = function (controller) {
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/list",
+            "url":"https://lit-thicket-26597.herokuapp.com/list/"+ message.user,
             "title":"Show List",
             "messenger_extensions": true,
             "webview_height_ratio": "tall"
