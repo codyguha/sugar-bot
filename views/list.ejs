@@ -5,7 +5,7 @@
 
 
 <body>
-  <% if (isSupported === false) {%>
+  <% if (<%= isSupported %> === false) {%>
     <div class="description z-depth-2">
       <p>mobile only for now<p>
     </div>
@@ -40,8 +40,6 @@
 
 <script>
 window.extAsyncInit = function() {
-  var isSupported = MessengerExtensions.isInExtension();
-  console.log(isSupported)
   MessengerExtensions.getUserID(function success(uids) {
        var psid = uids.psid.toString();
        $("#facebook_id").val(psid)
