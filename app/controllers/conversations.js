@@ -291,7 +291,7 @@ function askNextQuestion(bot, incoming){
         "buttons":[
           {
             "type":"web_url",
-            "url":"https://lit-thicket-26597.herokuapp.com/rank",
+            "url":"https://lit-thicket-26597.herokuapp.com/rank/" + incoming.user,
             "title":"Rank Sugars",
             "messenger_extensions": true,
             "webview_height_ratio": "tall"

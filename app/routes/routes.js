@@ -36,7 +36,7 @@ module.exports = function (app) {
       res.render('people');
   });
 
-  app.get('/rank',
+  app.get('/rank/:id',
     function(req, res){
       var randomorder = shuffle(userslist)
       res.render('rank', {list: randomorder,
@@ -44,7 +44,8 @@ module.exports = function (app) {
         Lrank: "Most Artificial",
         description: "There’s a wide variety in terms of what each sugar/sweetener type is made of, how it’s made, etc. We want to know how you would classify each of these by ranking them where #1 is the most natural down to the most artificial.",
         action: "/rank1",
-        submit: "submit"
+        submit: "submit",
+        id: req.params.id
       });
   });
 
@@ -55,7 +56,8 @@ module.exports = function (app) {
       Lrank: "Tastes Bad",
       description: "Aside from what they’re made of, taste is a big part of why we choose the sugars and sweeteners that we like!  How would you classify each of these in terms of taste?  Please rank them where #1 tastes good down to tastes bad.",
       action: "/rank2",
-      submit: "submit"
+      submit: "submit",
+      id: req.body.fb_id
     });
   })
   app.post('/rank2',function(req,res){
@@ -65,7 +67,8 @@ module.exports = function (app) {
       Lrank: "Bad For you",
       description: "Any conversation about sugars and sweeteners includes health considerations.  How would you classify each of these in terms of being healthy?   Please rank where #1 is the most good for you down to those which are not good for you.",
       action: "/rank3",
-      submit: "submit"
+      submit: "submit",
+      id: req.body.fb_id
     });
   })
   app.post('/rank3',function(req,res){
@@ -76,6 +79,7 @@ module.exports = function (app) {
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
       action: "/rank4",
       submit: "submit"
+      id: req.body.fb_id
     });
   })
   app.post('/rank3',function(req,res){
@@ -85,7 +89,8 @@ module.exports = function (app) {
       Lrank: "Most Obscure",
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
       action: "/rank4",
-      submit: "submit"
+      submit: "submit",
+      id: req.body.fb_id,
     });
   })
   app.post('/rank4',function(req,res){
@@ -95,7 +100,8 @@ module.exports = function (app) {
       Lrank: "Least Likely Consider",
       description: "Thinking of how likely you would be to consider buying a product containing each of these, please rank them where #1 is the one you would most likely consider down to the one you would least likely consider.",
       action: "/rank5",
-      submit: "submit-final"
+      submit: "submit-final",
+      id: req.body.fb_id
     });
   })
   app.post('/rank5',function(req,res){

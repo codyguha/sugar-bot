@@ -32,7 +32,6 @@ window.extAsyncInit = function() {
   var check = MessengerExtensions.isInExtension();
   console.log(check)
   if (check === false) {
-    $('#text').empty().append("You should not be here yet... try messaging me using the facebook messenger app :)");
     $("#facebook_id").val(<%= id %>)
   } else {
     MessengerExtensions.getUserID(function success(uids) {
