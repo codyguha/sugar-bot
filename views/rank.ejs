@@ -50,6 +50,7 @@ window.extAsyncInit = function() {
      });
 };
 var iosDragDropShim = { enableEnterLeave: true }
+
 // var dragSrcEl = null;
 //
 // function handleDragStart(e) {
@@ -142,6 +143,7 @@ $('#submit-final').click(function (evt) {
     MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
 });
 
+var isSupported = MessengerExtensions.isInExtension();
 </script>
 <script src="/js/ios-drag-drop.js"></script>
 </body>
