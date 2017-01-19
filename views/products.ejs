@@ -63,6 +63,9 @@ $('#submit').click(function (evt) {
     $('form').submit();
     evt.preventDefault();
     MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
+    setTimeout(function() {
+          window.close();
+    }, 1000);
 });
 
 
