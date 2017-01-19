@@ -33,6 +33,7 @@ window.extAsyncInit = function() {
   console.log(check)
   if (check === false) {
     $('#text').empty().append("mobile only for now");
+    $('.sugarbutton').empty();
   } else {
     MessengerExtensions.getUserID(function success(uids) {
          var psid = uids.psid.toString();
