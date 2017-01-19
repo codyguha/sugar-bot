@@ -5,35 +5,28 @@
 
 
 <body>
-  <% if (<%= isSupported %> === false) {%>
-    <div class="description z-depth-2">
-      <p>mobile only for now<p>
-    </div>
-  <% } else {%>
-    <div class="description z-depth-2">  <p>We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please tap on all the products that you are aware of:</p></div>
 
-    <div class="content">
-      <form id="sugarList" method="post" action="/list">
-        <input id="facebook_id" type="hidden" name='fb_id'>
+  <div class="description z-depth-2">  <p>We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please tap on all the products that you are aware of:</p></div>
 
-        <% for(var i=0; i<list.length; i++) {%>
-          <div class="sugarbutton">
-            <label>
-              <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
-            </label>
-          </div>
-        <% } %>
+<div class="content">
+  <form id="sugarList" method="post" action="/list">
+    <input id="facebook_id" type="hidden" name='fb_id'>
 
-        <div id="submit" class="fixed-action-btn">
-          <a class="btn-floating btn-large blue">
-            <i class="material-icons">send</i>
-           </a>
-       </div>
-      </form>
-    </div>
-  <% } %>
+    <% for(var i=0; i<list.length; i++) {%>
+      <div class="sugarbutton">
+        <label>
+          <input type="checkbox" name='<%= list[i] %>'><span><%= list[i] %></span>
+        </label>
+      </div>
+    <% } %>
 
-
+    <div id="submit" class="fixed-action-btn">
+      <a class="btn-floating btn-large blue">
+        <i class="material-icons">send</i>
+       </a>
+   </div>
+  </form>
+</div>
 
 
 
