@@ -110,7 +110,7 @@ module.exports = function (app) {
   })
   app.get('/products/:id',
     function(req, res){
-      res.render('products', {list: userslist, id: req.body.fb_id});
+      res.render('products', {id: req.params.id});
   });
   app.get('/personality',
     function(req, res){
