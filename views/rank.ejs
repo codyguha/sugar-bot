@@ -42,6 +42,7 @@
 <script>
 
 window.extAsyncInit = function() {
+  var isSupported = MessengerExtensions.isInExtension();
   MessengerExtensions.getUserID(function success(uids) {
        var psid = uids.psid.toString();
        $("#facebook_id").val(psid)
@@ -49,6 +50,7 @@ window.extAsyncInit = function() {
 
      });
 };
+
 var iosDragDropShim = { enableEnterLeave: true }
 
 // var dragSrcEl = null;
@@ -143,7 +145,7 @@ $('#submit-final').click(function (evt) {
     MessengerExtensions.requestCloseBrowser(function success() {}, function error(err) {});
 });
 
-var isSupported = MessengerExtensions.isInExtension();
+
 </script>
 <script src="/js/ios-drag-drop.js"></script>
 </body>
