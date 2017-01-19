@@ -43,6 +43,7 @@
 
 window.extAsyncInit = function() {
   var isSupported = MessengerExtensions.isInExtension();
+  console.log(isSupported)
   MessengerExtensions.getUserID(function success(uids) {
        var psid = uids.psid.toString();
        $("#facebook_id").val(psid)
