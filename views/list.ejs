@@ -5,7 +5,7 @@
 
 
 <body>
-    <div class="description z-depth-2">  <p>We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please tap on all the products that you are aware of:</p></div>
+    <div class="description z-depth-2">  <p id="text">We know there are heaps of different sugars and sweeteners on the market right now so first we would like to know which ones you’ve heard of. Please tap on all the products that you are aware of:</p></div>
 
     <div class="content">
       <form id="sugarList" method="post" action="/list">
@@ -31,12 +31,17 @@
 window.extAsyncInit = function() {
   var check = MessengerExtensions.isInExtension();
   console.log(check)
-  MessengerExtensions.getUserID(function success(uids) {
-       var psid = uids.psid.toString();
-       $("#facebook_id").val(psid)
-     }, function error(err) {
+  if (check === false) {
+    $('#text').empty().append("mobile only for now");
+  } else {
+    MessengerExtensions.getUserID(function success(uids) {
+         var psid = uids.psid.toString();
+         $("#facebook_id").val(psid)
+       }, function error(err) {
 
-     });
+       });
+  }
+
 };
 
 $('#submit').click(function (evt) {
