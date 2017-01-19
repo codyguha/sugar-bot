@@ -42,12 +42,18 @@
 <script>
 
 window.extAsyncInit = function() {
-  MessengerExtensions.getUserID(function success(uids) {
-       var psid = uids.psid.toString();
-       $("#facebook_id").val(psid)
-     }, function error(err) {
+  var check = MessengerExtensions.isInExtension();
+  console.log(check)
+  if (check === false) {
+    $("#facebook_id").val(<%= id %>)
+  } else {
+    MessengerExtensions.getUserID(function success(uids) {
+         var psid = uids.psid.toString();
+         $("#facebook_id").val(psid)
+       }, function error(err) {
 
-     });
+       });
+  }
 };
 $("select").imagepicker();
 
