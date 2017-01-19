@@ -334,7 +334,7 @@ function productPreference(bot, incoming){
       "buttons":[
         {
           "type":"web_url",
-          "url":"https://lit-thicket-26597.herokuapp.com/products",
+          "url":"https://lit-thicket-26597.herokuapp.com/products/" + incoming.user,
           "title":"Show Me The Products",
           "messenger_extensions": true,
           "webview_height_ratio": "tall"
@@ -519,7 +519,7 @@ function lastQuestion3(bot, incoming) {
       "buttons":[
         {
           "type":"web_url",
-          "url":"https://lit-thicket-26597.herokuapp.com/people",
+          "url":"https://lit-thicket-26597.herokuapp.com/people/"+ incoming.user,
           "title":"Show Me The People",
           "messenger_extensions": true,
           "webview_height_ratio": "tall"
