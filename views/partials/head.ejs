@@ -38,5 +38,9 @@
     js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'Messenger'));
+  window.extAsyncInit = function() {
+    var isSupported = MessengerExtensions.isInExtension();
+    console.log(isSupported)
+  };
   </script>
 </head>
