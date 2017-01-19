@@ -78,7 +78,7 @@ module.exports = function (app) {
       Lrank: "Most Obscure",
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
       action: "/rank4",
-      submit: "submit"
+      submit: "submit",
       id: req.body.fb_id
     });
   })
@@ -90,7 +90,7 @@ module.exports = function (app) {
       description: "We know you’re aware of these types, but thinking of the market in general, how well known do you think each one is?  Please rank them where #1 is the most common down to the most obscure.",
       action: "/rank4",
       submit: "submit",
-      id: req.body.fb_id,
+      id: req.body.fb_id
     });
   })
   app.post('/rank4',function(req,res){
