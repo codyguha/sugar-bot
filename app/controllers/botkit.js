@@ -1,3 +1,5 @@
+var request = require('request');
+
 var Botkit = require('botkit'),
   mongoStorage = require('botkit-storage-mongo')({mongoUri: process.env.MONGODB_URI}),
   controller = Botkit.facebookbot({
@@ -264,13 +266,13 @@ var compromise2 = function (id, not_user_choice) {
           }
       ]
   });
-
 }
 var sayThanks = function (id) {
   bot.say({
       text: `That’s all the questions we have for you today.  Thank you so much for your time – your feedback is much appreciated!  Keep your eye out in the coming months for a Shareback of what we learned from you today.`,
       channel: id
   });
+  request.post('https://still-earth-50244.herokuapp.com/finished-sug', {form:{id: id}})
 }
 
 exports.sayThanks = sayThanks
