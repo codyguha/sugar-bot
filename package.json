@@ -1,5 +1,5 @@
 {
-  "name": "broadcastbot",
+  "name": "sugarbot",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codyguha/broadcastbot.git"
+    "url": "git+https://github.com/codyguha/sugar-bot.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/codyguha/broadcastbot/issues"
+    "url": "https://github.com/codyguha/sugar-bot/issues"
   },
-  "homepage": "https://github.com/codyguha/broadcastbot#readme",
+  "homepage": "https://github.com/codyguha/sugar-bot#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "botkit": "^0.4.3",
